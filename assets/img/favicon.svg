@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#1c4bc4"/>
+  <rect width="64" height="64" fill="#004070"/>
   <text x="32" y="45" text-anchor="middle" fill="#ffffff"
         font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
         font-size="34" font-weight="700" letter-spacing="-2">JS</text>

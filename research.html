@@ -4,15 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research | Joshua M. Sims</title>
-<meta name="description" content="Research directions: catalysis under operating conditions, automated reaction mechanism discovery, machine-learned potentials for transition-metal chemistry, and kinetics that can be tested against experiment.">
+<meta name="description" content="Research directions of Joshua M. Sims: catalysis under operating conditions, automated and agentic reaction mechanism discovery, molecules on surfaces, photochemistry and excited states, spin and chirality, and testable kinetics.">
 <link rel="canonical" href="https://joshazerty.github.io/research.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=1788950261">
+<link rel="stylesheet" href="assets/css/site.css?v=1788961287">
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
+
+<div class="kul-band">
+  <div class="wrap kul-band__inner">
+    <span class="kul-band__item">KU Leuven</span>
+    <a class="kul-band__item" href="https://chem.kuleuven.be/en/">Department of Chemistry</a>
+    <a class="kul-band__item" href="https://chem.kuleuven.be/en/research/qcpc/tcc">Theoretical and Computational Chemistry</a>
+  </div>
+</div>
 
 <header class="nav">
   <div class="wrap nav__inner">
@@ -170,7 +178,9 @@
           <h2>Automated reaction mechanism discovery</h2>
           <p>
             Mechanistic studies fail more often on a step nobody thought to draw
-            than on a badly computed barrier. Automated exploration enumerates the
+            than on a badly computed barrier. This bites hardest in homogeneous
+            catalysis, where the resting state, the active species and the
+            off-cycle sinks all compete. Automated exploration enumerates the
             candidate steps instead, locates and verifies the transition states,
             and lets the kinetics pick the route that carries the flux.
           </p>
@@ -188,6 +198,7 @@
             <li class="chip">agentic AI discovery</li>
             <li class="chip">reaction network exploration</li>
             <li class="chip">automated TS search</li>
+            <li class="chip">homogeneous catalysis</li>
             <li class="chip">IRC verification</li>
           </ul>
         </article>
@@ -214,21 +225,28 @@
             </svg>
           </figure>
 
-          <h2>Machine-learned potentials for transition metals</h2>
+          <h2>Spin, chirality and learned potentials</h2>
           <p>
-            Sampling at DFT cost is what limits everything above, and foundation
-            interatomic potentials come close to lifting that limit. They break
-            down on open-shell transition-metal chemistry, and most of them carry
-            no notion of spin state, so a model that handles organic reactions
-            well can walk straight past the surface crossing that sets the rate. I
-            measure where they fail, fine-tune around it, and publish the
+            Transition-metal reactions often change spin on the way through, and
+            the rate then depends on where the two surfaces cross rather than on
+            any barrier you can optimise to. Chirality enters the same physics
+            from the other side, through spin selectivity in chiral molecules and
+            the interfaces they form.
+          </p>
+          <p style="margin-top:0.9rem">
+            This is also where machine-learned potentials break down. Foundation
+            models come close to lifting the cost limit on everything above, but
+            most carry no notion of spin state, so a model that handles organic
+            reactions well can walk straight past the crossing that sets the rate.
+            I measure where they fail, fine-tune around it, and publish the
             benchmarks.
           </p>
           <ul class="chips">
+            <li class="chip">spin-forbidden reactivity</li>
+            <li class="chip">two-state reactivity</li>
+            <li class="chip">chirality-induced spin selectivity</li>
             <li class="chip">MACE</li>
             <li class="chip">UMA</li>
-            <li class="chip">fine-tuning</li>
-            <li class="chip">spin-state benchmarks</li>
           </ul>
         </article>
 
@@ -281,6 +299,128 @@
           </ul>
         </article>
 
+        <!-- 5 -->
+        <article class="direction">
+          <figure class="dir-fig">
+            <svg viewBox="0 0 520 300" role="img"
+                 aria-label="An ordered monolayer of molecules standing on a gold surface, with a scanning tunnelling microscope tip held above one of them across a tunnelling gap.">
+              <polygon points="265,140 243,48 287,48" class="g-tip"/>
+              <text x="265" y="38" class="g-micro">STM tip</text>
+              <line x1="265" y1="145" x2="265" y2="156" class="g-lead"/>
+
+              <circle cx="85" cy="172" r="14" class="g-mol"/>
+              <line x1="85" y1="186" x2="85" y2="236" class="g-stem"/>
+              <circle cx="175" cy="172" r="14" class="g-mol"/>
+              <line x1="175" y1="186" x2="175" y2="236" class="g-stem"/>
+              <circle cx="265" cy="172" r="14" class="g-mol"/>
+              <line x1="265" y1="186" x2="265" y2="236" class="g-stem"/>
+              <circle cx="355" cy="172" r="14" class="g-mol"/>
+              <line x1="355" y1="186" x2="355" y2="236" class="g-stem"/>
+              <circle cx="445" cy="172" r="14" class="g-mol"/>
+              <line x1="445" y1="186" x2="445" y2="236" class="g-stem"/>
+
+              <text x="470" y="218" class="g-micro">Au(111)</text>
+
+              <g class="g-atom-row">
+                <circle cx="25" cy="252" r="15" class="g-atom"/>
+                <circle cx="55" cy="252" r="15" class="g-atom"/>
+                <circle cx="85" cy="252" r="15" class="g-atom"/>
+                <circle cx="115" cy="252" r="15" class="g-atom"/>
+                <circle cx="145" cy="252" r="15" class="g-atom"/>
+                <circle cx="175" cy="252" r="15" class="g-atom"/>
+                <circle cx="205" cy="252" r="15" class="g-atom"/>
+                <circle cx="235" cy="252" r="15" class="g-atom"/>
+                <circle cx="265" cy="252" r="15" class="g-atom"/>
+                <circle cx="295" cy="252" r="15" class="g-atom"/>
+                <circle cx="325" cy="252" r="15" class="g-atom"/>
+                <circle cx="355" cy="252" r="15" class="g-atom"/>
+                <circle cx="385" cy="252" r="15" class="g-atom"/>
+                <circle cx="415" cy="252" r="15" class="g-atom"/>
+                <circle cx="445" cy="252" r="15" class="g-atom"/>
+                <circle cx="475" cy="252" r="15" class="g-atom"/>
+                <circle cx="505" cy="252" r="15" class="g-atom"/>
+              </g>
+
+              <text x="265" y="290" class="g-axis-label">the tip measures the monolayer, the calculation says what it is</text>
+            </svg>
+          </figure>
+
+          <h2>Molecules on surfaces</h2>
+          <p>
+            Put an ordered organic layer on a metal and the two stop behaving like
+            separate things: the adsorbate shifts the work function, the metal
+            shifts the adsorbate. With Elad Gross's group in Jerusalem I have
+            worked on fluorinated N-heterocyclic carbene and carbodicarbene
+            monolayers on gold, computing what the measured surface properties
+            imply about the binding.
+          </p>
+          <p style="margin-top:0.9rem">
+            The current strand, with the De Feyter group here in Leuven, is
+            scanning tunnelling microscopy. An STM image is not a structure, and
+            getting from one to the other means modelling the adlayer and the
+            contrast it should produce.
+          </p>
+          <ul class="chips">
+            <li class="chip">STM modelling</li>
+            <li class="chip">self-assembled monolayers</li>
+            <li class="chip">NHC and CDC ligands</li>
+            <li class="chip">work-function shifts</li>
+          </ul>
+        </article>
+
+        <!-- 6 -->
+        <article class="direction">
+          <figure class="dir-fig">
+            <svg viewBox="0 0 520 300" role="img"
+                 aria-label="Ground-state and excited-state potential energy curves meeting at a conical intersection, with an absorption arrow promoting the molecule from the ground state.">
+              <defs>
+                <marker id="aph" viewBox="0 0 10 10" refX="9" refY="5"
+                        markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+                </marker>
+              </defs>
+
+              <line x1="60" y1="258" x2="495" y2="258" class="g-axis"/>
+              <line x1="60" y1="258" x2="60" y2="42" class="g-axis"/>
+              <text x="60" y="34" class="g-micro" text-anchor="start">energy</text>
+              <text x="278" y="286" class="g-axis-label">reaction coordinate</text>
+
+              <path d="M105 226 C 130 238, 160 238, 190 228 C 250 208, 300 176, 335 152 L 425 120" class="g-curve"/>
+              <path d="M105 86 C 130 98, 160 100, 190 98 C 250 96, 300 124, 335 152 L 425 196" class="g-curve g-curve--alt"/>
+
+              <text x="86" y="90" class="g-spin">S1</text>
+              <text x="86" y="231" class="g-spin">S0</text>
+
+              <line x1="160" y1="232" x2="160" y2="108" class="d-loop" marker-end="url(#aph)"/>
+              <text x="150" y="176" class="g-micro g-label-end">absorption</text>
+
+              <circle cx="335" cy="152" r="6.5" class="g-mecp"/>
+              <line x1="335" y1="160" x2="335" y2="190" class="g-lead"/>
+              <text x="335" y="206" class="g-mecp-label">conical intersection</text>
+            </svg>
+          </figure>
+
+          <h2>Photochemistry and excited states</h2>
+          <p>
+            Excited-state chemistry runs on a different set of rules: the molecule
+            absorbs, lands on an upper surface, and comes back down wherever the
+            surfaces touch. Predicting the product means finding those crossings,
+            not optimising a barrier.
+          </p>
+          <p style="margin-top:0.9rem">
+            I started on this at Durham with Basile Curchod, mapping where TD-DFT
+            stops being trustworthy for the excited states of atmospherically
+            relevant molecules. Knowing the limits of the method matters more here
+            than almost anywhere else, because the failure is quiet.
+          </p>
+          <ul class="chips">
+            <li class="chip">TD-DFT</li>
+            <li class="chip">conical intersections</li>
+            <li class="chip">nonadiabatic dynamics</li>
+            <li class="chip">atmospheric photochemistry</li>
+          </ul>
+        </article>
+
       </div>
 
       <p style="margin-top:2.5rem">
@@ -315,8 +455,10 @@
       <div>
         <p class="footer__label">Elsewhere</p>
         <ul class="footer__list">
+          <li><a href="https://scholar.google.com/citations?user=REPLACE_ME">Google Scholar</a></li>
           <li><a href="https://orcid.org/0000-0002-8279-3010">ORCID</a></li>
           <li><a href="https://github.com/joshazerty">GitHub</a></li>
+          <li><a href="https://chem.kuleuven.be/en/research/qcpc/tcc">Harvey group</a></li>
           <li><a href="https://www.kuleuven.be/wieiswie/en/person/00183421">KU Leuven profile</a></li>
         </ul>
       </div>

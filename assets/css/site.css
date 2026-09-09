@@ -59,10 +59,15 @@
   --muted: #666d7b;
   --hairline: #e0e3e9;
   --hairline-strong: #c8cdd7;
-  --accent: #1c4bc4;
+  /* KU Leuven house style. #004070 is the primary blue in the university's
+     own stylesheet, paired there with the #d4e7f3 tint. */
+  --accent: #004070;
   --accent-ink: #ffffff;
-  --accent-soft: #eaf0fd;
-  --focus: #1c4bc4;
+  --accent-soft: #d4e7f3;
+  --accent-deep: #00233d;
+  --kul-band: #004070;
+  --kul-band-ink: #d4e7f3;
+  --focus: #004070;
 
   --wrap: 1180px;
   --gutter: clamp(1.25rem, 5vw, 4rem);
@@ -87,10 +92,13 @@
     --muted: #939bab;
     --hairline: #262b34;
     --hairline-strong: #39404c;
-    --accent: #8fb2ff;
-    --accent-ink: #0e1014;
-    --accent-soft: #172136;
-    --focus: #8fb2ff;
+    --accent: #52bdec;
+    --accent-ink: #00233d;
+    --accent-soft: #0f2d40;
+    --accent-deep: #7fd0f2;
+    --kul-band: #00233d;
+    --kul-band-ink: #a8d8ef;
+    --focus: #52bdec;
   }
 }
 
@@ -936,3 +944,66 @@ a.repo:hover { background: var(--surface-2); }
 
 /* News rows carry an inline DOI link */
 .rows--news .row__body .link { white-space: nowrap; }
+
+
+/* --- KU Leuven affiliation band -------------------------------------------
+   The university's own web house style opens with a slim dark-blue global
+   header. This is that device, carrying the affiliation rather than a logo. */
+
+.kul-band {
+  background: var(--kul-band);
+  color: var(--kul-band-ink);
+}
+
+.kul-band__inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 34px;
+  gap: 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+}
+
+.kul-band__item {
+  padding: 0.45rem 0.85rem;
+  white-space: nowrap;
+}
+
+.kul-band__item:first-child {
+  padding-left: 0;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.kul-band__item + .kul-band__item {
+  border-left: 1px solid color-mix(in srgb, var(--kul-band-ink) 30%, transparent);
+}
+
+a.kul-band__item {
+  transition: color 0.18s var(--ease);
+}
+a.kul-band__item:hover { color: #ffffff; }
+
+.kul-band :focus-visible { outline-color: #ffffff; }
+
+@media (max-width: 620px) {
+  .kul-band__item { padding: 0.4rem 0.6rem; font-size: 0.68rem; }
+  .kul-band__item + .kul-band__item { border-left: 0; }
+  .kul-band__item:not(:first-child)::before {
+    content: '';
+  }
+}
+
+/* The nav sits directly under the band, so it no longer needs to be the
+   topmost element visually. */
+.nav { top: 0; }
+
+
+/* Extra illustration primitives for the surface and photochemistry drawings */
+.g-label-end { text-anchor: end; }
+.g-stem { stroke: var(--ink-2); stroke-width: 1.6; }
+.g-mol { fill: var(--surface-2); stroke: var(--ink-2); stroke-width: 1.6; }
+.g-tip { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.7;
+         stroke-linejoin: round; }

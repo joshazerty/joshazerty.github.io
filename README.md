@@ -76,3 +76,20 @@ files behind them.
 Pages link the CSS as `site.css?v=<number>`. That query string is only a
 cache-buster: bump it after a visible CSS change if a browser stubbornly serves
 the old file. Nothing depends on the value.
+
+## KU Leuven house style
+
+The palette follows KU Leuven's own web stylesheet: `#004070` as the primary
+blue with the `#d4e7f3` tint, set as `--accent` and `--accent-soft` in
+`assets/css/site.css`. The dark theme swaps in `#52bdec`, the lighter blue from
+the Associatie KU Leuven house style, so contrast holds on a dark ground.
+
+The slim dark-blue strip above the navigation mirrors the global header band on
+KU Leuven's own sites. It carries the affiliation and links to the department
+and the group.
+
+**No KU Leuven logo ships with this site.** Logo use is governed by the
+university's house-style rules and is normally reserved for official university
+communications. If you are entitled to use it, download the official asset from
+the KU Leuven brand portal, drop it in `assets/img/`, and it can go in the band.
+Do not substitute a redrawn version.
