@@ -22,7 +22,7 @@
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=1788965235">
+<link rel="stylesheet" href="assets/css/site.css?v=1788973201">
 </head>
 <body>
 
@@ -67,8 +67,8 @@
     <div class="wrap">
       <div class="repos">
 
-        <a class="repo" href="https://github.com/joshazerty/chem-skills">
-          <span class="repo__name">chem-skills</span>
+        <div class="repo">
+          <a class="repo__name" href="https://github.com/joshazerty/chem-skills">chem-skills</a>
           <span class="repo__desc">
             Reusable workflow definitions for computational chemistry tasks:
             locating and verifying transition states end to end, running
@@ -76,7 +76,29 @@
             producing publication-ready reaction schemes.
           </span>
           <span class="repo__foot">Python &nbsp; public</span>
-        </a>
+        </div>
+
+        <div class="repo">
+          <a class="repo__name" href="https://github.com/joshazerty/AutoMeKin">AutoMeKin, spin-aware layer</a>
+          <span class="repo__desc">
+            AutoMeKin explores reaction networks without being told what to look
+            for: it perturbs a starting structure, finds the transition states it
+            runs into, and assembles the mechanism from what turns up. The code
+            comes from Emilio Martínez-Núñez's group at Santiago de Compostela.
+          </span>
+          <span class="repo__desc">
+            This fork adds a layer for transition-metal reactions that change spin
+            state on the way through. It samples each multiplicity explicitly,
+            tests whether a single-reference description holds before spending DFT
+            time, locates the minimum-energy crossing point, puts it into the
+            network as a node of its own, and attaches nonadiabatic hop rates.
+          </span>
+          <span class="repo__cite">Original code:
+            <a href="https://doi.org/10.1002/jcc.26734">Martínez-Núñez, E.; Barnes, G. L.; Glowacki, D. R.; and co-workers. <em>J. Comput. Chem.</em> <b>2021</b>, <i>42</i>, 2036.</a>
+          </span>
+          <span class="repo__foot">Python, Fortran &nbsp; fork</span>
+        </div>
+
 
       </div>
 

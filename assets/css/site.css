@@ -1108,3 +1108,24 @@ a.kul-band__item:hover { color: #ffffff; }
   max-width: 48ch;
   margin: 0 0 1.15rem;
 }
+
+/* Repo cards hold their own links, so the card itself is no longer an anchor. */
+.repo__name {
+  display: block;
+  transition: color 0.18s var(--ease);
+}
+a.repo__name:hover { color: var(--ink); }
+
+.repo__desc + .repo__desc { margin-top: -0.1rem; }
+
+.repo__cite {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.repo__cite a { color: var(--ink-2); transition: color 0.18s var(--ease); }
+.repo__cite a:hover { color: var(--accent); }
+.repo__cite em { font-style: italic; color: var(--ink); }
+.repo__cite i { font-style: italic; }
+.repo__cite b { font-weight: 650; color: var(--ink); }
