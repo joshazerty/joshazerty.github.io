@@ -35,11 +35,6 @@
   <section class="page-head">
     <div class="wrap fade-up">
       <h1>Research directions</h1>
-      <p>
-        Four directions, one underlying complaint: the system that gets computed
-        is usually not the system that gets measured. Each of these closes part
-        of that gap.
-      </p>
     </div>
   </section>
 
@@ -102,13 +97,12 @@
 
           <h2>Catalysis under operating conditions</h2>
           <p>
-            A supported catalyst under working conditions is not one structure.
-            It restructures, changes oxidation state, picks up hydroxyls and
-            water, and sometimes dissolves into the medium that was meant to be
-            the reactant. I work out which species are actually populated at a
-            given temperature, pressure and solvent activity, and only then ask
-            what they do. Solvation belongs inside that question, not bolted on
-            afterwards as a correction.
+            Put a supported catalyst under reaction conditions and it
+            restructures, changes oxidation state, picks up hydroxyls and water,
+            and sometimes dissolves into the medium that was meant to be the
+            reactant. So I start by working out which species are populated at a
+            given temperature, pressure and solvent activity, then ask what those
+            species do. The solvent is in that calculation from the start.
           </p>
           <ul class="chips">
             <li class="chip">ab initio thermodynamics</li>
@@ -169,27 +163,26 @@
               <text x="62" y="188" class="g-cap">seed</text>
               <text x="468" y="188" class="g-cap">product</text>
 
-              <text x="260" y="288" class="g-axis-label">every edge is an elementary step found without assuming the mechanism</text>
+              <text x="260" y="288" class="g-axis-label">each edge is an elementary step the search proposed</text>
             </svg>
           </figure>
 
           <h2>Automated reaction mechanism discovery</h2>
           <p>
-            The usual failure in a mechanistic study is not a bad barrier, it is
-            a step nobody thought to draw. Automated exploration removes that
-            assumption: enumerate candidate elementary steps, locate and verify
-            the transition states, then let the kinetics decide which route
-            carries the flux.
+            Mechanistic studies fail more often on a step nobody thought to draw
+            than on a badly computed barrier. Automated exploration enumerates the
+            candidate steps instead, locates and verifies the transition states,
+            and lets the kinetics pick the route that carries the flux.
           </p>
           <p style="margin-top:0.9rem">
-            Increasingly this is agentic work. An LLM agent given real tools, an
-            electronic-structure code, a transition-state search, a kinetic
-            model, can propose chemistry, run the calculation that would refute
-            it and revise accordingly, which is a far better use of the search
-            budget than blind enumeration. The hard part is not the proposing.
-            It is the verification: every structure characterised, every
-            transition state confirmed by its imaginary mode and its IRC, so
-            that what the agent reports is checkable rather than plausible.
+            More of this is now agentic. Give an LLM agent an electronic-structure
+            code, a transition-state search and a kinetic model, and it can
+            propose chemistry, run the calculation that would refute the proposal,
+            and revise on the result. That spends the search budget better than
+            enumeration does. Proposing is the easy half. Most of the effort goes
+            into verification: characterising every structure, confirming every
+            transition state by its imaginary mode and its IRC, so you can check
+            what the agent reports instead of trusting it.
           </p>
           <ul class="chips">
             <li class="chip">agentic AI discovery</li>
@@ -224,13 +217,12 @@
           <h2>Machine-learned potentials for transition metals</h2>
           <p>
             Sampling at DFT cost is what limits everything above, and foundation
-            interatomic potentials are nearly good enough to lift that limit.
-            Nearly. Open-shell transition-metal chemistry is where they are
-            weakest, and spin state is usually not represented at all, so a model
-            that handles organic reactions cleanly can miss the surface crossing
-            that sets the rate. I characterise those failures and fine-tune
-            around them, releasing the benchmarks rather than keeping them
-            in-house.
+            interatomic potentials come close to lifting that limit. They break
+            down on open-shell transition-metal chemistry, and most of them carry
+            no notion of spin state, so a model that handles organic reactions
+            well can walk straight past the surface crossing that sets the rate. I
+            measure where they fail, fine-tune around it, and publish the
+            benchmarks.
           </p>
           <ul class="chips">
             <li class="chip">MACE</li>
@@ -273,14 +265,13 @@
 
           <h2>Kinetics that can be tested</h2>
           <p>
-            A free-energy diagram is not yet a prediction. Turning one into a
-            turnover frequency, an apparent activation energy, a reaction order
-            or a kinetic isotope effect is what makes a mechanism falsifiable,
-            and doing so regularly shows that the tallest barrier is not the step
-            in control. I build micro-kinetic models on computed networks and
-            propagate the uncertainty in the barriers through to the observable,
-            so the comparison with experiment stays honest about what it can
-            settle.
+            An experimentalist can measure a turnover frequency, an apparent
+            activation energy, a reaction order or a kinetic isotope effect. None
+            of them can measure a free-energy diagram. Deriving the first set from
+            the second often shows that the tallest barrier is not the step in
+            control. I build micro-kinetic models on computed networks and push
+            the uncertainty in the barriers through to the observable, so you can
+            see how much the comparison with experiment settles.
           </p>
           <ul class="chips">
             <li class="chip">micro-kinetic modelling</li>
@@ -305,8 +296,8 @@
     <div class="footer__grid">
       <div>
         <h2>Get in touch</h2>
-        <p>Always glad to hear from experimental groups with a mechanism that does
-          not add up, and from students interested in computational catalysis.</p>
+        <p>Write to me if you have a mechanism that does not add up, or if you are
+          a student looking for a project in computational catalysis.</p>
         <p style="margin-top:1rem">
           <a class="link" href="mailto:joshua.sims@kuleuven.be">joshua.sims@kuleuven.be</a>
         </p>
