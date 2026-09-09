@@ -1007,3 +1007,27 @@ a.kul-band__item:hover { color: #ffffff; }
 .g-mol { fill: var(--surface-2); stroke: var(--ink-2); stroke-width: 1.6; }
 .g-tip { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.7;
          stroke-linejoin: round; }
+
+/* CISS illustration */
+.g-helix { fill: none; stroke: var(--ink-2); stroke-width: 1.6; }
+.g-spinarrow { stroke: var(--ink-2); stroke-width: 2.2; }
+.g-spinarrow--key { stroke: var(--accent); stroke-width: 2.8; }
+.g-spinhead { fill: var(--ink-2); }
+.g-spinhead--key { fill: var(--accent); }
+
+/* A full-width final direction, so the grid never ends on an empty cell.
+   Figure and text sit side by side instead of stacked. */
+.direction--wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.direction--wide .dir-fig { margin-bottom: 0; }
+
+@media (max-width: 860px) {
+  .direction--wide { grid-template-columns: 1fr; }
+  .direction--wide .dir-fig { margin-bottom: 1.6rem; }
+}

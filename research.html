@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://joshazerty.github.io/research.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=1788962075">
+<link rel="stylesheet" href="assets/css/site.css?v=1788962587">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
   <div class="wrap kul-band__inner">
     <span class="kul-band__item">KU Leuven</span>
     <a class="kul-band__item" href="https://chem.kuleuven.be/en/">Department of Chemistry</a>
-    <a class="kul-band__item" href="https://chem.kuleuven.be/en/research/qcpc/tcc">Theoretical and Computational Chemistry</a>
+    <a class="kul-band__item" href="https://jeremyharveygroup.wordpress.com/">Theoretical and Computational Chemistry</a>
   </div>
 </div>
 
@@ -50,7 +50,6 @@
     <div class="wrap">
       <div class="directions">
 
-        <!-- 1 -->
         <article class="direction">
           <figure class="dir-fig">
             <svg viewBox="0 0 520 300" role="img"
@@ -102,15 +101,9 @@
               <text x="266" y="256" class="g-axis-label">increasing chemical potential of water</text>
             </svg>
           </figure>
-
           <h2>Catalysis under operating conditions</h2>
           <p>
-            Put a supported catalyst under reaction conditions and it
-            restructures, changes oxidation state, picks up hydroxyls and water,
-            and sometimes dissolves into the medium that was meant to be the
-            reactant. So I start by working out which species are populated at a
-            given temperature, pressure and solvent activity, then ask what those
-            species do. The solvent is in that calculation from the start.
+            Put a supported catalyst under reaction conditions and it restructures, changes oxidation state, picks up hydroxyls and water, and sometimes dissolves into the medium that was meant to be the reactant. So I start by working out which species are populated at a given temperature, pressure and solvent activity, then ask what those species do. The solvent is in that calculation from the start.
           </p>
           <ul class="chips">
             <li class="chip">ab initio thermodynamics</li>
@@ -120,7 +113,6 @@
           </ul>
         </article>
 
-        <!-- 2 -->
         <article class="direction">
           <figure class="dir-fig">
             <svg viewBox="0 0 520 300" role="img"
@@ -174,132 +166,21 @@
               <text x="260" y="288" class="g-axis-label">each edge is an elementary step the search proposed</text>
             </svg>
           </figure>
-
           <h2>Automated reaction mechanism discovery</h2>
           <p>
-            Mechanistic studies fail more often on a step nobody thought to draw
-            than on a badly computed barrier. This bites hardest in homogeneous
-            catalysis, where the resting state, the active species and the
-            off-cycle sinks all compete. Automated exploration enumerates the
-            candidate steps instead, locates and verifies the transition states,
-            and lets the kinetics pick the route that carries the flux.
+            Mechanistic studies fail more often on a step nobody thought to draw than on a badly computed barrier, and homogeneous catalysis is where that bites hardest. Automated exploration enumerates the candidate steps, verifies the transition states, and lets the kinetics pick the route that carries the flux.
           </p>
           <p style="margin-top:0.9rem">
-            More of this is now agentic. Give an LLM agent an electronic-structure
-            code, a transition-state search and a kinetic model, and it can
-            propose chemistry, run the calculation that would refute the proposal,
-            and revise on the result. That spends the search budget better than
-            enumeration does. Proposing is the easy half. Most of the effort goes
-            into verification: characterising every structure, confirming every
-            transition state by its imaginary mode and its IRC, so you can check
-            what the agent reports instead of trusting it.
+            An LLM agent driving those tools can propose chemistry and run the calculation that would refute it. Proposing is the easy half. I spend the effort on verification, so you can check what the agent reports instead of trusting it.
           </p>
           <ul class="chips">
             <li class="chip">agentic AI discovery</li>
             <li class="chip">reaction network exploration</li>
-            <li class="chip">automated TS search</li>
             <li class="chip">homogeneous catalysis</li>
             <li class="chip">IRC verification</li>
           </ul>
         </article>
 
-        <!-- 3 -->
-        <article class="direction">
-          <figure class="dir-fig">
-            <svg viewBox="0 0 520 300" role="img"
-                 aria-label="Two potential energy curves for different spin states crossing at a marked crossing point, illustrating that a single learned surface cannot represent both.">
-              <line x1="60" y1="252" x2="495" y2="252" class="g-axis"/>
-              <line x1="60" y1="252" x2="60" y2="45" class="g-axis"/>
-              <text x="60" y="36" class="g-micro" text-anchor="start">energy</text>
-              <text x="278" y="282" class="g-axis-label">reaction coordinate</text>
-
-              <path d="M75 210 C 175 205, 245 170, 300 140 C 355 110, 420 84, 480 72" class="g-curve"/>
-              <path d="M75 70 C 175 78, 245 112, 300 140 C 355 168, 420 194, 480 207" class="g-curve g-curve--alt"/>
-
-              <text x="486" y="68" class="g-spin" text-anchor="end">low spin</text>
-              <text x="486" y="224" class="g-spin" text-anchor="end">high spin</text>
-
-              <line x1="300" y1="134" x2="300" y2="102" class="g-lead"/>
-              <circle cx="300" cy="140" r="6.5" class="g-mecp"/>
-              <text x="300" y="92" class="g-mecp-label">crossing point</text>
-            </svg>
-          </figure>
-
-          <h2>Spin, chirality and learned potentials</h2>
-          <p>
-            Transition-metal reactions often change spin on the way through, and
-            the rate then depends on where the two surfaces cross rather than on
-            any barrier you can optimise to. Chirality enters the same physics
-            from the other side, through spin selectivity in chiral molecules and
-            the interfaces they form.
-          </p>
-          <p style="margin-top:0.9rem">
-            This is also where machine-learned potentials break down. Foundation
-            models come close to lifting the cost limit on everything above, but
-            most carry no notion of spin state, so a model that handles organic
-            reactions well can walk straight past the crossing that sets the rate.
-            I measure where they fail, fine-tune around it, and publish the
-            benchmarks.
-          </p>
-          <ul class="chips">
-            <li class="chip">spin-forbidden reactivity</li>
-            <li class="chip">two-state reactivity</li>
-            <li class="chip">chirality-induced spin selectivity</li>
-            <li class="chip">MACE</li>
-            <li class="chip">UMA</li>
-          </ul>
-        </article>
-
-        <!-- 4 -->
-        <article class="direction">
-          <figure class="dir-fig">
-            <svg viewBox="0 0 520 300" role="img"
-                 aria-label="A schematic bar chart of the degree of rate control across six elementary steps, in which one step carries almost all of the control.">
-              <text x="145" y="54" class="g-bar-label">adsorption</text>
-              <rect x="155" y="42" width="34" height="16" class="g-bar"/>
-
-              <text x="145" y="88" class="g-bar-label">C-H cleavage</text>
-              <rect x="155" y="76" width="20" height="16" class="g-bar"/>
-
-              <text x="145" y="122" class="g-bar-label">oxygen transfer</text>
-              <rect x="155" y="110" width="285" height="16" class="g-bar g-bar--key"/>
-
-              <text x="145" y="156" class="g-bar-label">condensation</text>
-              <rect x="155" y="144" width="46" height="16" class="g-bar"/>
-
-              <text x="145" y="190" class="g-bar-label">reduction</text>
-              <rect x="155" y="178" width="28" height="16" class="g-bar"/>
-
-              <text x="145" y="224" class="g-bar-label">desorption</text>
-              <rect x="155" y="212" width="14" height="16" class="g-bar"/>
-
-              <line x1="155" y1="244" x2="460" y2="244" class="g-axis"/>
-              <line x1="155" y1="244" x2="155" y2="36" class="g-axis"/>
-              <text x="155" y="264" class="g-micro" text-anchor="start">0</text>
-              <text x="460" y="264" class="g-micro" text-anchor="end">1</text>
-              <text x="307" y="288" class="g-axis-label">degree of rate control, schematic</text>
-            </svg>
-          </figure>
-
-          <h2>Kinetics that can be tested</h2>
-          <p>
-            An experimentalist can measure a turnover frequency, an apparent
-            activation energy, a reaction order or a kinetic isotope effect. None
-            of them can measure a free-energy diagram. Deriving the first set from
-            the second often shows that the tallest barrier is not the step in
-            control. I build micro-kinetic models on computed networks and push
-            the uncertainty in the barriers through to the observable, so you can
-            see how much the comparison with experiment settles.
-          </p>
-          <ul class="chips">
-            <li class="chip">micro-kinetic modelling</li>
-            <li class="chip">degree of rate control</li>
-            <li class="chip">energetic span</li>
-            <li class="chip">kinetic isotope effects</li>
-          </ul>
-        </article>
-
-        <!-- 5 -->
         <article class="direction">
           <figure class="dir-fig">
             <svg viewBox="0 0 520 300" role="img"
@@ -344,21 +225,12 @@
               <text x="265" y="290" class="g-axis-label">the tip measures the monolayer, the calculation says what it is</text>
             </svg>
           </figure>
-
           <h2>Molecules on surfaces</h2>
           <p>
-            Put an ordered organic layer on a metal and the two stop behaving like
-            separate things: the adsorbate shifts the work function, the metal
-            shifts the adsorbate. With Elad Gross's group in Jerusalem I have
-            worked on fluorinated N-heterocyclic carbene and carbodicarbene
-            monolayers on gold, computing what the measured surface properties
-            imply about the binding.
+            Put an ordered organic layer on a metal and the two stop behaving like separate things: the adsorbate shifts the work function, the metal shifts the adsorbate. With Elad Gross's group in Jerusalem I have worked on fluorinated N-heterocyclic carbene and carbodicarbene monolayers on gold, computing what the measured surface properties imply about the binding.
           </p>
           <p style="margin-top:0.9rem">
-            The current strand, with the De Feyter group here in Leuven, is
-            scanning tunnelling microscopy. An STM image is not a structure, and
-            getting from one to the other means modelling the adlayer and the
-            contrast it should produce.
+            The current strand, with the De Feyter group here in Leuven, is scanning tunnelling microscopy. An STM image is not a structure, and getting from one to the other means modelling the adlayer and the contrast it should produce.
           </p>
           <ul class="chips">
             <li class="chip">STM modelling</li>
@@ -368,7 +240,6 @@
           </ul>
         </article>
 
-        <!-- 6 -->
         <article class="direction">
           <figure class="dir-fig">
             <svg viewBox="0 0 520 300" role="img"
@@ -399,19 +270,12 @@
               <text x="335" y="206" class="g-mecp-label">conical intersection</text>
             </svg>
           </figure>
-
           <h2>Photochemistry and excited states</h2>
           <p>
-            Excited-state chemistry runs on a different set of rules: the molecule
-            absorbs, lands on an upper surface, and comes back down wherever the
-            surfaces touch. Predicting the product means finding those crossings,
-            not optimising a barrier.
+            Excited-state chemistry runs on a different set of rules: the molecule absorbs, lands on an upper surface, and comes back down wherever the surfaces touch. Predicting the product means finding those crossings.
           </p>
           <p style="margin-top:0.9rem">
-            I started on this at Durham with Basile Curchod, mapping where TD-DFT
-            stops being trustworthy for the excited states of atmospherically
-            relevant molecules. Knowing the limits of the method matters more here
-            than almost anywhere else, because the failure is quiet.
+            I started on this at Durham with Basile Curchod, mapping where TD-DFT stops being trustworthy for the excited states of atmospherically relevant molecules. Knowing the limits of the method matters more here than almost anywhere else, because a bad excited state still looks like a converged calculation.
           </p>
           <ul class="chips">
             <li class="chip">TD-DFT</li>
@@ -419,6 +283,134 @@
             <li class="chip">nonadiabatic dynamics</li>
             <li class="chip">atmospheric photochemistry</li>
           </ul>
+        </article>
+
+        <article class="direction">
+          <figure class="dir-fig">
+            <svg viewBox="0 0 520 260" role="img"
+                 aria-label="Electrons of both spins leave a metal contact, pass through a helical chiral molecule, and emerge with a single spin orientation.">
+              <defs>
+                <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5"
+                        markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <rect x="28" y="78" width="32" height="96" class="g-slab"/>
+              <text x="44" y="196" class="g-micro">metal</text>
+
+              <line x1="66" y1="126" x2="92" y2="126" class="g-edge" marker-end="url(#ac)"/>
+
+              <line x1="112" y1="150" x2="112" y2="106" class="g-spinarrow"/>
+              <polygon points="105,110 112,96 119,110" class="g-spinhead"/>
+              <line x1="146" y1="102" x2="146" y2="146" class="g-spinarrow"/>
+              <polygon points="139,142 146,156 153,142" class="g-spinhead"/>
+              <text x="129" y="196" class="g-micro">unpolarised</text>
+
+              <ellipse cx="210" cy="126" rx="16" ry="44" class="g-helix"/>
+              <ellipse cx="238" cy="126" rx="16" ry="44" class="g-helix"/>
+              <ellipse cx="266" cy="126" rx="16" ry="44" class="g-helix"/>
+              <ellipse cx="294" cy="126" rx="16" ry="44" class="g-helix"/>
+              <ellipse cx="322" cy="126" rx="16" ry="44" class="g-helix"/>
+              <text x="266" y="196" class="g-cap">chiral molecule</text>
+
+              <line x1="352" y1="126" x2="378" y2="126" class="g-edge" marker-end="url(#ac)"/>
+
+              <line x1="418" y1="150" x2="418" y2="106" class="g-spinarrow g-spinarrow--key"/>
+              <polygon points="409,110 418,94 427,110" class="g-spinhead g-spinhead--key"/>
+              <text x="418" y="196" class="g-mecp-label">one spin</text>
+
+              <text x="260" y="234" class="g-axis-label">handedness and spin-orbit coupling at the contact decide which spin gets through</text>
+            </svg>
+          </figure>
+          <h2>Chirality-induced spin selectivity</h2>
+          <p>
+            Send electrons through a film of chiral molecules and they come out spin-polarised, with the handedness of the molecule deciding which spin survives. The effect holds at room temperature, and that is the puzzle: spin-orbit coupling in light-element organics falls orders of magnitude short of explaining polarisations this large.
+          </p>
+          <p style="margin-top:0.9rem">
+            Different groups blame the metal contact, the vibrations or the electron correlation, and the field has not settled. I come at it from the interface, where my surface work already sits, because the chiral layer and the metal underneath it behave as a single system and the calculation has to treat them that way.
+          </p>
+          <ul class="chips">
+            <li class="chip">CISS</li>
+            <li class="chip">spin-orbit coupling</li>
+            <li class="chip">chiral monolayers</li>
+            <li class="chip">spin transport</li>
+          </ul>
+        </article>
+
+        <article class="direction">
+          <figure class="dir-fig">
+            <svg viewBox="0 0 520 300" role="img"
+                 aria-label="Two potential energy curves for different spin states crossing at a marked crossing point, illustrating that a single learned surface cannot represent both.">
+              <line x1="60" y1="252" x2="495" y2="252" class="g-axis"/>
+              <line x1="60" y1="252" x2="60" y2="45" class="g-axis"/>
+              <text x="60" y="36" class="g-micro" text-anchor="start">energy</text>
+              <text x="278" y="282" class="g-axis-label">reaction coordinate</text>
+
+              <path d="M75 210 C 175 205, 245 170, 300 140 C 355 110, 420 84, 480 72" class="g-curve"/>
+              <path d="M75 70 C 175 78, 245 112, 300 140 C 355 168, 420 194, 480 207" class="g-curve g-curve--alt"/>
+
+              <text x="486" y="68" class="g-spin" text-anchor="end">low spin</text>
+              <text x="486" y="224" class="g-spin" text-anchor="end">high spin</text>
+
+              <line x1="300" y1="134" x2="300" y2="102" class="g-lead"/>
+              <circle cx="300" cy="140" r="6.5" class="g-mecp"/>
+              <text x="300" y="92" class="g-mecp-label">crossing point</text>
+            </svg>
+          </figure>
+          <h2>Machine-learned potentials for transition metals</h2>
+          <p>
+            Sampling at DFT cost is what limits everything above, and foundation interatomic potentials come close to lifting that limit. They break down on open-shell transition-metal chemistry, and most of them carry no notion of spin state, so a model that handles organic reactions well can walk straight past the surface crossing that sets the rate. I measure where they fail, fine-tune around it, and publish the benchmarks.
+          </p>
+          <ul class="chips">
+            <li class="chip">MACE</li>
+            <li class="chip">UMA</li>
+            <li class="chip">fine-tuning</li>
+            <li class="chip">spin-state benchmarks</li>
+          </ul>
+        </article>
+
+        <article class="direction direction--wide">
+          <figure class="dir-fig">
+            <svg viewBox="0 0 520 300" role="img"
+                 aria-label="A schematic bar chart of the degree of rate control across six elementary steps, in which one step carries almost all of the control.">
+              <text x="145" y="54" class="g-bar-label">adsorption</text>
+              <rect x="155" y="42" width="34" height="16" class="g-bar"/>
+
+              <text x="145" y="88" class="g-bar-label">C-H cleavage</text>
+              <rect x="155" y="76" width="20" height="16" class="g-bar"/>
+
+              <text x="145" y="122" class="g-bar-label">oxygen transfer</text>
+              <rect x="155" y="110" width="285" height="16" class="g-bar g-bar--key"/>
+
+              <text x="145" y="156" class="g-bar-label">condensation</text>
+              <rect x="155" y="144" width="46" height="16" class="g-bar"/>
+
+              <text x="145" y="190" class="g-bar-label">reduction</text>
+              <rect x="155" y="178" width="28" height="16" class="g-bar"/>
+
+              <text x="145" y="224" class="g-bar-label">desorption</text>
+              <rect x="155" y="212" width="14" height="16" class="g-bar"/>
+
+              <line x1="155" y1="244" x2="460" y2="244" class="g-axis"/>
+              <line x1="155" y1="244" x2="155" y2="36" class="g-axis"/>
+              <text x="155" y="264" class="g-micro" text-anchor="start">0</text>
+              <text x="460" y="264" class="g-micro" text-anchor="end">1</text>
+              <text x="307" y="288" class="g-axis-label">degree of rate control, schematic</text>
+            </svg>
+          </figure>
+          <div class="direction__body">
+          <h2>Kinetics that can be tested</h2>
+          <p>
+            An experimentalist can measure a turnover frequency, an apparent activation energy, a reaction order or a kinetic isotope effect. None of them can measure a free-energy diagram. Deriving the first set from the second often shows that the tallest barrier is not the step in control. I build micro-kinetic models on computed networks and push the uncertainty in the barriers through to the observable, so you can see how much the comparison with experiment settles.
+          </p>
+          <ul class="chips">
+            <li class="chip">micro-kinetic modelling</li>
+            <li class="chip">degree of rate control</li>
+            <li class="chip">energetic span</li>
+            <li class="chip">kinetic isotope effects</li>
+          </ul>
+          </div>
         </article>
 
       </div>
@@ -458,7 +450,7 @@
           <li><a href="https://scholar.google.com/citations?user=gj6e7KIAAAAJ">Google Scholar</a></li>
           <li><a href="https://orcid.org/0000-0002-8279-3010">ORCID</a></li>
           <li><a href="https://github.com/joshazerty">GitHub</a></li>
-          <li><a href="https://chem.kuleuven.be/en/research/qcpc/tcc">Harvey group</a></li>
+          <li><a href="https://jeremyharveygroup.wordpress.com/">Harvey group</a></li>
           <li><a href="https://www.kuleuven.be/wieiswie/en/person/00183421">KU Leuven profile</a></li>
         </ul>
       </div>
