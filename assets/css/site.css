@@ -1057,30 +1057,35 @@ a.kul-band__item:hover { color: #ffffff; }
 }
 
 .dir-pubs li {
-  padding: 0.75rem 0;
+  padding: 0.6rem 0;
   border-bottom: 1px solid var(--hairline);
 }
 
-.dir-pub__title {
+.dir-ref {
   display: block;
-  font-size: 0.92rem;
-  font-weight: 600;
-  line-height: 1.38;
-  letter-spacing: -0.012em;
-  color: var(--ink);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--ink-2);
   transition: color 0.18s var(--ease);
 }
 
-a.dir-pub__title:hover { color: var(--accent); }
+.dir-ref:hover { color: var(--accent); }
 
-.dir-pub__meta {
-  display: block;
-  margin-top: 0.35rem;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  line-height: 1.5;
-  color: var(--muted);
+/* The whole reference is the link, so the underline marks the author rather
+   than the link. */
+.dir-ref .me {
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.5px;
 }
+
+.dir-ref:hover .me { color: var(--accent); }
+
+.dir-ref em { font-style: italic; color: var(--ink); }
+.dir-ref i { font-style: italic; }
+.dir-ref b:not(.me) { font-weight: 650; color: var(--ink); }
 
 /* Cards carrying no publications yet: pull the chips up to the figure. */
 .direction .dir-fig + h2 { margin-top: 0; }
