@@ -70,3 +70,9 @@ inline SVG in the HTML, styled by the `g-*` classes at the bottom of
 `assets/css/site.css`. They read their colours from the theme tokens, so they
 follow light and dark mode without a second set of values. There are no image
 files behind them.
+
+## A note on the stylesheet link
+
+Pages link the CSS as `site.css?v=<number>`. That query string is only a
+cache-buster: bump it after a visible CSS change if a browser stubbornly serves
+the old file. Nothing depends on the value.

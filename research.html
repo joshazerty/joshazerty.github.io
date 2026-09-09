@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://joshazerty.github.io/research.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v=1788950261">
 </head>
 <body>
 
@@ -179,15 +179,23 @@
             a step nobody thought to draw. Automated exploration removes that
             assumption: enumerate candidate elementary steps, locate and verify
             the transition states, then let the kinetics decide which route
-            carries the flux. I work on making that pipeline reliable enough to
-            trust unattended, and on using learned models to steer the search
-            instead of enumerating blindly.
+            carries the flux.
+          </p>
+          <p style="margin-top:0.9rem">
+            Increasingly this is agentic work. An LLM agent given real tools, an
+            electronic-structure code, a transition-state search, a kinetic
+            model, can propose chemistry, run the calculation that would refute
+            it and revise accordingly, which is a far better use of the search
+            budget than blind enumeration. The hard part is not the proposing.
+            It is the verification: every structure characterised, every
+            transition state confirmed by its imaginary mode and its IRC, so
+            that what the agent reports is checkable rather than plausible.
           </p>
           <ul class="chips">
+            <li class="chip">agentic AI discovery</li>
             <li class="chip">reaction network exploration</li>
             <li class="chip">automated TS search</li>
             <li class="chip">IRC verification</li>
-            <li class="chip">graph analysis</li>
           </ul>
         </article>
 

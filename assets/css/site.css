@@ -928,8 +928,10 @@ a.repo:hover { background: var(--surface-2); }
 }
 
 @media (max-width: 900px) {
-  .hero__grid--portrait { grid-template-columns: 1fr; }
-  .hero__portrait { max-width: 22rem; }
+  .hero__grid--portrait { grid-template-columns: 1fr; gap: 2rem; }
+  /* Photo leads on narrow screens too, at a size that does not push the
+     headline below the fold. */
+  .hero__portrait { order: -1; max-width: 15rem; }
 }
 
 /* News rows carry an inline DOI link */
