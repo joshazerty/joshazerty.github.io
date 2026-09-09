@@ -1034,3 +1034,15 @@ a.kul-band__item:hover { color: #ffffff; }
 
 /* Highlighted stage in the agentic loop */
 .d-box--key { stroke: var(--accent); stroke-width: 1.6; }
+
+/* Catalytic cycle */
+.g-arc { fill: none; stroke: var(--ink-2); stroke-width: 1.6; }
+.g-arc--key { stroke: var(--accent); stroke-width: 2.6; }
+.g-cyc { fill: var(--surface-2); stroke: var(--hairline-strong); stroke-width: 1.5; }
+
+/* Text-anchor utilities. These sit last so they beat the anchor set by the
+   base label classes; a presentation attribute on the element would lose to
+   those classes, so anchoring is always done here. */
+.ta-start { text-anchor: start; }
+.ta-mid   { text-anchor: middle; }
+.ta-end   { text-anchor: end; }

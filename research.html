@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://joshazerty.github.io/research.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=1788963029">
+<link rel="stylesheet" href="assets/css/site.css?v=1788963484">
 </head>
 <body>
 
@@ -303,7 +303,7 @@
 
               <line x1="60" y1="258" x2="495" y2="258" class="g-axis"/>
               <line x1="60" y1="258" x2="60" y2="42" class="g-axis"/>
-              <text x="60" y="34" class="g-micro" text-anchor="start">energy</text>
+              <text x="60" y="34" class="g-micro ta-start">energy</text>
               <text x="278" y="286" class="g-axis-label">reaction coordinate</text>
 
               <path d="M105 226 C 130 238, 160 238, 190 228 C 250 208, 300 176, 335 152 L 425 120" class="g-curve"/>
@@ -313,7 +313,7 @@
               <text x="86" y="231" class="g-spin">S0</text>
 
               <line x1="160" y1="232" x2="160" y2="108" class="d-loop" marker-end="url(#aph)"/>
-              <text x="150" y="176" class="g-micro g-label-end">absorption</text>
+              <text x="150" y="176" class="g-micro ta-end">absorption</text>
 
               <circle cx="335" cy="152" r="6.5" class="g-mecp"/>
               <line x1="335" y1="160" x2="335" y2="190" class="g-lead"/>
@@ -394,14 +394,14 @@
                  aria-label="Two potential energy curves for different spin states crossing at a marked crossing point, illustrating that a single learned surface cannot represent both.">
               <line x1="60" y1="252" x2="495" y2="252" class="g-axis"/>
               <line x1="60" y1="252" x2="60" y2="45" class="g-axis"/>
-              <text x="60" y="36" class="g-micro" text-anchor="start">energy</text>
+              <text x="60" y="36" class="g-micro ta-start">energy</text>
               <text x="278" y="282" class="g-axis-label">reaction coordinate</text>
 
               <path d="M75 210 C 175 205, 245 170, 300 140 C 355 110, 420 84, 480 72" class="g-curve"/>
               <path d="M75 70 C 175 78, 245 112, 300 140 C 355 168, 420 194, 480 207" class="g-curve g-curve--alt"/>
 
-              <text x="486" y="68" class="g-spin" text-anchor="end">low spin</text>
-              <text x="486" y="224" class="g-spin" text-anchor="end">high spin</text>
+              <text x="486" y="68" class="g-spin ta-end">low spin</text>
+              <text x="486" y="224" class="g-spin ta-end">high spin</text>
 
               <line x1="300" y1="134" x2="300" y2="102" class="g-lead"/>
               <circle cx="300" cy="140" r="6.5" class="g-mecp"/>
@@ -422,38 +422,48 @@
 
         <article class="direction">
           <figure class="dir-fig">
-            <svg viewBox="0 0 520 300" role="img"
-                 aria-label="A schematic bar chart of the degree of rate control across six elementary steps, in which one step carries almost all of the control.">
-              <text x="145" y="54" class="g-bar-label">adsorption</text>
-              <rect x="155" y="42" width="34" height="16" class="g-bar"/>
-
-              <text x="145" y="88" class="g-bar-label">C-H cleavage</text>
-              <rect x="155" y="76" width="20" height="16" class="g-bar"/>
-
-              <text x="145" y="122" class="g-bar-label">oxygen transfer</text>
-              <rect x="155" y="110" width="285" height="16" class="g-bar g-bar--key"/>
-
-              <text x="145" y="156" class="g-bar-label">condensation</text>
-              <rect x="155" y="144" width="46" height="16" class="g-bar"/>
-
-              <text x="145" y="190" class="g-bar-label">reduction</text>
-              <rect x="155" y="178" width="28" height="16" class="g-bar"/>
-
-              <text x="145" y="224" class="g-bar-label">desorption</text>
-              <rect x="155" y="212" width="14" height="16" class="g-bar"/>
-
-              <line x1="155" y1="244" x2="460" y2="244" class="g-axis"/>
-              <line x1="155" y1="244" x2="155" y2="36" class="g-axis"/>
-              <text x="155" y="264" class="g-micro" text-anchor="start">0</text>
-              <text x="460" y="264" class="g-micro" text-anchor="end">1</text>
-              <text x="307" y="288" class="g-axis-label">degree of rate control, schematic</text>
+            <svg viewBox="0 0 520 285" role="img"
+                 aria-label="A five-step catalytic cycle with substrate entering and product leaving, the resting state marked at the top and the turnover-limiting step highlighted.">
+              <defs>
+                <marker id="arc" viewBox="0 0 10 10" refX="9" refY="5"
+                        markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+                <marker id="arck" viewBox="0 0 10 10" refX="9" refY="5"
+                        markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+                </marker>
+              </defs>
+              <path d="M 280.3 61.9 A 86 86 0 0 1 330.1 98.2" class="g-arc" marker-end="url(#arc)"/>
+              <path d="M 343.9 140.5 A 86 86 0 0 1 324.8 199.1" class="g-arc g-arc--key" marker-end="url(#arck)"/>
+              <path d="M 288.8 225.3 A 86 86 0 0 1 227.2 225.3" class="g-arc" marker-end="url(#arc)"/>
+              <path d="M 191.2 199.1 A 86 86 0 0 1 172.1 140.5" class="g-arc" marker-end="url(#arc)"/>
+              <path d="M 185.9 98.2 A 86 86 0 0 1 235.7 61.9" class="g-arc" marker-end="url(#arc)"/>
+              <circle cx="258.0" cy="59.0" r="13" class="g-node-key"/>
+              <circle cx="339.8" cy="118.4" r="13" class="g-cyc"/>
+              <circle cx="308.5" cy="214.6" r="13" class="g-cyc"/>
+              <circle cx="207.5" cy="214.6" r="13" class="g-cyc"/>
+              <circle cx="176.2" cy="118.4" r="13" class="g-cyc"/>
+              <text x="258.0" y="35.0" class="g-mecp-label">resting state</text>
+              <line x1="345.5" y1="173.4" x2="374" y2="173.4" class="g-lead"/>
+              <text x="380" y="177.4" class="g-mecp-label ta-start">turnover-limiting</text>
+              <line x1="143.7" y1="79.0" x2="169.7" y2="94.0" class="g-edge" marker-end="url(#arc)"/>
+              <text x="122.9" y="67.0" class="g-micro ta-end">substrate</text>
+              <line x1="169.7" y1="196.0" x2="143.7" y2="211.0" class="g-edge" marker-end="url(#arc)"/>
+              <text x="121.2" y="224.0" class="g-micro ta-end">product</text>
+              <text x="258" y="270" class="g-axis-label">the rate depends on the resting state as much as on the barriers</text>
             </svg>
           </figure>
-          <h2>Kinetics that can be tested</h2>
+
+          <h2>Homogeneous catalysis, mechanisms and kinetics</h2>
           <p>
-            An experimentalist can measure a turnover frequency, an apparent activation energy, a reaction order or a kinetic isotope effect. None of them can measure a free-energy diagram. Deriving the first set from the second often shows that the tallest barrier is not the step in control. I build micro-kinetic models on computed networks and push the uncertainty in the barriers through to the observable, so you can see how much the comparison with experiment settles.
+            A homogeneous catalyst runs a cycle, and much of what decides its behaviour sits off that cycle: the resting state that ties up the metal, the decomposition route that ends the run, the ligand that falls off under turnover. Computing the mechanism means accounting for those as well as for the steps in the scheme.
+          </p>
+          <p style="margin-top:0.9rem">
+            The energies then have to become numbers an experimentalist can check. I build micro-kinetic models on the computed network and work out the turnover frequency, the degree of rate control, the reaction orders and the kinetic isotope effect, pushing the uncertainty in the barriers through to the observable. The tallest barrier is often not the step in control.
           </p>
           <ul class="chips">
+            <li class="chip">catalytic cycles</li>
             <li class="chip">micro-kinetic modelling</li>
             <li class="chip">degree of rate control</li>
             <li class="chip">energetic span</li>
