@@ -34,3 +34,24 @@ block in `index.html`.
     python3 -m http.server 8000
 
 Then open <http://localhost:8000>.
+
+## Regenerating the CV PDF
+
+The PDF at `assets/files/CV_Joshua_Sims.pdf` is rendered from
+`build/cv-print.html`, so it stays consistent with `cv.html`. Edit the print
+source, then:
+
+    ./build/make-cv-pdf.sh
+
+It drives headless Chrome and writes straight over the PDF in `assets/files`.
+Update `cv.html` to match when you change one of them.
+
+## Going live
+
+The repo is not yet on GitHub. To publish:
+
+    gh repo create joshazerty.github.io --public --source=. --push
+    gh api -X POST repos/joshazerty/joshazerty.github.io/pages \
+      -f 'source[branch]=main' -f 'source[path]=/'
+
+The site then serves at https://joshazerty.github.io within a minute or two.

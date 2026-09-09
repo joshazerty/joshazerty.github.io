@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CV - Joshua M. Sims</title>
+<style>
+  @font-face {
+    font-family: 'Archivo';
+    font-weight: 400 700;
+    src: url('../assets/fonts/archivo-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Archivo';
+    font-weight: 400 700;
+    src: url('../assets/fonts/archivo-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+1E00-1E9F, U+2020, U+20A0-20AB;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-weight: 400 500;
+    src: url('../assets/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  }
+
+  @page { size: A4; margin: 12mm 13mm 10mm; }
+
+  :root {
+    --ink: #16181d;
+    --ink-2: #3c424e;
+    --muted: #5f6673;
+    --hairline: #d7dbe2;
+    --accent: #1c4bc4;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8.7pt;
+    line-height: 1.36;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+
+  /* --- Masthead --- */
+
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 6pt;
+    margin-bottom: 9pt;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 14pt;
+  }
+
+  .masthead h1 {
+    margin: 0;
+    font-size: 20pt;
+    font-weight: 660;
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
+
+  .masthead .role {
+    margin: 4pt 0 0;
+    font-size: 9.3pt;
+    color: var(--ink-2);
+  }
+
+  .contact {
+    text-align: right;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 7.5pt;
+    line-height: 1.55;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .contact a { color: var(--accent); }
+
+  /* --- Profile --- */
+
+  .profile {
+    font-size: 8.8pt;
+    color: var(--ink-2);
+    margin: 0 0 9pt;
+    max-width: 175mm;
+  }
+
+  /* --- Sections --- */
+
+  h2 {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 4pt;
+    padding-bottom: 2pt;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  section { margin-bottom: 8pt; }
+  h2 { break-after: avoid; }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 30mm 1fr;
+    gap: 4.5mm;
+    padding: 2.6pt 0;
+    break-inside: avoid;
+  }
+
+  .entry + .entry { border-top: 1px solid #eef0f3; }
+
+  .when {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 7.4pt;
+    color: var(--muted);
+    line-height: 1.45;
+    padding-top: 1pt;
+  }
+
+  .what h3 {
+    margin: 0;
+    font-size: 9.2pt;
+    font-weight: 650;
+    letter-spacing: -0.012em;
+  }
+
+  .where { margin: 0.5pt 0 0; font-size: 8.4pt; color: var(--ink-2); }
+  .note { margin: 1.5pt 0 0; font-size: 8.2pt; color: var(--muted); }
+
+  /* --- Publications --- */
+
+  ol.pubs { margin: 0; padding-left: 12pt; }
+
+  ol.pubs li {
+    margin-bottom: 3.2pt;
+    font-size: 8.3pt;
+    color: var(--ink-2);
+    break-inside: avoid;
+  }
+
+  ol.pubs b { color: var(--ink); font-weight: 650; }
+  ol.pubs i { color: var(--ink); }
+
+  .doi {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 7.3pt;
+  }
+
+  /* --- Compact lists --- */
+
+  ul.tight { margin: 0; padding-left: 12pt; }
+  ul.tight li { margin-bottom: 2pt; break-inside: avoid; font-size: 8.3pt; color: var(--ink-2); }
+  ul.tight b { color: var(--ink); font-weight: 650; }
+
+  .skills { display: grid; grid-template-columns: 30mm 1fr; gap: 4.5mm; padding: 1.9pt 0; break-inside: avoid; }
+  .skills + .skills { border-top: 1px solid #eef0f3; }
+
+  .skills dt {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 7.4pt;
+    color: var(--muted);
+    padding-top: 1pt;
+  }
+
+  .skills dd { margin: 0; font-size: 8.3pt; color: var(--ink-2); }
+
+  .foot {
+    margin-top: 7pt;
+    padding-top: 4pt;
+    border-top: 1px solid var(--hairline);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 7pt;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div>
+    <h1>Joshua M. Sims</h1>
+    <p class="role">Computational chemistry of catalysis at complex interfaces</p>
+  </div>
+  <div class="contact">
+    joshua.sims@kuleuven.be<br>
+    orcid.org/0000-0002-8279-3010<br>
+    joshazerty.github.io<br>
+    Brussels, Belgium
+  </div>
+</header>
+
+<p class="profile">
+  Computational chemist specialising in catalysis at complex interfaces:
+  speciation and dynamics of supported metal species, solvation effects on
+  reactivity, and free-energy methods including QM/MM, enhanced sampling and
+  machine-learned interatomic potentials. Trained across periodic and molecular
+  electronic structure, with recurring collaborations in which computation is
+  embedded in experimental studies.
+</p>
+
+<section>
+  <h2>Positions</h2>
+
+  <div class="entry">
+    <div class="when">Oct 2025<br>to present</div>
+    <div class="what">
+      <h3>Postdoctoral researcher</h3>
+      <p class="where">KU Leuven, Belgium. Group of Prof. Jeremy Harvey, quantum and physical chemistry division.</p>
+      <p class="note">Mechanisms and kinetics in computational catalysis. Computational work within the iBOF consortium (De Feyter, Maes, Dusselier, Harvey) on deoxydehydration and supported rhenium catalysts.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when">Sep 2022<br>to Aug 2025</div>
+    <div class="what">
+      <h3>Doctoral researcher</h3>
+      <p class="where">ENS de Lyon, France. Group of Dr Carine Michel.</p>
+      <p class="note">Speciation and morphology of Ru clusters on TiO<sub>2</sub>, metal-support interactions, solvation at oxide interfaces, free-energy methods.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when">Nov 2021<br>to Jul 2022</div>
+    <div class="what">
+      <h3>Research-internship year</h3>
+      <p class="where">Durham University, United Kingdom, then Université Grenoble Alpes, France.</p>
+      <p class="note">A full year of external research placements required by the ENS curriculum. With Dr Basile Curchod, the limits of TD-DFT for atmospheric photochemistry (Newton-X, Turbomole). With Prof. Anne Milet, computational study of CO<sub>2</sub>-reduction catalysts on graphite (CP2K, DockOnSurf).</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when">2019<br>to 2021</div>
+    <div class="what">
+      <h3>Earlier research placements</h3>
+      <p class="where">ENS de Lyon, and Université de Rennes 1, France.</p>
+      <p class="note">With Dr Stephan Steinmann, resampling techniques for adsorption free energies (SolvHybrid, AMBER, VASP). With Dr Carine Michel, alcohol adsorption on alumina by metadynamics (CP2K, PLUMED) and water-induced deactivation of metathesis catalysts. With Prof. Florence Mongin and Dr William Erb, an experimental placement on the enantioselective synthesis of ferrocenes.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="when">2022 to 2025</div>
+    <div class="what">
+      <h3>PhD in Chemistry, ENS de Lyon</h3>
+      <p class="where">Supervisor Dr Carine Michel. Thesis: morphology and surface state of a Ru/TiO<sub>2</sub> catalyst, a computational approach.</p>
+      <p class="note">Defended unconditionally on 17 July 2025. Funded by a competitive CDSN doctoral scholarship awarded on national competition.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when">2019 to 2021</div>
+    <div class="what">
+      <h3>MSc in Computational Chemistry, ENS de Lyon</h3>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when">2018 to 2019</div>
+    <div class="what">
+      <h3>Diploma in Chemistry and Physics, ENS de Lyon</h3>
+      <p class="where">Highest honours, mention très bien.</p>
+      <p class="note">Admitted through the national competitive entrance examination, with salaried student status as a normalien.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when">2016 to 2018</div>
+    <div class="what">
+      <h3>Classes préparatoires, Lycée Chateaubriand, Rennes</h3>
+      <p class="where">Intensive university-level programme in mathematics, physics and chemistry. Ranked first in class.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Peer-reviewed publications</h2>
+  <ol class="pubs">
+    <li>
+      <b>Sims, J. M.</b>; Michel, C. Influence of oxygen vacancies on the morphology of Ru<sub>10</sub> clusters supported on TiO<sub>2</sub>. <i>Phys. Chem. Chem. Phys.</i> <b>2025</b>, 27, 17564-17571. <span class="doi">10.1039/D5CP01579K</span>
+    </li>
+    <li>
+      Utama, J. K.; <b>Sims, J. M.</b>; Michel, C.; Giorgi, J. B. Hydration of hexafluoroacetone on ice. <i>J. Phys. Chem. C</i> <b>2025</b>, 129, 5868-5875. <span class="doi">10.1021/acs.jpcc.5c00560</span>
+    </li>
+    <li>
+      Berg, I.; Mondal, R.; <b>Sims, J. M.</b>; Ben-Tzvi, T.; Lahav, L.; Friedman, B.; Michel, C.; Nairoukh, Z.; Gross, E. Strong substrate-adsorbate interactions direct the impact of fluorinated N-heterocyclic carbene monolayers on Au surface properties. <i>ACS Appl. Mater. Interfaces</i> <b>2024</b>, 16, 65469-65479. <span class="doi">10.1021/acsami.4c12514</span>
+    </li>
+    <li>
+      Arjunan, S.; <b>Sims, J. M.</b>; Duboc, C.; Maldivi, P.; Milet, A. Investigating the interplay between charge transfer and CO<sub>2</sub> insertion in the adsorption of a NiFe catalyst for CO<sub>2</sub> electroreduction on a graphite support. <i>J. Comput. Chem.</i> <b>2024</b>, 45, 1690-1696. <span class="doi">10.1002/jcc.27355</span>
+    </li>
+    <li>
+      Blanco, C. O.; <b>Sims, J.</b>; Nascimento, D. L.; Goudreault, A. Y.; Steinmann, S. N.; Michel, C.; Fogg, D. E. The impact of water on Ru-catalyzed olefin metathesis: potent deactivating effects even at low water concentrations. <i>ACS Catal.</i> <b>2021</b>, 11, 893-899. <span class="doi">10.1021/acscatal.0c04279</span>
+    </li>
+    <li>
+      Lassagne, F.; <b>Sims, J. M.</b>; Erb, W.; Mongin, O.; Richy, N.; El Osmani, N.; Fajloun, Z.; Picot, L.; Thiéry, V.; Robert, T.; Bach, S.; Dorcet, V.; Roisnel, T.; Mongin, F. Thiazolo[5,4-f]quinoxalines, oxazolo[5,4-f]quinoxalines and pyrazino[b,e]isatins: synthesis from 6-aminoquinoxalines and properties. <i>Eur. J. Org. Chem.</i> <b>2021</b>, 2756-2763. <span class="doi">10.1002/ejoc.202100362</span>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Funding and computing allocations</h2>
+  <ul class="tight">
+    <li><b>VSC Tier-1, Flanders, 2026.</b> Starter project on Hortense, 500,000 core-hours, and a pilot project on Sofia, the new Flemish national supercomputer. Both on peer-reviewed proposal.</li>
+    <li><b>GENCI, France, 2022 to 2025.</b> Three allocations on the French national supercomputers, 500,000 CPU-hours each, 1.5 million CPU-hours in total.</li>
+    <li><b>CDSN doctoral scholarship, 2022 to 2025.</b> Contrat Doctoral Spécifique Normalien, awarded by the ENS de Lyon on national competition.</li>
+    <li><b>Competitive examinations.</b> Admitted to the ENS de Lyon, ENS Paris-Saclay and ESPCI by concours, carrying salaried student status. Second in the French national selection for the International Chemistry Olympiad, 2017.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Teaching, supervision and mentoring</h2>
+  <ul class="tight">
+    <li><b>Teaching assistant, ENS de Lyon, 2022 to 2025.</b> 64 hours per year: statistical-physics tutorials (third-year undergraduate, 26 h); periodic-DFT practicals (first-year master's, 12 h); organisation and supervision of the computational-chemistry practicals (second-year master's, 26 h), including direct supervision of student project work and the setting and marking of theoretical-chemistry examinations. Tutoring for the agrégation preparation. Teaching in French and English.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Conference contributions</h2>
+  <ul class="tight">
+    <li><b>Oral.</b> International Conference on Theoretical Aspects of Catalysis (ICTAC), Seville, 2024. Morphology of Ru nanoparticles at the titania-water interface.</li>
+    <li><b>Oral.</b> Rencontres Théomsia-RCTF, the French computational-chemistry network, 2024. Same topic.</li>
+    <li><b>Poster.</b> 18th International Congress on Catalysis (ICC), Lyon, 2024. Same topic.</li>
+    <li><b>Poster, co-author.</b> 16th European Inorganic Chemistry Conference (EICC), 2022. CO<sub>2</sub> reduction to CH<sub>4</sub> by a bio-inspired NiFe hydrogenase model on graphite.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Peer review, outreach and service</h2>
+  <ul class="tight">
+    <li>Reviewer for the <i>Journal of the American Chemical Society</i>.</li>
+    <li>Co-author of a problem for the French national selection for the 52nd International Chemistry Olympiad, 2020. Volunteer scientific administrator, 51st International Chemistry Olympiad, Paris, 2019.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Technical skills and languages</h2>
+
+  <dl class="skills">
+    <dt>Electronic structure</dt>
+    <dd>VASP, CP2K, Gaussian, ORCA, Turbomole, PySCF</dd>
+  </dl>
+  <dl class="skills">
+    <dt>Free energy</dt>
+    <dd>AMBER, PLUMED (metadynamics, OPES), QM/MM free-energy perturbation, resampling estimators</dd>
+  </dl>
+  <dl class="skills">
+    <dt>Learned potentials</dt>
+    <dd>Fine-tuning of foundation models (MACE, UMA), ANI</dd>
+  </dl>
+  <dl class="skills">
+    <dt>Computing</dt>
+    <dd>Python (NumPy, the ASE ecosystem, JAX), workflow automation (DockOnSurf, SolvHybrid), HPC on the GENCI national facilities and VSC Flanders</dd>
+  </dl>
+  <dl class="skills">
+    <dt>Languages</dt>
+    <dd>English (native speaker, Cambridge C2). French (bilingual). German (B1).</dd>
+  </dl>
+  <dl class="skills">
+    <dt>Nationality</dt>
+    <dd>French and British</dd>
+  </dl>
+</section>
+
+<div class="foot">
+  <span>Joshua M. Sims, curriculum vitae</span>
+  <span>joshazerty.github.io</span>
+</div>
+
+</body>
+</html>
