@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research | Joshua M. Sims</title>
-<meta name="description" content="Research projects: speciation of supported metal clusters, solvation and free-energy methods at interfaces, molecules on ice, and machine-learned potentials for catalysis.">
+<meta name="description" content="Research directions: catalysis under operating conditions, automated reaction mechanism discovery, machine-learned potentials for transition-metal chemistry, and kinetics that can be tested against experiment.">
 <link rel="canonical" href="https://joshazerty.github.io/research.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -34,161 +34,259 @@
 
   <section class="page-head">
     <div class="wrap fade-up">
-      <h1>Research</h1>
+      <h1>Research directions</h1>
       <p>
-        Catalysis happens at interfaces that are messy, dynamic and solvated.
-        These projects are attempts to compute them as they are, rather than as
-        the tractable idealisation.
+        Four directions, one underlying complaint: the system that gets computed
+        is usually not the system that gets measured. Each of these closes part
+        of that gap.
       </p>
     </div>
   </section>
 
-  <section class="section section--flush">
+  <section class="section section--flush" style="padding-top:1rem">
     <div class="wrap">
+      <div class="directions">
 
-      <!-- 1: image right -->
-      <article class="feature">
-        <div class="feature__body">
-          <h3>Speciation and morphology of supported Ru</h3>
+        <!-- 1 -->
+        <article class="direction">
+          <figure class="dir-fig">
+            <svg viewBox="0 0 520 300" role="img"
+                 aria-label="On the left, a single idealised cluster on a slab. An arrow labelled temperature, pressure and solvent leads right to three different structures standing for a population of species. Below, an axis of increasing water chemical potential is divided into bare, hydroxylated and wetted regions.">
+              <defs>
+                <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5"
+                        markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+
+              <rect x="35" y="105" width="120" height="22" class="g-slab"/>
+              <circle cx="85" cy="94" r="11" class="g-atom"/>
+              <circle cx="108" cy="94" r="11" class="g-atom"/>
+              <circle cx="96" cy="75" r="11" class="g-atom"/>
+              <text x="95" y="162" class="g-cap">one idealised model</text>
+
+              <line x1="185" y1="105" x2="232" y2="105" class="g-edge" marker-end="url(#a1)"/>
+              <text x="208" y="95" class="g-micro">T, p, solvent</text>
+
+              <rect x="255" y="105" width="62" height="22" class="g-slab"/>
+              <circle cx="276" cy="95" r="8" class="g-atom"/>
+              <circle cx="293" cy="95" r="8" class="g-atom"/>
+              <circle cx="284" cy="80" r="8" class="g-atom"/>
+
+              <rect x="345" y="105" width="62" height="22" class="g-slab"/>
+              <circle cx="366" cy="95" r="8" class="g-atom"/>
+              <circle cx="383" cy="95" r="8" class="g-atom"/>
+              <circle cx="374" cy="80" r="8" class="g-atom"/>
+              <circle cx="355" cy="86" r="4" class="g-lig"/>
+              <circle cx="395" cy="86" r="4" class="g-lig"/>
+
+              <rect x="435" y="105" width="62" height="22" class="g-slab"/>
+              <circle cx="452" cy="97" r="7" class="g-atom"/>
+              <circle cx="466" cy="97" r="7" class="g-atom"/>
+              <circle cx="480" cy="97" r="7" class="g-atom"/>
+              <circle cx="446" cy="84" r="4" class="g-lig"/>
+              <circle cx="466" cy="80" r="4" class="g-lig"/>
+              <circle cx="486" cy="84" r="4" class="g-lig"/>
+
+              <text x="376" y="162" class="g-cap">a population that moves with conditions</text>
+
+              <line x1="35" y1="228" x2="497" y2="228" class="g-axis"/>
+              <line x1="188" y1="221" x2="188" y2="235" class="g-axis"/>
+              <line x1="341" y1="221" x2="341" y2="235" class="g-axis"/>
+              <text x="111" y="215" class="g-region">bare</text>
+              <text x="264" y="215" class="g-region">hydroxylated</text>
+              <text x="419" y="215" class="g-region">wetted</text>
+              <text x="266" y="256" class="g-axis-label">increasing chemical potential of water</text>
+            </svg>
+          </figure>
+
+          <h2>Catalysis under operating conditions</h2>
           <p>
-            Sub-nanometre ruthenium clusters on titania do not keep a fixed shape.
-            Whether a Ru<sub>10</sub> cluster wets the support or balls up depends on
-            the reducing power of the surface underneath it, and oxygen vacancies in
-            the anatase change that balance enough to switch the preferred morphology.
-          </p>
-          <p>
-            The consequence matters for catalysis: shape sets the fraction of
-            under-coordinated Ru atoms, which is what the reaction actually sees.
-            This was the core of my doctoral work with Carine Michel, built on
-            global optimisation over a large configuration space followed by
-            periodic DFT, with an explicit water phase added on top.
+            A supported catalyst under working conditions is not one structure.
+            It restructures, changes oxidation state, picks up hydroxyls and
+            water, and sometimes dissolves into the medium that was meant to be
+            the reactant. I work out which species are actually populated at a
+            given temperature, pressure and solvent activity, and only then ask
+            what they do. Solvation belongs inside that question, not bolted on
+            afterwards as a correction.
           </p>
           <ul class="chips">
-            <li class="chip">VASP</li>
-            <li class="chip">CP2K</li>
-            <li class="chip">global optimisation</li>
             <li class="chip">ab initio thermodynamics</li>
-          </ul>
-        </div>
-        <div class="feature__media">
-          <img src="assets/img/o-vacancy-sites.png" width="649" height="964" loading="lazy"
-               alt="Ball-and-stick detail of the anatase surface labelling the inequivalent oxygen sites where a vacancy can form, with a schematic showing their positions relative to the ruthenium nanoparticle.">
-        </div>
-      </article>
-
-      <!-- 2: full-width text, breaks the split rhythm -->
-      <article class="feature" style="grid-template-columns:1fr">
-        <div class="feature__body" style="max-width:none">
-          <h3>Solvation and free energies at oxide interfaces</h3>
-          <p style="max-width:68ch">
-            An adsorption energy computed in vacuum is often the wrong number by
-            more than the effect being studied. Getting the solvated value instead
-            means sampling, and sampling at the DFT level is expensive enough that
-            the method matters as much as the model.
-          </p>
-          <p style="max-width:68ch">
-            I have worked on both ends of this. On the method side, resampling
-            estimators that carry a cheap force field trajectory up to a DFT or
-            machine-learned surface, developed with Stephan Steinmann. On the
-            application side, metadynamics for alcohol adsorption on alumina, and
-            explicit-water models of the titania interface. A related strand
-            concerns catalyst deactivation: trace water is enough to quench
-            ruthenium olefin-metathesis catalysts, and the mechanism by which it
-            does so is a solvation problem as much as a mechanistic one.
-          </p>
-          <ul class="chips">
+            <li class="chip">global optimisation</li>
             <li class="chip">metadynamics</li>
-            <li class="chip">OPES</li>
             <li class="chip">QM/MM FEP</li>
-            <li class="chip">PLUMED</li>
-            <li class="chip">AMBER</li>
-            <li class="chip">SolvHybrid</li>
           </ul>
-        </div>
-      </article>
+        </article>
 
-      <!-- 3: image left -->
-      <article class="feature feature--reverse">
-        <div class="feature__body">
-          <h3>Small molecules on ice</h3>
+        <!-- 2 -->
+        <article class="direction">
+          <figure class="dir-fig">
+            <svg viewBox="0 0 520 300" role="img"
+                 aria-label="A branching network of structures explored automatically from a seed, with many grey candidate elementary steps and one highlighted route running through the network to the product.">
+              <g class="g-net">
+                <path d="M62 150 L140 78"/>
+                <path d="M62 150 L140 150"/>
+                <path d="M62 150 L140 222"/>
+                <path d="M140 78 L235 52"/>
+                <path d="M140 78 L235 118"/>
+                <path d="M140 150 L235 118"/>
+                <path d="M140 150 L235 192"/>
+                <path d="M140 222 L235 192"/>
+                <path d="M140 222 L235 250"/>
+                <path d="M235 52 L330 82"/>
+                <path d="M235 118 L330 82"/>
+                <path d="M235 118 L330 152"/>
+                <path d="M235 192 L330 152"/>
+                <path d="M235 192 L330 226"/>
+                <path d="M235 250 L330 226"/>
+                <path d="M330 82 L420 112"/>
+                <path d="M330 152 L420 112"/>
+                <path d="M330 152 L420 196"/>
+                <path d="M330 226 L420 196"/>
+                <path d="M420 112 L468 150"/>
+                <path d="M420 196 L468 150"/>
+              </g>
+
+              <path d="M62 150 L140 78 L235 118 L330 82 L420 112 L468 150" class="g-route"/>
+
+              <g class="g-node">
+                <circle cx="140" cy="78" r="8"/>
+                <circle cx="140" cy="150" r="8"/>
+                <circle cx="140" cy="222" r="8"/>
+                <circle cx="235" cy="52" r="8"/>
+                <circle cx="235" cy="118" r="8"/>
+                <circle cx="235" cy="192" r="8"/>
+                <circle cx="235" cy="250" r="8"/>
+                <circle cx="330" cy="82" r="8"/>
+                <circle cx="330" cy="152" r="8"/>
+                <circle cx="330" cy="226" r="8"/>
+                <circle cx="420" cy="112" r="8"/>
+                <circle cx="420" cy="196" r="8"/>
+              </g>
+
+              <circle cx="62" cy="150" r="12" class="g-node-key"/>
+              <circle cx="468" cy="150" r="12" class="g-node-key"/>
+              <text x="62" y="188" class="g-cap">seed</text>
+              <text x="468" y="188" class="g-cap">product</text>
+
+              <text x="260" y="288" class="g-axis-label">every edge is an elementary step found without assuming the mechanism</text>
+            </svg>
+          </figure>
+
+          <h2>Automated reaction mechanism discovery</h2>
           <p>
-            Atmospheric chemistry on ice surfaces is a case where computation and
-            experiment can be pinned tightly together. Working with Javier Giorgi's
-            group in Ottawa, we looked at how hexafluoroacetone hydrates on an ice
-            surface, combining surface-science measurements with calculations that
-            explain which hydrated form is present and why.
-          </p>
-          <p>
-            An earlier strand, at Durham with Basile Curchod, probed where TD-DFT
-            stops being trustworthy for the excited states of atmospherically
-            relevant molecules. Both projects share a concern with knowing the
-            limits of the method before trusting the answer.
+            The usual failure in a mechanistic study is not a bad barrier, it is
+            a step nobody thought to draw. Automated exploration removes that
+            assumption: enumerate candidate elementary steps, locate and verify
+            the transition states, then let the kinetics decide which route
+            carries the flux. I work on making that pipeline reliable enough to
+            trust unattended, and on using learned models to steer the search
+            instead of enumerating blindly.
           </p>
           <ul class="chips">
-            <li class="chip">periodic DFT</li>
-            <li class="chip">TD-DFT</li>
-            <li class="chip">Newton-X</li>
-            <li class="chip">experiment-led</li>
+            <li class="chip">reaction network exploration</li>
+            <li class="chip">automated TS search</li>
+            <li class="chip">IRC verification</li>
+            <li class="chip">graph analysis</li>
           </ul>
-        </div>
-        <div class="feature__media">
-          <img src="assets/img/hfa-ice.png" width="977" height="951" loading="lazy"
-               alt="Graphical abstract showing hexafluoroacetone interacting with a water ice surface.">
-        </div>
-      </article>
+        </article>
 
-      <!-- 4: full-width text -->
-      <article class="feature" style="grid-template-columns:1fr">
-        <div class="feature__body" style="max-width:none">
-          <h3>Mechanism, kinetics and machine-learned potentials</h3>
-          <p style="max-width:68ch">
-            My current work at KU Leuven sits on the mechanistic side: locating
-            transition states reliably, turning computed networks into micro-kinetic
-            models, and asking which step actually controls the rate rather than
-            which barrier is tallest. Part of this runs within an iBOF consortium on
-            the catalytic valorisation of biomass-derived polyols, where rhenium-oxo
-            chemistry raises the awkward question of what the working catalyst is.
-          </p>
-          <p style="max-width:68ch">
-            Doing any of that with enough sampling requires potentials faster than
-            DFT. Foundation models for interatomic potentials are close to good
-            enough, but open-shell transition-metal chemistry is exactly where they
-            are weakest, and spin states are handled poorly or not at all. I am
-            working on characterising those failures honestly and fine-tuning around
-            them, with the benchmarks released rather than kept in-house.
+        <!-- 3 -->
+        <article class="direction">
+          <figure class="dir-fig">
+            <svg viewBox="0 0 520 300" role="img"
+                 aria-label="Two potential energy curves for different spin states crossing at a marked crossing point, illustrating that a single learned surface cannot represent both.">
+              <line x1="60" y1="252" x2="495" y2="252" class="g-axis"/>
+              <line x1="60" y1="252" x2="60" y2="45" class="g-axis"/>
+              <text x="60" y="36" class="g-micro" text-anchor="start">energy</text>
+              <text x="278" y="282" class="g-axis-label">reaction coordinate</text>
+
+              <path d="M75 210 C 175 205, 245 170, 300 140 C 355 110, 420 84, 480 72" class="g-curve"/>
+              <path d="M75 70 C 175 78, 245 112, 300 140 C 355 168, 420 194, 480 207" class="g-curve g-curve--alt"/>
+
+              <text x="486" y="68" class="g-spin" text-anchor="end">low spin</text>
+              <text x="486" y="224" class="g-spin" text-anchor="end">high spin</text>
+
+              <line x1="300" y1="134" x2="300" y2="102" class="g-lead"/>
+              <circle cx="300" cy="140" r="6.5" class="g-mecp"/>
+              <text x="300" y="92" class="g-mecp-label">crossing point</text>
+            </svg>
+          </figure>
+
+          <h2>Machine-learned potentials for transition metals</h2>
+          <p>
+            Sampling at DFT cost is what limits everything above, and foundation
+            interatomic potentials are nearly good enough to lift that limit.
+            Nearly. Open-shell transition-metal chemistry is where they are
+            weakest, and spin state is usually not represented at all, so a model
+            that handles organic reactions cleanly can miss the surface crossing
+            that sets the rate. I characterise those failures and fine-tune
+            around them, releasing the benchmarks rather than keeping them
+            in-house.
           </p>
           <ul class="chips">
-            <li class="chip">Gaussian</li>
-            <li class="chip">ORCA</li>
             <li class="chip">MACE</li>
             <li class="chip">UMA</li>
+            <li class="chip">fine-tuning</li>
+            <li class="chip">spin-state benchmarks</li>
+          </ul>
+        </article>
+
+        <!-- 4 -->
+        <article class="direction">
+          <figure class="dir-fig">
+            <svg viewBox="0 0 520 300" role="img"
+                 aria-label="A schematic bar chart of the degree of rate control across six elementary steps, in which one step carries almost all of the control.">
+              <text x="145" y="54" class="g-bar-label">adsorption</text>
+              <rect x="155" y="42" width="34" height="16" class="g-bar"/>
+
+              <text x="145" y="88" class="g-bar-label">C-H cleavage</text>
+              <rect x="155" y="76" width="20" height="16" class="g-bar"/>
+
+              <text x="145" y="122" class="g-bar-label">oxygen transfer</text>
+              <rect x="155" y="110" width="285" height="16" class="g-bar g-bar--key"/>
+
+              <text x="145" y="156" class="g-bar-label">condensation</text>
+              <rect x="155" y="144" width="46" height="16" class="g-bar"/>
+
+              <text x="145" y="190" class="g-bar-label">reduction</text>
+              <rect x="155" y="178" width="28" height="16" class="g-bar"/>
+
+              <text x="145" y="224" class="g-bar-label">desorption</text>
+              <rect x="155" y="212" width="14" height="16" class="g-bar"/>
+
+              <line x1="155" y1="244" x2="460" y2="244" class="g-axis"/>
+              <line x1="155" y1="244" x2="155" y2="36" class="g-axis"/>
+              <text x="155" y="264" class="g-micro" text-anchor="start">0</text>
+              <text x="460" y="264" class="g-micro" text-anchor="end">1</text>
+              <text x="307" y="288" class="g-axis-label">degree of rate control, schematic</text>
+            </svg>
+          </figure>
+
+          <h2>Kinetics that can be tested</h2>
+          <p>
+            A free-energy diagram is not yet a prediction. Turning one into a
+            turnover frequency, an apparent activation energy, a reaction order
+            or a kinetic isotope effect is what makes a mechanism falsifiable,
+            and doing so regularly shows that the tallest barrier is not the step
+            in control. I build micro-kinetic models on computed networks and
+            propagate the uncertainty in the barriers through to the observable,
+            so the comparison with experiment stays honest about what it can
+            settle.
+          </p>
+          <ul class="chips">
             <li class="chip">micro-kinetic modelling</li>
             <li class="chip">degree of rate control</li>
+            <li class="chip">energetic span</li>
+            <li class="chip">kinetic isotope effects</li>
           </ul>
-        </div>
-      </article>
+        </article>
 
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="s-head">
-        <h2>Computing resources</h2>
-        <p>All of the above runs on time won competitively on national facilities.</p>
       </div>
-      <ul class="rows">
-        <li class="row">
-          <span class="row__num">2026</span>
-          <h3 class="row__title">VSC Tier-1, Flanders</h3>
-          <div class="row__body">Starter project on Hortense, 500,000 core-hours, plus a pilot project on Sofia, the new Flemish national machine.</div>
-        </li>
-        <li class="row">
-          <span class="row__num">2022-25</span>
-          <h3 class="row__title">GENCI, France</h3>
-          <div class="row__body">Three successive allocations on the French national supercomputers, 500,000 CPU-hours each, 1.5 million in total.</div>
-        </li>
-      </ul>
+
+      <p style="margin-top:2.5rem">
+        <a class="link-more" href="publications.html">What has come out of this so far <span>&rarr;</span></a>
+      </p>
     </div>
   </section>
 

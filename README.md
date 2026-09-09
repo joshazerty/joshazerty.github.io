@@ -16,7 +16,7 @@ tracking. Edit a file, commit, push, and the site updates.
     cv.html               Web CV
     assets/css/site.css   All styling, including design tokens at the top
     assets/fonts/         Self-hosted Archivo and JetBrains Mono (latin subsets)
-    assets/img/           Figures and favicon
+    assets/img/         Portrait, illustrations and favicon
     assets/files/         CV PDF
 
 ## Editing
@@ -55,3 +55,18 @@ The repo is not yet on GitHub. To publish:
       -f 'source[branch]=main' -f 'source[path]=/'
 
 The site then serves at https://joshazerty.github.io within a minute or two.
+
+## The portrait
+
+`assets/img/joshua-sims.jpg` is currently a grey placeholder. Drop the real
+photo in at that exact path and filename and the home page picks it up. It is
+displayed at a 4:5 crop anchored near the top of the frame, so a portrait
+around 1000 x 1250 or larger works well.
+
+## Illustrations
+
+The research-direction drawings and every diagram on the site are hand-authored
+inline SVG in the HTML, styled by the `g-*` classes at the bottom of
+`assets/css/site.css`. They read their colours from the theme tokens, so they
+follow light and dark mode without a second set of values. There are no image
+files behind them.
