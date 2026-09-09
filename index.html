@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joshua M. Sims | Computational chemistry of catalysis</title>
+<meta name="description" content="Joshua M. Sims is a postdoctoral researcher in computational chemistry at KU Leuven, working on catalysis at complex interfaces: speciation of supported metal species, solvation effects on reactivity, and free-energy methods.">
+<link rel="canonical" href="https://joshazerty.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Joshua M. Sims | Computational chemistry of catalysis">
+<meta property="og:description" content="Postdoctoral researcher at KU Leuven working on catalysis at complex interfaces.">
+<meta property="og:url" content="https://joshazerty.github.io/">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="index.html">Joshua M. Sims</a>
+    <nav aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero: asymmetric split, text left, published figure right -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="fade-up" style="--i:0">
+        <p class="hero__role">Computational chemistry, KU Leuven</p>
+        <h1>Catalysis at complex interfaces</h1>
+        <p class="hero__lede">
+          Most of my work lands there. The methods travel further: electronic
+          structure, dynamics, free energies, kinetics and machine-learned
+          potentials.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="publications.html">Publications</a>
+          <a class="btn btn--ghost" href="assets/files/CV_Joshua_Sims.pdf">Download CV</a>
+        </div>
+      </div>
+      <figure class="hero__figure fade-up" style="--i:1; margin:0">
+        <img src="assets/img/ru-tio2-system.png" width="1986" height="1144"
+             alt="Ball-and-stick renderings of a ten-atom ruthenium cluster adsorbed on an anatase titanium dioxide surface, shown from the side and from above.">
+        <figcaption class="hero__caption">
+          A Ru<sub>10</sub> cluster on anatase TiO<sub>2</sub>(101), side and top views.
+          One of the structures behind <em>Phys. Chem. Chem. Phys.</em> 2025.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Method span: full-width diagram of the loop every project walks -->
+  <section class="section">
+    <div class="wrap">
+      <div class="s-head">
+        <h2>From structures to rate constants</h2>
+        <p>Most projects walk this loop. Which methods I reach for changes with
+          the problem, but the shape of the work does not.</p>
+      </div>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 980 258" role="img"
+             aria-label="A four-stage loop: candidate structures feed into electronic structure calculations, which feed into free-energy sampling, which feed into kinetics. The rate and selectivity that come out are compared with experiment, which sends the work back to the structures.">
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5"
+                    markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+            </marker>
+            <marker id="ah-a" viewBox="0 0 10 10" refX="9" refY="5"
+                    markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+            </marker>
+          </defs>
+
+          <!-- Stage 1 -->
+          <rect x="10" y="40" width="200" height="104" class="d-box"/>
+          <text x="26" y="70" class="d-title">Structures</text>
+          <text x="26" y="94" class="d-desc">global optimisation over</text>
+          <text x="26" y="109" class="d-desc">the configuration space</text>
+          <text x="26" y="130" class="d-tool">GOCIA, ASE</text>
+
+          <!-- Stage 2 -->
+          <rect x="263" y="40" width="200" height="104" class="d-box"/>
+          <text x="279" y="70" class="d-title">Electronic structure</text>
+          <text x="279" y="94" class="d-desc">periodic and molecular</text>
+          <text x="279" y="109" class="d-desc">density functional theory</text>
+          <text x="279" y="130" class="d-tool">VASP, CP2K, ORCA</text>
+
+          <!-- Stage 3 -->
+          <rect x="516" y="40" width="200" height="104" class="d-box"/>
+          <text x="532" y="70" class="d-title">Free energy</text>
+          <text x="532" y="94" class="d-desc">enhanced sampling and</text>
+          <text x="532" y="109" class="d-desc">learned potentials</text>
+          <text x="532" y="130" class="d-tool">PLUMED, MACE, UMA</text>
+
+          <!-- Stage 4 -->
+          <rect x="769" y="40" width="200" height="104" class="d-box"/>
+          <text x="785" y="70" class="d-title">Kinetics</text>
+          <text x="785" y="94" class="d-desc">transition states and</text>
+          <text x="785" y="109" class="d-desc">micro-kinetic models</text>
+          <text x="785" y="130" class="d-tool">Gaussian, JAX</text>
+
+          <!-- Forward arrows -->
+          <line x1="216" y1="92" x2="257" y2="92" class="d-edge" marker-end="url(#ah)"/>
+          <text x="236" y="82" class="d-edge-label">energies</text>
+
+          <line x1="469" y1="92" x2="510" y2="92" class="d-edge" marker-end="url(#ah)"/>
+          <text x="489" y="82" class="d-edge-label">sampling</text>
+
+          <line x1="722" y1="92" x2="763" y2="92" class="d-edge" marker-end="url(#ah)"/>
+          <text x="742" y="82" class="d-edge-label">barriers</text>
+
+          <!-- Feedback loop: the claim of the figure -->
+          <path d="M 869 150 V 206 H 110 V 152" class="d-loop" marker-end="url(#ah-a)"/>
+          <text x="489" y="228" class="d-loop-label">rate and selectivity, checked against experiment</text>
+        </svg>
+        <figcaption>
+          The loop is the point. A number that disagrees with a measurement sends
+          you back to the structures, not to a bigger basis set.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- About: prose with a facts column carrying real reference data -->
+  <section class="section">
+    <div class="wrap about">
+      <div class="prose">
+        <h2 class="s-head" style="margin-bottom:1.5rem; font-size:var(--step-h2)">
+          A catalyst is a population, not a structure
+        </h2>
+        <p>
+          Most computational catalysis starts from a single well-defined model:
+          one cluster, one facet, one adsorption site. Real catalysts under
+          working conditions are not like that. They change oxidation state,
+          restructure, pick up hydroxyls and water, sinter, and sometimes
+          dissolve into the medium that is supposed to be the reactant.
+        </p>
+        <p>
+          My work treats that population as the object of study rather than an
+          inconvenience. In practice this means combining periodic and molecular
+          electronic structure with <strong>free-energy methods</strong> that can
+          afford real sampling: metadynamics and OPES, QM/MM free-energy
+          perturbation, resampling estimators, and more recently
+          <strong>machine-learned interatomic potentials</strong> fine-tuned for
+          the specific chemistry in hand.
+        </p>
+        <p>
+          I did my PhD with Carine Michel at the ENS de Lyon on ruthenium
+          clusters supported on titania, and I am now a postdoc with
+          <a class="link" href="https://www.kuleuven.be/wieiswie/en/person/00117939">Jeremy Harvey</a>
+          at KU Leuven, working on mechanism and kinetics in catalysis. A recurring
+          thread through both is collaboration with experimental groups, where the
+          computation has to answer a question someone is actually measuring.
+        </p>
+      </div>
+
+      <dl class="facts">
+        <dt>Position</dt>
+        <dd>Postdoctoral researcher, Department of Chemistry, KU Leuven</dd>
+
+        <dt>Group</dt>
+        <dd>Quantum and physical chemistry, Prof. Jeremy Harvey</dd>
+
+        <dt>PhD</dt>
+        <dd>ENS de Lyon, 2025, with Dr Carine Michel</dd>
+
+        <dt>ORCID</dt>
+        <dd><a class="link" href="https://orcid.org/0000-0002-8279-3010">0000-0002-8279-3010</a></dd>
+
+        <dt>Email</dt>
+        <dd><a class="link" href="mailto:joshua.sims@kuleuven.be">joshua.sims@kuleuven.be</a></dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Research strands: editorial numbered rows, not feature cards -->
+  <section class="section">
+    <div class="wrap">
+      <div class="s-head">
+        <h2>Research</h2>
+        <p>Four threads, all pointed at the same problem: making computed
+          chemistry correspond to the catalyst that is really there.</p>
+      </div>
+
+      <ol class="rows">
+        <li class="row">
+          <span class="row__num">01</span>
+          <h3 class="row__title">Speciation of supported metals</h3>
+          <div class="row__body">
+            What a supported metal catalyst is made of under reaction conditions:
+            cluster size and shape, oxidation state, the role of support defects,
+            and how all of it shifts with temperature and coverage.
+            <p class="row__meta">Ru / TiO<sub>2</sub> &nbsp; Re oxides &nbsp; metal-support interaction</p>
+          </div>
+        </li>
+
+        <li class="row">
+          <span class="row__num">02</span>
+          <h3 class="row__title">Solvation and reactivity at interfaces</h3>
+          <div class="row__body">
+            Solvent is rarely a spectator. I compute adsorption and reaction free
+            energies in explicit solvent, where the ordering of water at an oxide
+            surface can decide the outcome.
+            <p class="row__meta">QM/MM FEP &nbsp; metadynamics &nbsp; OPES &nbsp; resampling estimators</p>
+          </div>
+        </li>
+
+        <li class="row">
+          <span class="row__num">03</span>
+          <h3 class="row__title">Mechanism and kinetics</h3>
+          <div class="row__body">
+            Turning computed energetics into something falsifiable: transition
+            states, micro-kinetic models, degree of rate control, and spin-forbidden
+            steps in transition-metal chemistry.
+            <p class="row__meta">MKM &nbsp; energetic span &nbsp; spin-state chemistry &nbsp; biomass valorisation</p>
+          </div>
+        </li>
+
+        <li class="row">
+          <span class="row__num">04</span>
+          <h3 class="row__title">Machine-learned potentials for catalysis</h3>
+          <div class="row__body">
+            Foundation models make the sampling above affordable, but they are
+            trained on chemistry that is not this chemistry. I work on where they
+            fail for open-shell transition-metal systems, and on fine-tuning them
+            so they do not.
+            <p class="row__meta">MACE &nbsp; UMA &nbsp; ANI &nbsp; fine-tuning and benchmarking</p>
+          </div>
+        </li>
+      </ol>
+
+      <p style="margin-top:2rem">
+        <a class="link-more" href="research.html">Read the projects in detail <span>&rarr;</span></a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Selected publications -->
+  <section class="section">
+    <div class="wrap">
+      <div class="s-head">
+        <h2>Selected publications</h2>
+        <p>Six peer-reviewed articles, all open access through the publisher or a repository.</p>
+      </div>
+
+      <div class="pub-year">
+        <h3>2025</h3>
+        <div>
+          <article class="pub">
+            <h4 class="pub__title">Influence of oxygen vacancies on the morphology of Ru<sub>10</sub> clusters supported on TiO<sub>2</sub></h4>
+            <p class="pub__authors"><b>Sims, J. M.</b>; Michel, C.</p>
+            <p class="pub__meta">
+              <span class="pub__journal">Phys. Chem. Chem. Phys.</span>
+              <span>27, 17564-17571</span>
+              <span class="tag">First author</span>
+              <a class="pub__doi" href="https://doi.org/10.1039/D5CP01579K">10.1039/D5CP01579K</a>
+            </p>
+          </article>
+
+          <article class="pub">
+            <h4 class="pub__title">Hydration of hexafluoroacetone on ice</h4>
+            <p class="pub__authors">Utama, J. K.; <b>Sims, J. M.</b>; Michel, C.; Giorgi, J. B.</p>
+            <p class="pub__meta">
+              <span class="pub__journal">J. Phys. Chem. C</span>
+              <span>129, 5868-5875</span>
+              <a class="pub__doi" href="https://doi.org/10.1021/acs.jpcc.5c00560">10.1021/acs.jpcc.5c00560</a>
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <div class="pub-year">
+        <h3>2024</h3>
+        <div>
+          <article class="pub">
+            <h4 class="pub__title">Strong substrate-adsorbate interactions direct the impact of fluorinated N-heterocyclic carbene monolayers on Au surface properties</h4>
+            <p class="pub__authors">Berg, I.; Mondal, R.; <b>Sims, J. M.</b>; Ben-Tzvi, T.; Lahav, L.; Friedman, B.; Michel, C.; Nairoukh, Z.; Gross, E.</p>
+            <p class="pub__meta">
+              <span class="pub__journal">ACS Appl. Mater. Interfaces</span>
+              <span>16, 65469-65479</span>
+              <a class="pub__doi" href="https://doi.org/10.1021/acsami.4c12514">10.1021/acsami.4c12514</a>
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <p style="margin-top:2.5rem">
+        <a class="link-more" href="publications.html">All publications and conferences <span>&rarr;</span></a>
+      </p>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="section">
+    <div class="wrap">
+      <div class="s-head"><h2>Recent</h2></div>
+      <ul class="rows rows--news">
+        <li class="row">
+          <span class="row__num">2026</span>
+          <h3 class="row__title">Tier-1 pilot project on Sofia</h3>
+          <div class="row__body">Awarded a pilot project on Sofia, the new Flemish national supercomputer, following a Tier-1 starter allocation of 500,000 core-hours on Hortense.</div>
+        </li>
+        <li class="row">
+          <span class="row__num">2025</span>
+          <h3 class="row__title">Started at KU Leuven</h3>
+          <div class="row__body">Joined the group of Prof. Jeremy Harvey as a postdoctoral researcher in October, working on mechanism and kinetics in computational catalysis.</div>
+        </li>
+        <li class="row">
+          <span class="row__num">2025</span>
+          <h3 class="row__title">PhD defended at the ENS de Lyon</h3>
+          <div class="row__body">Defended in July, unconditionally. Thesis: morphology and surface state of a Ru/TiO<sub>2</sub> catalyst, supervised by Dr Carine Michel.</div>
+        </li>
+        <li class="row">
+          <span class="row__num">2025</span>
+          <h3 class="row__title">Oxygen vacancies paper out in PCCP</h3>
+          <div class="row__body">First-author study of how support defects reshape sub-nanometre Ru clusters, with a preprint on ChemRxiv.</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Always glad to hear from experimental groups with a mechanism that does
+          not add up, and from students interested in computational catalysis.</p>
+        <p style="margin-top:1rem">
+          <a class="link" href="mailto:joshua.sims@kuleuven.be">joshua.sims@kuleuven.be</a>
+        </p>
+      </div>
+
+      <div>
+        <p class="footer__label">Site</p>
+        <ul class="footer__list">
+          <li><a href="research.html">Research</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="software.html">Software</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="cv.html">CV</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__label">Elsewhere</p>
+        <ul class="footer__list">
+          <li><a href="https://orcid.org/0000-0002-8279-3010">ORCID</a></li>
+          <li><a href="https://github.com/joshazerty">GitHub</a></li>
+          <li><a href="https://www.kuleuven.be/wieiswie/en/person/00183421">KU Leuven profile</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__base">
+      <span>Joshua M. Sims, Department of Chemistry, KU Leuven</span>
+      <span>Built as a static site, no tracking</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

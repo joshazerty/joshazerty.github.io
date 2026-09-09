@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://joshazerty.github.io/sitemap.xml
