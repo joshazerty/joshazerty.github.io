@@ -284,6 +284,16 @@ sub, sup { line-height: 0; font-size: 0.72em; }
   font-weight: 660;
 }
 
+.hero__field {
+  margin-top: 0.55rem;
+  font-size: var(--step-h2);
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink-2);
+  max-width: 20ch;
+}
+
 .hero__lede {
   margin-top: 1.5rem;
   font-size: 1.1rem;
