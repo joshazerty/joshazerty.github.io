@@ -1031,3 +1031,6 @@ a.kul-band__item:hover { color: #ffffff; }
   .direction--wide { grid-template-columns: 1fr; }
   .direction--wide .dir-fig { margin-bottom: 1.6rem; }
 }
+
+/* Highlighted stage in the agentic loop */
+.d-box--key { stroke: var(--accent); stroke-width: 1.6; }

@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://joshazerty.github.io/research.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=1788962587">
+<link rel="stylesheet" href="assets/css/site.css?v=1788963029">
 </head>
 <body>
 
@@ -168,18 +168,68 @@
           </figure>
           <h2>Automated reaction mechanism discovery</h2>
           <p>
-            Mechanistic studies fail more often on a step nobody thought to draw than on a badly computed barrier, and homogeneous catalysis is where that bites hardest. Automated exploration enumerates the candidate steps, verifies the transition states, and lets the kinetics pick the route that carries the flux.
-          </p>
-          <p style="margin-top:0.9rem">
-            An LLM agent driving those tools can propose chemistry and run the calculation that would refute it. Proposing is the easy half. I spend the effort on verification, so you can check what the agent reports instead of trusting it.
+            Mechanistic studies fail more often on a step nobody thought to draw than on a badly computed barrier, and homogeneous catalysis is where that bites hardest: the resting state, the active species and the off-cycle sinks all compete. Automated exploration enumerates the candidate elementary steps instead, locates and verifies the transition states, and lets the kinetics pick the route that carries the flux.
           </p>
           <ul class="chips">
-            <li class="chip">agentic AI discovery</li>
             <li class="chip">reaction network exploration</li>
+            <li class="chip">automated TS search</li>
             <li class="chip">homogeneous catalysis</li>
             <li class="chip">IRC verification</li>
           </ul>
         </article>
+
+        <article class="direction">
+          <figure class="dir-fig">
+            <svg viewBox="0 0 520 250" role="img"
+                 aria-label="A three-stage loop in which an agent proposes a next move, tools run the calculation, and a verification stage either returns the work to the agent or releases it.">
+              <defs>
+                <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5"
+                        markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+                </marker>
+                <marker id="agk" viewBox="0 0 10 10" refX="9" refY="5"
+                        markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+                </marker>
+              </defs>
+
+              <rect x="30" y="52" width="130" height="62" class="d-box"/>
+              <text x="44" y="80" class="d-title">agent proposes</text>
+              <text x="44" y="100" class="d-desc">the next move</text>
+
+              <rect x="195" y="52" width="130" height="62" class="d-box"/>
+              <text x="209" y="80" class="d-title">tools run</text>
+              <text x="209" y="100" class="d-desc">DFT, TS, kinetics</text>
+
+              <rect x="360" y="52" width="130" height="62" class="d-box d-box--key"/>
+              <text x="374" y="80" class="d-title">verification</text>
+              <text x="374" y="100" class="d-desc">modes and IRC</text>
+
+              <line x1="166" y1="83" x2="189" y2="83" class="d-edge" marker-end="url(#ag)"/>
+              <line x1="331" y1="83" x2="354" y2="83" class="d-edge" marker-end="url(#ag)"/>
+
+              <path d="M 425 120 V 164 H 95 V 122" class="d-loop" marker-end="url(#agk)"/>
+              <text x="260" y="186" class="d-loop-label">does not check out, revise</text>
+
+              <text x="260" y="226" class="g-axis-label">nothing leaves the loop until a person can check how it got there</text>
+            </svg>
+          </figure>
+
+          <h2>Agentic AI for computational chemistry</h2>
+          <p>
+            An agent that drives an electronic-structure code, a transition-state search and a kinetic model gets through far more chemistry than I can by hand. It can also produce a fluent summary of calculations nobody checked, which is worse than having none.
+          </p>
+          <p style="margin-top:0.9rem">
+            So I build these workflows around verification rather than output: every structure characterised, every transition state confirmed by its imaginary mode and its IRC, every claim traceable back to the calculation behind it. That leaves the chemist's judgement for the parts that need it.
+          </p>
+          <ul class="chips">
+            <li class="chip">agentic workflows</li>
+            <li class="chip">LLM tool use</li>
+            <li class="chip">automated verification</li>
+            <li class="chip">reproducible pipelines</li>
+          </ul>
+        </article>
+
 
         <article class="direction">
           <figure class="dir-fig">
@@ -370,7 +420,7 @@
           </ul>
         </article>
 
-        <article class="direction direction--wide">
+        <article class="direction">
           <figure class="dir-fig">
             <svg viewBox="0 0 520 300" role="img"
                  aria-label="A schematic bar chart of the degree of rate control across six elementary steps, in which one step carries almost all of the control.">
@@ -399,7 +449,6 @@
               <text x="307" y="288" class="g-axis-label">degree of rate control, schematic</text>
             </svg>
           </figure>
-          <div class="direction__body">
           <h2>Kinetics that can be tested</h2>
           <p>
             An experimentalist can measure a turnover frequency, an apparent activation energy, a reaction order or a kinetic isotope effect. None of them can measure a free-energy diagram. Deriving the first set from the second often shows that the tallest barrier is not the step in control. I build micro-kinetic models on computed networks and push the uncertainty in the barriers through to the observable, so you can see how much the comparison with experiment settles.
@@ -410,7 +459,6 @@
             <li class="chip">energetic span</li>
             <li class="chip">kinetic isotope effects</li>
           </ul>
-          </div>
         </article>
 
       </div>
