@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://joshazerty.github.io/research.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=1788963484">
+<link rel="stylesheet" href="assets/css/site.css?v=1788963777">
 </head>
 <body>
 
@@ -102,9 +102,17 @@
             </svg>
           </figure>
           <h2>Catalysis under operating conditions</h2>
-          <p>
-            Put a supported catalyst under reaction conditions and it restructures, changes oxidation state, picks up hydroxyls and water, and sometimes dissolves into the medium that was meant to be the reactant. So I start by working out which species are populated at a given temperature, pressure and solvent activity, then ask what those species do. The solvent is in that calculation from the start.
-          </p>
+          <ul class="dir-pubs">
+            <li>
+              <a class="dir-pub__title" href="https://doi.org/10.1039/D5CP01579K">Influence of oxygen vacancies on the morphology of Ru<sub>10</sub> clusters supported on TiO<sub>2</sub></a>
+              <span class="dir-pub__meta">Sims, Michel. Phys. Chem. Chem. Phys. 2025, 27, 17564</span>
+            </li>
+            <li>
+              <a class="dir-pub__title" href="https://doi.org/10.1002/jcc.27355">Investigating the interplay between charge transfer and CO<sub>2</sub> insertion in the adsorption of a NiFe catalyst for CO<sub>2</sub> electroreduction on a graphite support</a>
+              <span class="dir-pub__meta">Arjunan, Sims, Duboc, Maldivi, Milet. J. Comput. Chem. 2024, 45, 1690</span>
+            </li>
+          </ul>
+
           <ul class="chips">
             <li class="chip">ab initio thermodynamics</li>
             <li class="chip">global optimisation</li>
@@ -167,9 +175,6 @@
             </svg>
           </figure>
           <h2>Automated reaction mechanism discovery</h2>
-          <p>
-            Mechanistic studies fail more often on a step nobody thought to draw than on a badly computed barrier, and homogeneous catalysis is where that bites hardest: the resting state, the active species and the off-cycle sinks all compete. Automated exploration enumerates the candidate elementary steps instead, locates and verifies the transition states, and lets the kinetics pick the route that carries the flux.
-          </p>
           <ul class="chips">
             <li class="chip">reaction network exploration</li>
             <li class="chip">automated TS search</li>
@@ -216,12 +221,6 @@
           </figure>
 
           <h2>Agentic AI for computational chemistry</h2>
-          <p>
-            An agent that drives an electronic-structure code, a transition-state search and a kinetic model gets through far more chemistry than I can by hand. It can also produce a fluent summary of calculations nobody checked, which is worse than having none.
-          </p>
-          <p style="margin-top:0.9rem">
-            So I build these workflows around verification rather than output: every structure characterised, every transition state confirmed by its imaginary mode and its IRC, every claim traceable back to the calculation behind it. That leaves the chemist's judgement for the parts that need it.
-          </p>
           <ul class="chips">
             <li class="chip">agentic workflows</li>
             <li class="chip">LLM tool use</li>
@@ -276,12 +275,17 @@
             </svg>
           </figure>
           <h2>Molecules on surfaces</h2>
-          <p>
-            Put an ordered organic layer on a metal and the two stop behaving like separate things: the adsorbate shifts the work function, the metal shifts the adsorbate. With Elad Gross's group in Jerusalem I have worked on fluorinated N-heterocyclic carbene and carbodicarbene monolayers on gold, computing what the measured surface properties imply about the binding.
-          </p>
-          <p style="margin-top:0.9rem">
-            The current strand, with the De Feyter group here in Leuven, is scanning tunnelling microscopy. An STM image is not a structure, and getting from one to the other means modelling the adlayer and the contrast it should produce.
-          </p>
+          <ul class="dir-pubs">
+            <li>
+              <a class="dir-pub__title" href="https://doi.org/10.1021/acsami.4c12514">Strong substrate-adsorbate interactions direct the impact of fluorinated N-heterocyclic carbene monolayers on Au surface properties</a>
+              <span class="dir-pub__meta">Berg, Mondal, Sims, and co-workers, with Gross. ACS Appl. Mater. Interfaces 2024, 16, 65469</span>
+            </li>
+            <li>
+              <a class="dir-pub__title" href="https://doi.org/10.1021/acs.jpcc.5c00560">Hydration of hexafluoroacetone on ice</a>
+              <span class="dir-pub__meta">Utama, Sims, Michel, Giorgi. J. Phys. Chem. C 2025, 129, 5868</span>
+            </li>
+          </ul>
+
           <ul class="chips">
             <li class="chip">STM modelling</li>
             <li class="chip">self-assembled monolayers</li>
@@ -321,12 +325,6 @@
             </svg>
           </figure>
           <h2>Photochemistry and excited states</h2>
-          <p>
-            Excited-state chemistry runs on a different set of rules: the molecule absorbs, lands on an upper surface, and comes back down wherever the surfaces touch. Predicting the product means finding those crossings.
-          </p>
-          <p style="margin-top:0.9rem">
-            I started on this at Durham with Basile Curchod, mapping where TD-DFT stops being trustworthy for the excited states of atmospherically relevant molecules. Knowing the limits of the method matters more here than almost anywhere else, because a bad excited state still looks like a converged calculation.
-          </p>
           <ul class="chips">
             <li class="chip">TD-DFT</li>
             <li class="chip">conical intersections</li>
@@ -374,12 +372,6 @@
             </svg>
           </figure>
           <h2>Chirality-induced spin selectivity</h2>
-          <p>
-            Send electrons through a film of chiral molecules and they come out spin-polarised, with the handedness of the molecule deciding which spin survives. The effect holds at room temperature, and that is the puzzle: spin-orbit coupling in light-element organics falls orders of magnitude short of explaining polarisations this large.
-          </p>
-          <p style="margin-top:0.9rem">
-            Different groups blame the metal contact, the vibrations or the electron correlation, and the field has not settled. I come at it from the interface, where my surface work already sits, because the chiral layer and the metal underneath it behave as a single system and the calculation has to treat them that way.
-          </p>
           <ul class="chips">
             <li class="chip">CISS</li>
             <li class="chip">spin-orbit coupling</li>
@@ -409,9 +401,6 @@
             </svg>
           </figure>
           <h2>Machine-learned potentials for transition metals</h2>
-          <p>
-            Sampling at DFT cost is what limits everything above, and foundation interatomic potentials come close to lifting that limit. They break down on open-shell transition-metal chemistry, and most of them carry no notion of spin state, so a model that handles organic reactions well can walk straight past the surface crossing that sets the rate. I measure where they fail, fine-tune around it, and publish the benchmarks.
-          </p>
           <ul class="chips">
             <li class="chip">MACE</li>
             <li class="chip">UMA</li>
@@ -456,12 +445,13 @@
           </figure>
 
           <h2>Homogeneous catalysis, mechanisms and kinetics</h2>
-          <p>
-            A homogeneous catalyst runs a cycle, and much of what decides its behaviour sits off that cycle: the resting state that ties up the metal, the decomposition route that ends the run, the ligand that falls off under turnover. Computing the mechanism means accounting for those as well as for the steps in the scheme.
-          </p>
-          <p style="margin-top:0.9rem">
-            The energies then have to become numbers an experimentalist can check. I build micro-kinetic models on the computed network and work out the turnover frequency, the degree of rate control, the reaction orders and the kinetic isotope effect, pushing the uncertainty in the barriers through to the observable. The tallest barrier is often not the step in control.
-          </p>
+          <ul class="dir-pubs">
+            <li>
+              <a class="dir-pub__title" href="https://doi.org/10.1021/acscatal.0c04279">The impact of water on Ru-catalyzed olefin metathesis: potent deactivating effects even at low water concentrations</a>
+              <span class="dir-pub__meta">Blanco, Sims, and co-workers, with Fogg. ACS Catal. 2021, 11, 893</span>
+            </li>
+          </ul>
+
           <ul class="chips">
             <li class="chip">catalytic cycles</li>
             <li class="chip">micro-kinetic modelling</li>

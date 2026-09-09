@@ -1046,3 +1046,41 @@ a.kul-band__item:hover { color: #ffffff; }
 .ta-start { text-anchor: start; }
 .ta-mid   { text-anchor: middle; }
 .ta-end   { text-anchor: end; }
+
+/* --- Publications inside a research direction ----------------------------- */
+
+.dir-pubs {
+  margin: 0 0 1.4rem;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--hairline);
+}
+
+.dir-pubs li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.dir-pub__title {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.38;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  transition: color 0.18s var(--ease);
+}
+
+a.dir-pub__title:hover { color: var(--accent); }
+
+.dir-pub__meta {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Cards carrying no publications yet: pull the chips up to the figure. */
+.direction .dir-fig + h2 { margin-top: 0; }
