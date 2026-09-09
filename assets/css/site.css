@@ -1089,3 +1089,12 @@ a.kul-band__item:hover { color: #ffffff; }
 
 /* Cards carrying no publications yet: pull the chips up to the figure. */
 .direction .dir-fig + h2 { margin-top: 0; }
+
+/* One-line summary under each direction title */
+.dir-line {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 48ch;
+  margin: 0 0 1.15rem;
+}
