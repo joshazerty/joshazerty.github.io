@@ -1131,18 +1131,30 @@ a.repo__name:hover { color: var(--ink); }
 .repo__cite b { font-weight: 650; color: var(--ink); }
 
 /* --- Repo card illustrations ---------------------------------------------
-   Each card carries a portrait-shaped figure sized for a half-width card, so
-   the two repos still sit side by side. The illustrations set their own label
-   sizes - the network's live in the SVG itself, the chem-skills log is baked
-   into the image, which is why that one ships a second, narrower crop for
-   phones.
+   The figures sit inside the card as framed plates, the way the research
+   directions do. Running them full-bleed across the top reads as a separate
+   grid cell, which turns two cards into a 2x2 grid.
+
+   Their labels have to stay readable as the cards narrow, which the two
+   handle differently: the network's live in the SVG itself, while the
+   chem-skills log is baked into the image, so that one ships a second,
+   narrower crop for phones.
    -------------------------------------------------------------------------- */
 
-.repo { --repo-pad: clamp(1.5rem, 3vw, 2.1rem); }
+/* Match the directions grid: rules between and above/below the panels, but
+   no box around the whole set. */
+.repos {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+  border: 0;
+  border-block: 1px solid var(--hairline);
+}
+
+.repo { background: var(--bg); }
 
 .repo__media {
-  margin: calc(-1 * var(--repo-pad)) calc(-1 * var(--repo-pad)) 1.3rem;
-  border-bottom: 1px solid var(--hairline);
+  margin: 0 0 1.5rem;
+  padding: 0.8rem;
+  border: 1px solid var(--hairline);
   background: #ffffff;
 }
 
