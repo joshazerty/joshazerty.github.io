@@ -1129,3 +1129,22 @@ a.repo__name:hover { color: var(--ink); }
 .repo__cite em { font-style: italic; color: var(--ink); }
 .repo__cite i { font-style: italic; }
 .repo__cite b { font-weight: 650; color: var(--ink); }
+
+/* --- Repo card illustrations ---------------------------------------------
+   Each card carries a portrait-shaped figure sized for a half-width card, so
+   the two repos still sit side by side. The illustrations set their own label
+   sizes - the network's live in the SVG itself, the chem-skills log is baked
+   into the image, which is why that one ships a second, narrower crop for
+   phones.
+   -------------------------------------------------------------------------- */
+
+.repo { --repo-pad: clamp(1.5rem, 3vw, 2.1rem); }
+
+.repo__media {
+  margin: calc(-1 * var(--repo-pad)) calc(-1 * var(--repo-pad)) 1.3rem;
+  border-bottom: 1px solid var(--hairline);
+  background: #ffffff;
+}
+
+.repo__media img,
+.repo__media svg { display: block; width: 100%; height: auto; }
