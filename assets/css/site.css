@@ -528,6 +528,18 @@ sub, sup { line-height: 0; font-size: 0.72em; }
 }
 .pub__doi:hover { border-bottom-color: var(--accent); }
 
+/* Full-text download, set apart from the DOI as a small outlined button. */
+.pub__pdf {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: var(--step-micro);
+  color: var(--accent);
+  padding: 0.12rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 999px;
+  transition: background 0.18s var(--ease), color 0.18s var(--ease);
+}
+.pub__pdf:hover { background: var(--accent); color: var(--bg); }
+
 .tag {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 0.7rem;
