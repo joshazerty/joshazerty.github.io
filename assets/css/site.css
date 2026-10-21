@@ -1138,21 +1138,26 @@ a.repo__name:hover { color: var(--ink); }
    directions do. Running them full-bleed across the top reads as a separate
    grid cell, which turns two cards into a 2x2 grid.
 
-   Their labels have to stay readable as the cards narrow, which the two
-   handle differently: the network's live in the SVG itself, while the
-   chem-skills log is baked into the image, so that one ships a second,
-   narrower crop for phones.
+   Their labels have to stay readable as the cards narrow, which they
+   handle differently: the inline SVGs carry their own labels and enlarge
+   them below 700px, while the chem-skills log is baked into the image, so
+   that one ships a second, narrower crop for phones.
    -------------------------------------------------------------------------- */
 
 /* Match the directions grid: rules between and above/below the panels, but
-   no box around the whole set. */
+   no box around the whole set. The rules come from each card's own outline
+   rather than the grid background showing through the gap, so an odd card
+   out leaves blank page beside it instead of a grey cell; the overflow clip
+   trims the outlines at the outer edges. */
 .repos {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
   border: 0;
   border-block: 1px solid var(--hairline);
+  background: var(--bg);
+  overflow: hidden;
 }
 
-.repo { background: var(--bg); }
+.repo { background: var(--bg); box-shadow: 0 0 0 1px var(--hairline); }
 
 .repo__media {
   margin: 0 0 1.5rem;
