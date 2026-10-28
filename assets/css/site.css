@@ -1561,3 +1561,12 @@ a.repo__name:hover { color: var(--ink); }
 .ex-fig .stk-thin.stk { stroke: var(--ink-2); }
 .fatom-o { font-size: 9px; font-weight: 700; fill: var(--el-o); }
 .ex-fig .fpiece { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; fill: var(--warm); }
+.ftrunk { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+
+/* Phones get a narrower, taller drawing of each figure so the labels stay
+   readable; both versions are in the page and CSS picks one. */
+.ex-fig .fig-m { display: none; }
+@media (max-width: 560px) {
+  .ex-fig .fig-d { display: none; }
+  .ex-fig .fig-m { display: block; }
+}

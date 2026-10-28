@@ -37,6 +37,8 @@ class Fig:
         self.p, self.w, self.h, self.label = pid, w, h, label
         self.els, self.faces, self.body, self.defs = set(), set(), [], []
         self.uses_shadow = self.uses_glow = self.uses_warmglow = False
+        self.mobile = False
+        self.cls = "fig-d"
 
     def add(self, *parts):
         self.body.extend(parts)
@@ -170,7 +172,7 @@ class Fig:
             d.append(f'<radialGradient id="{self.p}-wglow"><stop offset="0" class="wg0"/><stop offset="1" class="wg1"/></radialGradient>')
         d.extend(self.defs)
         defs = f"<defs>{''.join(d)}</defs>" if d else ""
-        return (f'<svg viewBox="0 0 {self.w} {self.h}" role="img" aria-label="{esc_attr(self.label)}">'
+        return (f'<svg class="{self.cls}" viewBox="0 0 {self.w} {self.h}" role="img" aria-label="{esc_attr(self.label)}">'
                 + defs + "".join(self.body) + "</svg>")
 
 
@@ -633,7 +635,8 @@ def _(F):
     F.label = ("Cross-section of the experiment: a thin film of ice on a platinum crystal in a vacuum chamber. "
                "HFA molecules arrive from above, sink into the ice and react to become the diol.")
     panel(F, 16, 16, 608, 288)
-    F.text(608, 294, "INSIDE A VACUUM CHAMBER", "fhead", "end")
+    if not F.mobile:
+        F.text(608, 294, "INSIDE A VACUUM CHAMBER", "fhead", "end")
     # platinum crystal
     base = F.slab(84, 228, 18, 3, 23, 8, -6, 10.5, lambda a, b: "pt", depth=30, face="pt")
     F.text(300, base + 21, "platinum crystal", "fonslab")
@@ -660,6 +663,8 @@ def _(F):
     # sunk-in and converted
     F.glow(372, 164, 30)
     hfa(F, 372, 166, 0.5, diol=True)
+    if F.mobile:
+        return
     F.arrow(456, 72, 392, 140, "fark", 9, ctrl=(452, 128))
     F.lines(462, 64, ["sinks in and", "becomes the diol"], "ftk", "start")
 
@@ -709,12 +714,14 @@ def _(F):
         F.glow(x + (10 if up else -10), 186, 11)
         F.add(f'<circle cx="{x + (10 if up else -10)}" cy="186" r="5.5" class="fe-"/>')
     F.text(176 - 14, 186, "e⁻", "ftk", "end")
-    F.text(344, 186, "electrons flow both ways", "ftk", "start")
+    if not F.mobile:
+        F.text(344, 186, "electrons flow both ways", "ftk", "start")
     # CO2
     F.molecule([("o", 412, 104, 10, 2), ("c", 438, 104, 9, 3), ("o", 464, 104, 10, 2)], [(0, 1, 2), (1, 2, 2)], w=3.2)
     F.text(438, 76, sub("CO", "2"), "ftb")
-    F.arrow(396, 110, 318, 128, "far", 10, ctrl=(352, 108))
-    F.text(520, 108, "binds more easily", "ft", "start")
+    if not F.mobile:
+        F.arrow(396, 110, 318, 128, "far", 10, ctrl=(352, 108))
+        F.text(520, 108, "binds more easily", "ft", "start")
 
 
 @fig("graphite-support-co2-catalyst", 2)
@@ -856,16 +863,18 @@ def _(F):
                "of the oxygen atoms, forming a crowded ether with a new carbon–oxygen bond.")
     F.defs.append(f'<linearGradient id="{F.p}-beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="gbeam0"/><stop offset="1" class="gbeam1"/></linearGradient>')
     # light from above
-    F.add(f'<path d="M284 36L360 36L392 132L252 132Z" fill="url(#{F.p}-beam)"/>')
-    F.add('<rect x="276" y="22" width="92" height="14" rx="4" class="fled"/>')
-    F.text(322, 56, "blue light", "ftk")
+    if not F.mobile:
+        F.add(f'<path d="M284 36L360 36L392 132L252 132Z" fill="url(#{F.p}-beam)"/>')
+        F.add('<rect x="276" y="22" width="92" height="14" rx="4" class="fled"/>')
+        F.text(322, 56, "blue light", "ftk")
     bulky(F, 70, 132)
     F.text(70, 214, "bulky group", "ftb")
     F.text(70, 231, "(a radical)", "fm")
     F.text(128, 136, "+", "fplus")
     diketone(F, 200, 146)
     F.text(200, 214, "two-carbonyl molecule", "ftb")
-    F.arrow(266, 148, 372, 148, "fark", 12, w=2.6)
+    if not F.mobile:
+        F.arrow(266, 148, 372, 148, "fark", 12, w=2.6)
     a = diketone(F, 450, 166)
     ox, oy = a[3][1], a[3][2]
     bx, by = ox + 32, oy - 34
@@ -874,8 +883,8 @@ def _(F):
     bulky(F, bx + 8, by - 8, 0.85, radical=False)
     F.ball(ox, oy, 9, "o")
     F.text(450, 214, "crowded ether", "ftb")
-    F.text(548, 156, "new C–O bond", "ftk", "start")
-    F.add(f'<line x1="544" y1="152" x2="{f2((ox+bx)/2+6)}" y2="{f2((oy+by)/2+2)}" class="flead"/>')
+    F.text(540, 156, "new C–O bond", "ftk", "start")
+    F.add(f'<line x1="536" y1="152" x2="{f2((ox+bx)/2+6)}" y2="{f2((oy+by)/2+2)}" class="flead"/>')
     for k, (el, name) in enumerate((("c", "carbon"), ("o", "oxygen"), ("h", "hydrogen"))):
         x = 216 + k * 84
         F.ball(x, 286, 6, el)
@@ -976,7 +985,8 @@ def _(F):
     F.text(108, 262, "a diol", "ftb")
     F.text(108, 279, "OH on neighbouring carbons", "fm")
     # catalyst
-    F.arrow(208, 160, 362, 160, "fark", 12, w=2.6)
+    if not F.mobile:
+        F.arrow(208, 160, 362, 160, "fark", 12, w=2.6)
     rx, ry = 285, 104
     re_atoms = [("re", rx, ry, 13, 3), ("o", rx, ry - 30, 9, 1), ("o", rx - 28, ry + 12, 9, 4),
                 ("o", rx + 28, ry + 12, 9, 4), ("o", rx + 6, ry + 18, 8, 0)]
@@ -1073,6 +1083,10 @@ def _(F):
     F.label = ("The 6-aminoquinoxaline ring system. Iodine attaches at position 5, the ring position right next to "
                "the amine group, giving chemists a handle for building further.")
     (x5, y5), (ix, iy), L, R = quinoxaline(F, 250, 178, a=38)
+    if F.mobile:
+        F.text(x5 + 14, y5 + 18, "5", "fpos")
+        F.text(L[3][0] + 16, L[3][1] + 8, "6", "fpos")
+        return
     F.add(f'<line x1="{f2(ix+22)}" y1="{f2(iy-6)}" x2="404" y2="80" class="flead"/>')
     F.lines(410, 76, ["iodine attaches here,", "right next to the amine"], "ftk", "start")
     F.lines(410, 116, ["predicted by a simple", "Hückel calculation"], "fm", "start", lh=15)
@@ -1360,6 +1374,9 @@ def _(F):
         F.ball(x, y, 13, "ru", "hl" if i in edge else "")
     for (x, y, a) in ((228, 214, -40), (240, 148, -120), (290, 92, -60), (352, 94, -110), (402, 152, -70), (414, 216, -150)):
         F.water(x, y, 1.15, a)
+    if F.mobile:
+        F.text(316, 312, "about six water molecules at working temperature", "ft")
+        return
     F.add('<line x1="368" y1="226" x2="488" y2="176" class="flead"/>')
     F.lines(494, 168, ["edge atoms:", "where the chemistry", "happens"], "ftk", "start")
     # thermometer badge
@@ -1370,6 +1387,478 @@ def _(F):
     F.lines(92, 52, ["400–530 K", "working temperature"], "fm", "start", lh=15)
     F.add('<path d="M92 72h0" />')
     F.text(316, 312, "about six water molecules at working temperature", "ft")
+
+
+# --------------------------------------------------------------------------
+# Phone layouts
+#
+# Below 560px the page swaps each figure for a narrow version, 360 units
+# wide, so labels stay readable. Most are recomposed from the desktop
+# drawing: crop() cuts out a region (a panel, a molecule, a label) and
+# places it in a vertical stack, so the chemistry is drawn only once. Charts
+# and energy curves, which cannot be cut up, get their own narrow drawing.
+# --------------------------------------------------------------------------
+
+M = 360
+MOBILE = {}
+
+
+def mob(page, n):
+    def deco(fn):
+        MOBILE[(page, n)] = fn
+        return fn
+    return deco
+
+
+def crop(x, y, w, h, s=None, tx=None):
+    return ("crop", x, y, w, h, s, tx)
+
+
+def draw(h, fn):
+    return ("draw", h, fn)
+
+
+def text(rows, cls="ft", lh=17):
+    return ("text", rows, cls, lh)
+
+
+def gap(h):
+    return ("gap", h)
+
+
+def legend(entries):
+    """Element key, wrapped two to a row."""
+    rows = (len(entries) + 1) // 2
+
+    def fn(F):
+        for k, e in enumerate(entries):
+            el, name = e[0], e[1]
+            x, y = 70 + (k % 2) * 140, 12 + (k // 2) * 22
+            if len(e) > 2:
+                F.glow(x, y, 10)
+            F.ball(x, y, 6.5, el, e[2] if len(e) > 2 else "")
+            F.text(x + 12, y + 4, name, "fm", "start")
+    return draw(rows * 22 + 4, fn)
+
+
+def down_arrow(label=None, sub_label=None, h=70, deco=None):
+    def fn(F):
+        F.arrow(M / 2, 6, M / 2, h - 8, "fark", 11, w=2.4)
+        if label:
+            F.text(M / 2 + 16, h / 2 + 1, label, "ftk", "start")
+        if sub_label:
+            F.text(M / 2 + 16, h / 2 + 17, sub_label, "fm", "start")
+        if deco:
+            deco(F)
+    return draw(h, fn)
+
+
+def stack(F, desktop_body, items):
+    y = 10
+    for k, it in enumerate(items):
+        kind = it[0]
+        if kind == "crop":
+            _, x, y0, w, h, s, tx = it
+            s = s or min(M / w, 1.15)
+            tx = (M - w * s) / 2 if tx is None else tx
+            cid = f"{F.p}-c{k}"
+            F.defs.append(f'<clipPath id="{cid}"><rect x="{f2(x)}" y="{f2(y0)}" width="{f2(w)}" height="{f2(h)}"/></clipPath>')
+            F.add(f'<g transform="translate({f2(tx)} {f2(y)}) scale({s:.4f}) translate({f2(-x)} {f2(-y0)})">'
+                  f'<g clip-path="url(#{cid})">{desktop_body}</g></g>')
+            y += h * s + 8
+        elif kind == "draw":
+            F.add(f'<g transform="translate(0 {f2(y)})">')
+            it[2](F)
+            F.add("</g>")
+            y += it[1] + 6
+        elif kind == "text":
+            _, rows, cls, lh = it
+            F.lines(M / 2, y + 13, rows, cls, "middle", lh)
+            y += len(rows) * lh + 6
+        else:
+            y += it[1]
+    F.w, F.h = M, int(y + 6)
+
+
+# ---- stacked versions of the desktop drawings ------------------------------
+
+PANELS = {
+    ("can-parking-spots-help-catalysts", 1): [crop(16, 16, 296, 270), crop(328, 16, 296, 270)],
+    ("fluorine-count-on-gold-coatings", 2): [crop(16, 16, 290, 268), crop(324, 16, 290, 268), crop(420, 288, 210, 20, 1.0)],
+    ("how-tightly-molecules-stick", 2): [crop(16, 16, 290, 278), crop(334, 16, 290, 278)],
+    ("light-driven-crowded-ethers", 2): [crop(16, 16, 290, 278), crop(334, 16, 290, 278)],
+    ("missing-oxygen-atoms-reshape-clusters", 2): [crop(16, 16, 296, 288), crop(328, 16, 296, 288)],
+    ("water-on-ten-atom-ruthenium", 1): [crop(16, 16, 296, 284), crop(328, 16, 296, 284)],
+}
+for _k, _items in PANELS.items():
+    MOBILE[_k] = (lambda items: lambda F: items)(_items)
+
+
+@mob("carbodicarbene-coatings-on-gold", 1)
+def _(F):
+    def heat(F):
+        flame(F, M / 2 - 34, 30, 0.8)
+    return [crop(16, 16, 272, 268), down_arrow("heat", h=64, deco=heat), crop(352, 16, 272, 268),
+            legend([("c", "central carbon", "hl"), ("n", "nitrogen"), ("au", "gold")])]
+
+
+@mob("fluorine-count-on-gold-coatings", 1)
+def _(F):
+    return [crop(16, 16, 366, 252, 0.98), crop(381, 16, 243, 252, 0.98),
+            draw(30, lambda F: (F.add('<circle cx="58" cy="14" r="5" class="fkey-au"/>'),
+                                F.text(70, 18, "Au atom pulled out of the surface: the anchor", "fm", "start")))]
+
+
+@mob("forever-chemical-fragment-on-ice", 1)
+def _(F):
+    def snow(F):
+        sx, sy = M / 2 - 40, 34
+        for k in range(3):
+            a = math.radians(k * 60)
+            F.add(f'<line x1="{f2(sx-11*math.cos(a))}" y1="{f2(sy-11*math.sin(a))}" x2="{f2(sx+11*math.cos(a))}" y2="{f2(sy+11*math.sin(a))}" class="fsnow"/>')
+    return [crop(36, 44, 234, 222), down_arrow("on ice", "≥ 29 kJ/mol downhill", h=74, deco=snow),
+            crop(420, 84, 190, 182),
+            legend([("c", "carbon"), ("o", "oxygen"), ("f", "fluorine"), ("h", "hydrogen")])]
+
+
+@mob("forever-chemical-fragment-on-ice", 2)
+def _(F):
+    return [crop(176, 34, 310, 262),
+            text(["HFA sinks into the ice", "and becomes the diol (glowing)"], "ftk"),
+            text(["ICE FILM A FEW NM THICK, ON PLATINUM,", "INSIDE A VACUUM CHAMBER"], "fm", 15)]
+
+
+@mob("graphite-support-co2-catalyst", 1)
+def _(F):
+    return [crop(396, 62, 84, 58, 1.15),
+            down_arrow("binds more easily", h=60),
+            crop(140, 74, 240, 214),
+            text(["electrons flow both ways"], "ftk"),
+            text(["graphene: a one-atom-thick", "sheet of carbon"], "ft")]
+
+
+@mob("light-driven-crowded-ethers", 1)
+def _(F):
+    def lamp(F):
+        F.defs.append(f'<linearGradient id="{F.p}-mbeam" x1="1" y1="0" x2="0" y2="0"><stop offset="0" class="gbeam0"/><stop offset="1" class="gbeam1"/></linearGradient>')
+        F.add(f'<rect x="{M/2-78}" y="8" width="10" height="56" rx="3" class="fled"/>')
+        F.add(f'<path d="M{M/2-68} 12L{M/2-8} 2L{M/2-8} 70L{M/2-68} 60Z" fill="url(#{F.p}-mbeam)"/>')
+    return [crop(20, 96, 268, 144), down_arrow("blue light", h=74, deco=lamp), crop(398, 64, 242, 160),
+            legend([("c", "carbon"), ("o", "oxygen"), ("h", "hydrogen")])]
+
+
+@mob("missing-oxygen-atoms-reshape-clusters", 1)
+def _(F):
+    return [crop(16, 16, 296, 268), crop(328, 16, 296, 268),
+            legend([("ru", "ruthenium"), ("ti", "titanium"), ("o", "oxygen")])]
+
+
+@mob("perrhenate-acid-deoxydehydration", 1)
+def _(F):
+    def cat(F):
+        F.arrow(110, 6, 110, 120, "fark", 11, w=2.4)
+    return [crop(20, 78, 182, 210), ("draw", 0, cat), crop(236, 60, 98, 154, 1.0, 140),
+            crop(380, 92, 252, 198)]
+
+
+@mob("quinoxaline-drug-scaffolds", 1)
+def _(F):
+    return [crop(108, 70, 236, 166, 1.3),
+            text(["iodine attaches here,", "right next to the amine"], "ftk"),
+            text(["PREDICTED BY A SIMPLE HÜCKEL CALCULATION"], "fm"),
+            gap(6),
+            text(["quinoxaline: a benzene ring fused", "to a ring with two nitrogens"], "ft")]
+
+
+@mob("water-on-ten-atom-ruthenium", 2)
+def _(F):
+    def therm(F):
+        tx, ty = 104, 30
+        F.add(f'<rect x="{tx-5}" y="{ty-22}" width="10" height="40" rx="5" class="ftherm"/>')
+        F.add(f'<circle cx="{tx}" cy="{ty+20}" r="9" class="ftherm-b"/>')
+        F.add(f'<rect x="{tx-2}" y="{ty-12}" width="4" height="30" rx="2" class="ftherm-f"/>')
+        F.lines(124, 28, ["400–530 K", "WORKING TEMPERATURE"], "fm", "start", lh=15)
+    return [crop(150, 66, 330, 256), gap(4),
+            text(["edge atoms (ringed): where", "the chemistry happens"], "ftk"),
+            draw(58, therm)]
+
+
+# ---- narrow drawings for charts and curves ---------------------------------
+
+CUSTOM = {}
+
+
+def mcustom(page, n, h):
+    def deco(fn):
+        CUSTOM[(page, n)] = (fn, h)
+        return fn
+    return deco
+
+
+@mcustom("can-parking-spots-help-catalysts", 2, 318)
+def _(F):
+    x0, x1, y0, y1 = 44, 340, 254, 40
+    F.defs.append(f'<linearGradient id="{F.p}-area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="ga0"/><stop offset="1" class="ga1"/></linearGradient>')
+    pts = []
+    for i in range(121):
+        t = i / 120
+        v = (t / 0.42) ** 1.6 * math.exp(1.6 * (1 - t / 0.42)) if t > 0 else 0
+        pts.append((x0 + t * (x1 - x0), y0 - 12 - v * 170))
+    F.add(f'<rect x="{f2(x0+0.33*(x1-x0))}" y="{y1}" width="{f2(0.18*(x1-x0))}" height="{y0-y1}" class="fband"/>')
+    path = "M" + " L".join(f"{f2(a)} {f2(b)}" for a, b in pts)
+    F.add(f'<path d="{path} L{x1} {y0} L{x0} {y0}Z" fill="url(#{F.p}-area)"/>')
+    F.add(f'<path d="{path}" class="fcurve"/>')
+    F.add(f'<line x1="{x0}" y1="{y0}" x2="{x1+6}" y2="{y0}" class="faxis"/><line x1="{x0}" y1="{y0}" x2="{x0}" y2="{y1-6}" class="faxis"/>')
+    F.arrow(x1, y0, x1 + 12, y0, "fax", 8)
+    F.arrow(x0, y1, x0, y1 - 12, "fax", 8)
+    px = x0 + 0.42 * (x1 - x0)
+    py = min(p[1] for p in pts)
+    F.glow(px, py, 20)
+    F.add(f'<circle cx="{f2(px)}" cy="{f2(py)}" r="6" class="fdot"/>')
+    F.text(px, py - 14, "best depth", "ftk")
+    F.lines(150, 206, ["too shallow:", "catalysts still clump"], "ft")
+    F.lines(346, 204, ["too deep:", "too slow to finish"], "ft", "end")
+    F.text((x0 + x1) / 2, y0 + 26, "DEEPER PARKING SPOT →", "fm")
+    F.add(f'<text transform="translate({x0-16} {(y0+y1)/2+40}) rotate(-90)" class="fm">TOTAL PRODUCT MADE →</text>')
+    F.text(x1 + 6, y0 + 48, "SCHEMATIC, NOT DATA", "fm", "end")
+
+
+@mcustom("carbodicarbene-coatings-on-gold", 2, 344)
+def _(F):
+    yv, scale = 56, 40
+    yf_bare, yf_coat = yv + 4.98 * scale, yv + 3.98 * scale
+    F.add(f'<line x1="12" y1="{yv}" x2="348" y2="{yv}" class="fvac"/>')
+    F.text(348, yv - 10, "VACUUM: ELECTRON IS FREE", "fm", "end")
+    for (x, yfl, title, coated) in ((22, yf_bare, "bare gold", False), (198, yf_coat, "coated gold", True)):
+        w = 140
+        F.add(f'<rect x="{x}" y="{f2(yfl)}" width="{w}" height="{f2(300-yfl)}" class="fsea"/>')
+        F.add(f'<line x1="{x}" y1="{f2(yfl)}" x2="{x+w}" y2="{f2(yfl)}" class="ffermi"/>')
+        for k in range(7):
+            F.add(f'<circle cx="{x+13+k*19}" cy="{f2(yfl+12)}" r="4" class="fel"/>')
+            if coated:
+                xx = x + 13 + k * 19
+                F.add(f'<line x1="{xx}" y1="{f2(yfl-4)}" x2="{xx}" y2="{f2(yfl-17)}" class="fcoat"/>')
+                F.add(f'<circle cx="{xx}" cy="{f2(yfl-20)}" r="3.6" class="fcoat-h"/>')
+        ax = x + 40
+        bot = yfl - (24 if coated else 6)
+        F.arrow(ax, bot, ax, yv + 4, "fark" if coated else "far", 10, w=2.4)
+        F.tag(ax + 50, (yv + bot) / 2, "3.98 eV" if coated else "4.98 eV", "ftag" if coated else "ftagn")
+        F.text(x + w / 2, 322, title, "ftb")
+    F.add(f'<path d="M180 {f2(yf_coat)}v{f2(yf_bare-yf_coat)}" class="fbrace"/>')
+    F.text(174, yf_bare - 54, "up to 1 eV", "ftk", "end")
+    F.text(174, yf_bare - 38, "easier", "ft", "end")
+
+
+@mcustom("graphite-support-co2-catalyst", 2, 316)
+def _(F):
+    yb = 236
+    F.add(f'<line x1="8" y1="{yb+30}" x2="352" y2="{yb+30}" class="fgrid"/>')
+    for (x, top, title, key) in ((10, 70, "complex alone", False), (188, 136, "on graphite", True)):
+        F.add(f'<line x1="{x}" y1="{yb}" x2="{x+36}" y2="{yb}" class="flevel"/>')
+        F.add(f'<line x1="{x+60}" y1="{top}" x2="{x+100}" y2="{top}" class="flevel{" flevel--k" if key else ""}"/>')
+        F.add(f'<line x1="{x+36}" y1="{yb}" x2="{x+60}" y2="{top}" class="fconn"/>')
+        F.arrow(x + 116, yb, x + 116, top + 4, "fark" if key else "far", 10, w=2.2)
+        F.add(f'<line x1="{x+104}" y1="{yb}" x2="{x+128}" y2="{yb}" class="fguide"/>')
+        F.text(x + 18, yb + 20, "start", "fm")
+        F.text(x + 80, top - 12, sub("CO", "2", " in"), "fm")
+        F.text(x + 70, yb + 54, title, "ftb")
+        F.tag(x + 142, (top + yb) / 2, "cost", "ftag" if key else "ftagn")
+    F.add('<line x1="110" y1="70" x2="300" y2="70" class="fguide"/>')
+    F.add('<path d="M240 76V128" class="fbrace"/>')
+    F.text(232, 98, "saved", "ftk", "end")
+    F.text(232, 114, "on graphite", "ft", "end")
+    F.text(352, 306, "SCHEMATIC, NOT TO SCALE", "fm", "end")
+
+
+@mcustom("how-tightly-molecules-stick", 1, 300)
+def _(F):
+    x0, s = 20, 4.6
+    rows = (("Shortcut", 46, [(26, "fbar")]),
+            ("Full simulation", 132, [(26, "fbar"), (2, "fbar2"), (36, "fbark")]))
+    for name, y, segs in rows:
+        F.text(x0, y - 26, name, "ftb", "start")
+        x = x0
+        for k, (v, cls) in enumerate(segs):
+            w = v * s - (2 if k < len(segs) - 1 else 0)
+            F.add(f'<rect x="{f2(x)}" y="{y-18}" width="{f2(w)}" height="36" rx="4" class="{cls}"/>')
+            x += v * s
+        F.text(x + 6, y + 5, f"−{sum(v for v, _ in segs)}", "fvalue", "start")
+    F.text(x0 + 46 * s, 137, "slide, spin, rock: 36", "fonbar")
+    F.add(f'<line x1="{f2(x0+27*s)}" y1="112" x2="{f2(x0+27*s)}" y2="100" class="flead"/>')
+    F.text(x0 + 27 * s + 6, 100, "irregular jiggling: 2", "ft", "start")
+    F.add(f'<path d="M{f2(x0+26*s)} 158v8h{f2(38*s)}v-8" class="fbrace2"/>')
+    F.text(x0 + 45 * s, 186, "what the shortcut misses: 38", "ftk")
+    for v in range(0, 71, 10):
+        xx = x0 + v * s
+        F.add(f'<line x1="{f2(xx)}" y1="214" x2="{f2(xx)}" y2="220" class="ftick"/>')
+        F.text(xx, 236, f"−{v}" if v else "0", "fm")
+    F.add(f'<line x1="{x0}" y1="214" x2="{f2(x0+70*s)}" y2="214" class="faxis"/>')
+    F.lines(M / 2, 264, ["BINDING STRENGTH, kJ/mol", "LONGER BAR = STICKIER"], "fm", "middle", 15)
+
+
+@mcustom("perrhenate-acid-deoxydehydration", 2, 316)
+def _(F):
+    x0, x1, yb = 36, 344, 236
+    F.defs.append(f'<linearGradient id="{F.p}-area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="ga0"/><stop offset="1" class="ga1"/></linearGradient>')
+
+    def curve(h, end=14):
+        pts = []
+        for i in range(101):
+            t = i / 100
+            pts.append((x0 + 14 + t * (x1 - x0 - 28), yb - h * math.exp(-((t - 0.5) / 0.17) ** 2) + end * t))
+        return "M" + " L".join(f"{f2(a)} {f2(b)}" for a, b in pts)
+    hi, lo = curve(140), curve(80)
+    F.add(f'<path d="{lo} L{x1-14} {yb+40} L{x0+14} {yb+40}Z" fill="url(#{F.p}-area)"/>')
+    F.add(f'<path d="{hi}" class="fcurve-alt"/><path d="{lo}" class="fcurve"/>')
+    mx = (x0 + x1) / 2
+    F.arrow(mx, yb - 132, mx, yb - 84, "fark", 10, w=2.2)
+    F.tag(292, yb - 112, "100 million\u00d7", "ftag")
+    F.text(292, yb - 86, "faster", "ftk")
+    F.add(f'<line x1="{x0}" y1="28" x2="{x0+30}" y2="28" class="fcurve-alt"/>')
+    F.text(x0 + 40, 32, "without acid: a tall hill", "ft", "start")
+    F.add(f'<line x1="{x0}" y1="52" x2="{x0+30}" y2="52" class="fcurve"/>')
+    F.text(x0 + 40, 56, "with acid (H⁺): a much lower hill", "ftk", "start")
+    F.add(f'<line x1="{x0}" y1="{yb+40}" x2="{x1}" y2="{yb+40}" class="faxis"/>')
+    F.text(x0 + 22, yb + 22, "start", "fm")
+    F.text(x1 - 28, yb + 34, "products", "fm")
+    F.text(mx, yb + 62, "REACTION PROGRESS →", "fm")
+
+
+@mcustom("spin-aware-reaction-discovery", 1, 306)
+def _(F):
+    x0, x1, yb = 36, 344, 262
+
+    def A(t):
+        return 40 + 330 * (t - 0.28) ** 2
+
+    def B(t):
+        return 58 + 330 * (t - 0.72) ** 2
+
+    def X(t):
+        return x0 + 14 + t * (x1 - x0 - 28)
+
+    def path(fn):
+        return "M" + " L".join(f"{f2(X(t/100))} {f2(yb - fn(t/100))}" for t in range(101))
+    F.defs.append(f'<linearGradient id="{F.p}-a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="ga0"/><stop offset="1" class="ga1"/></linearGradient>')
+    F.defs.append(f'<linearGradient id="{F.p}-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="gw0"/><stop offset="1" class="gw1"/></linearGradient>')
+    F.add(f'<path d="{path(A)} L{x1-14} {yb} L{x0+14} {yb}Z" fill="url(#{F.p}-a)" opacity=".7"/>')
+    F.add(f'<path d="{path(B)} L{x1-14} {yb} L{x0+14} {yb}Z" fill="url(#{F.p}-b)" opacity=".7"/>')
+    F.add(f'<path d="{path(A)}" class="fcurve"/><path d="{path(B)}" class="fcurve-w"/>')
+    t = 0.5 + 18 / 330 / 0.88
+    cx, cy = X(t), yb - A(t)
+    F.glow(cx, cy, 26)
+    F.add(f'<circle cx="{f2(cx)}" cy="{f2(cy)}" r="6.5" class="fdot"/>')
+    F.add(f'<line x1="{f2(cx)}" y1="{f2(cy-12)}" x2="{f2(cx)}" y2="80" class="flead"/>')
+    F.text(cx, 52, "crossing point:", "ftb")
+    F.text(cx, 68, "the molecule can switch here", "ft")
+
+    def spins(x, y, pattern, cls):
+        for k, up in enumerate(pattern):
+            xx = x + k * 10
+            F.arrow(xx, y + 8 if up else y - 8, xx, y - 8 if up else y + 8, cls, 6, w=1.8)
+    F.text(X(0.28), yb - 24, "spin state A", "ftk")
+    spins(X(0.28) - 15, yb - 78, [1, 0, 1, 0], "fark")
+    F.text(X(0.72), yb - 34, "spin state B", "ftw")
+    spins(X(0.72) - 15, yb - 88, [1, 1, 1, 1], "farw")
+    F.add(f'<line x1="{x0}" y1="{yb}" x2="{x1}" y2="{yb}" class="faxis"/>')
+    F.text((x0 + x1) / 2, yb + 26, "REACTION PROGRESS →", "fm")
+    F.add(f'<text transform="translate({x0-14} {yb-90}) rotate(-90)" class="fm">ENERGY →</text>')
+
+
+@mcustom("spin-aware-reaction-discovery", 2, 340)
+def _(F):
+    rows = (("good", "Reliable", ["Iron\u2013ethyl complex"], ["crossing found, and it is", "not the bottleneck"]),
+            ("warn", "Uncertain", ["Iron catalyst that", "shifts double bonds"], ["crossing found, but its", "energy is uncertain"]),
+            ("bad", "Don\u2019t trust", ["Iron\u2013nitrene system"], ["flagged by the program:", "too complex to trust"]))
+    y = 8
+    for st, verdict, name, note in rows:
+        h = 82 + 17 * (len(name) - 1)
+        F.add(f'<rect x="8" y="{y}" width="344" height="{h}" rx="12" class="fpanel"/>')
+        F.add(f'<rect x="8" y="{y}" width="6" height="{h}" rx="3" class="fst-{st}"/>')
+        cx, cy = 42, y + 32
+        F.add(f'<circle cx="{cx}" cy="{cy}" r="16" class="fst-{st}-bg"/>')
+        if st == "good":
+            F.add(f'<path d="M{cx-7} {cy}l5 6 10-11" class="fic fic-{st}"/>')
+        elif st == "warn":
+            F.add(f'<path d="M{cx} {cy-8}v9" class="fic fic-{st}"/><circle cx="{cx}" cy="{cy+7}" r="2" class="fst-{st}"/>')
+        else:
+            F.add(f'<path d="M{cx-6} {cy-6}l12 12M{cx+6} {cy-6}l-12 12" class="fic fic-{st}"/>')
+        F.lines(70, y + 30, name, "ftb", "start", 17)
+        F.tag(342, y + 25, verdict, f"fst-tag-{st}", "end")
+        F.lines(70, y + 50 + 17 * (len(name) - 1), note, "fm2", "start", 15)
+        y += h + 10
+    F.h = y
+
+
+@mcustom("quinoxaline-drug-scaffolds", 2, 452)
+def _(F):
+    F.add('<rect x="80" y="8" width="200" height="92" rx="12" class="fcard-k"/>')
+    quinoxaline_small(F, 180, 60)
+    F.text(180, 92, "iodinated starting molecule", "fm")
+    F.add('<path d="M50 54V318" class="ftrunk"/><path d="M80 54H50" class="ftrunk"/>')
+    fams = (("oxazolo-fused", "quinoxalines", "ox"), ("thiazolo-fused", "quinoxalines", "th"), ("pyrazino-isatins", "new in this work", "six"))
+    for k, (a, b, kind) in enumerate(fams):
+        y = 116 + k * 92
+        F.arrow(50, y + 40, 84, y + 40, "fark", 9, w=2)
+        F.add(f'<rect x="90" y="{y}" width="262" height="80" rx="12" class="fcard"/>')
+        mini_scaffold(F, 140, y + 44, kind)
+        F.text(196, y + 36, a, "ftb", "start")
+        F.text(196, y + 54, b, "ftk" if kind == "six" else "fm", "start")
+    F.text(M / 2, 406, "TESTED FOR", "fm")
+    F.tag(102, 430, "fluorescence", "ftagn")
+    F.tag(244, 430, "kinase inhibition", "ftagn")
+    F.tag(M / 2, 458, "cancer cells", "ftagn")
+    F.h = 474
+
+
+@mcustom("water-and-metathesis-catalysts", 1, 290)
+def _(F):
+    x0, W = 20, 280
+    rows = (("Fast-starting catalyst 1", 3, False), ("Fast-starting catalyst 2", 10, False), ("Slow-starting iodide catalyst", 56, True))
+    for k, (name, v, key) in enumerate(rows):
+        y = 66 + k * 70
+        F.text(x0, y - 22, name, "ftb" if key else "ft", "start")
+        F.add(f'<rect x="{x0}" y="{y-14}" width="{W}" height="28" rx="4" class="ftrack"/>')
+        F.add(f'<rect x="{x0}" y="{y-14}" width="{f2(max(v/100*W, 6))}" height="28" rx="4" class="{"fbark" if key else "fbar"}"/>')
+        F.text(x0 + max(v / 100 * W, 6) + 8, y + 5, f"{v}%", "fvalue-k" if key else "fvalue", "start")
+    F.add(f'<line x1="{x0+W}" y1="30" x2="{x0+W}" y2="222" class="fref"/>')
+    F.text(x0 + W + 4, 22, "100% = AS GOOD AS DRY", "fm", "end")
+    for v in (0, 50, 100):
+        F.text(x0 + v / 100 * W, 244, f"{v}%", "fm")
+    F.lines(M / 2, 270, ["PERFORMANCE KEPT WITH 1% WATER"], "fm")
+
+
+@mcustom("water-and-metathesis-catalysts", 2, 300)
+def _(F):
+    top = "M64 150C120 150 150 86 220 78L300 74"
+    bot = "M64 150C120 150 150 214 220 222L284 226"
+    F.add(f'<path d="{top}" class="ftrack-l"/><path d="{bot}" class="ftrack-l"/>')
+    F.add(f'<path d="{top}" class="frace"/><path d="{bot}" class="frace-bad"/>')
+    F.arrow(290, 74, 312, 74, "fark", 11, w=3)
+    F.arrow(276, 226, 298, 226, "farw", 11, w=3)
+    F.glow(48, 150, 26)
+    F.shadow(48, 174, 22, 4)
+    catalyst(F, 48, 150, 1.4)
+    F.text(48, 196, "catalyst", "ftb")
+    fx, fy = 324, 74
+    F.add(f'<line x1="{fx}" y1="{fy+18}" x2="{fx}" y2="{fy-30}" class="fpole"/>')
+    for r in range(3):
+        for c in range(4):
+            if (r + c) % 2 == 0:
+                F.add(f'<rect x="{fx+c*6}" y="{fy-30+r*6}" width="6" height="6" class="fflag"/>')
+    F.add(f'<rect x="{fx}" y="{fy-30}" width="24" height="18" class="fflag-o"/>')
+    F.text(330, 112, "makes product", "ftk", "end")
+    for (x, y, s) in ((176, 192, 0.9), (220, 200, 0.75), (256, 204, 0.8)):
+        F.add(f'<path d="M{x} {y-12*s}c{f2(5*s)} {f2(7*s)} {f2(8*s)} {f2(11*s)} {f2(8*s)} {f2(15*s)}a{f2(8*s)} {f2(8*s)} 0 0 1 {f2(-16*s)} 0c0 {f2(-4*s)} {f2(3*s)} {f2(-8*s)} {f2(8*s)} {f2(-15*s)}z" class="fwdrop"/>')
+    F.water(134, 196, 0.8, -60)
+    F.add('<g opacity=".55">')
+    F.ball(316, 222, 6, "ru")
+    F.ball(332, 232, 4, "c")
+    F.ball(322, 206, 4, "c")
+    F.ball(338, 214, 4, "c")
+    F.add("</g>")
+    F.text(344, 266, "decomposed by water", "ftw", "end")
+    F.text(16, 30, "A RACE AGAINST WATER", "fhead", "start")
 
 
 # --------------------------------------------------------------------------
@@ -1405,7 +1894,26 @@ SIZES = {
     ("water-on-ten-atom-ruthenium", 2): (640, 326),
 }
 
-FIG_RE = re.compile(r'<figure class="(?:dir-fig|ex-fig)">\s*<svg.*?</svg>\s*<figcaption>(?:<span class="ex-fig__n">.*?</span>)?(.*?)</figcaption>\s*</figure>', re.S)
+FIG_RE = re.compile(r'<figure class="(?:dir-fig|ex-fig)">\s*<svg.*?</svg>\s*(?:<svg.*?</svg>\s*)?<figcaption>(?:<span class="ex-fig__n">.*?</span>)?(.*?)</figcaption>\s*</figure>', re.S)
+
+
+def mobile_svg(key, pid, label):
+    F = Fig(pid, M, 0, label)
+    F.mobile, F.cls = True, "fig-m"
+    if key in CUSTOM:
+        fn, h = CUSTOM[key]
+        F.h = h
+        fn(F)
+    else:
+        w, h = SIZES[key]
+        F.w, F.h = w, h
+        FIGS[key](F)
+        F.label = label
+        body = "".join(F.body)
+        F.body = []
+        stack(F, body, MOBILE[key](F))
+    F.label = label
+    return F.svg()
 
 
 def build():
@@ -1423,7 +1931,7 @@ def build():
             F = Fig(f"x{counter}", w, h, "")
             FIGS[(page, n)](F)
             cap = m.group(1).strip()
-            return (f'<figure class="ex-fig">\n{F.svg()}\n'
+            return (f'<figure class="ex-fig">\n{F.svg()}\n{mobile_svg((page, n), f"x{counter}m", F.label)}\n'
                     f'<figcaption><span class="ex-fig__n">Fig. {n}</span>{cap}</figcaption>\n</figure>')
 
         new = FIG_RE.sub(repl, html)
