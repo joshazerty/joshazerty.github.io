@@ -71,6 +71,15 @@ inline SVG in the HTML, styled by the `g-*` classes at the bottom of
 follow light and dark mode without a second set of values. There are no image
 files behind them.
 
+The figures on the plain-language pages in `explained/` are drawn by
+`build/explainer_figures.py`, which writes each SVG straight into its page
+(keeping the figcaption) and is styled by the explainer-figure block at the end
+of `site.css`, including the `--el-*` element colours. Each figure is written twice, a
+wide drawing and a narrower, taller one that CSS shows on phones (below 560px). The site still needs no
+build step; run the script only after changing a drawing:
+
+    python3 build/explainer_figures.py
+
 ## A note on the stylesheet link
 
 Pages link the CSS as `site.css?v=<number>`. That query string is only a
