@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How tightly does a catalyst molecule stick to a surface? The usual shortcut gets it badly wrong | Joshua M. Sims</title>
+<meta name="description" content="The standard way of calculating how strongly a molecule sticks to a surface assumes it sits still. For a rhenium catalyst on graphene, that assumption misses more than half of the answer, because the molecule slides, spins and rocks.">
+<link rel="canonical" href="https://joshazerty.github.io/explained/how-tightly-molecules-stick.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Joshua M. Sims">
+<meta property="og:title" content="How tightly does a catalyst molecule stick to a surface? The usual shortcut gets it badly wrong | Joshua M. Sims">
+<meta property="og:description" content="The standard way of calculating how strongly a molecule sticks to a surface assumes it sits still. For a rhenium catalyst on graphene, that assumption misses more than half of the answer, because the molecule slides, spins and rocks.">
+<meta property="og:url" content="https://joshazerty.github.io/explained/how-tightly-molecules-stick.html">
+<meta property="og:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How tightly does a catalyst molecule stick to a surface? The usual shortcut gets it badly wrong | Joshua M. Sims">
+<meta name="twitter:description" content="The standard way of calculating how strongly a molecule sticks to a surface assumes it sits still. For a rhenium catalyst on graphene, that assumption misses more than half of the answer, because the molecule slides, spins and rocks.">
+<meta name="twitter:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","url":"https://joshazerty.github.io/explained/how-tightly-molecules-stick.html","name":"How tightly does a catalyst molecule stick to a surface? The usual shortcut gets it badly wrong | Joshua M. Sims","description":"The standard way of calculating how strongly a molecule sticks to a surface assumes it sits still. For a rhenium catalyst on graphene, that assumption misses more than half of the answer, because the molecule slides, spins and rocks.","inLanguage":"en","isPartOf":{"@type":"WebSite","@id":"https://joshazerty.github.io/#website"},"about":{"@type":"Person","@id":"https://joshazerty.github.io/#person","name":"Joshua M. Sims"}}
+</script>
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css?v=1793176800">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="kul-band">
+  <div class="wrap kul-band__inner">
+    <span class="kul-band__item">KU Leuven</span>
+    <a class="kul-band__item" href="https://chem.kuleuven.be/en/">Department of Chemistry</a>
+    <a class="kul-band__item" href="https://jeremyharveygroup.wordpress.com/">Theoretical and Computational Chemistry</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../index.html">Joshua M. Sims</a>
+    <nav aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../research.html">Research</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../software.html">Software</a></li>
+        <li><a href="../teaching.html">Teaching</a></li>
+        <li><a href="../cv.html">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap fade-up">
+      <p class="ex-kicker"><a href="../explained.html">In plain language</a> &middot; Computational chemistry &middot; Surfaces &middot; Molecular catalysts</p>
+      <h1>How tightly does a catalyst molecule stick to a surface? The usual shortcut gets it badly wrong</h1>
+      <p class="ex-lede">The standard way of calculating how strongly a molecule sticks to a surface assumes it sits still. For a rhenium catalyst on graphene, that assumption misses more than half of the answer, because the molecule slides, spins and rocks.</p>
+    </div>
+  </section>
+
+  <section class="section section--flush" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="about">
+        <div class="prose ex-prose">
+          <p class="ex-note">This is a preprint: it has been posted for comment but has not yet been peer-reviewed.</p>
+          <h2>The background</h2>
+<p>Many modern catalysts are single molecules attached to a solid surface. How strongly a molecule sticks affects how well the catalyst works, so chemists calculate it. The standard shortcut, called the harmonic approximation, treats the stuck molecule like a ball held in a bowl: it can only jiggle a little around one spot.</p>
+<p>When such calculations disagree with reality, the usual suspect is that the jiggling is not perfectly regular. I tested that explanation.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="Two horizontal bars. The shortcut method gives a binding strength of 26; the full simulation gives 64. Of the 38 missing, only 2 come from irregular jiggling and 36 from the molecule sliding, spinning and rocking."><defs><marker id="m5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m5a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><line x1="120" y1="40" x2="120" y2="230" class="g-axis"/><rect x="120" y="64" width="145.6" height="38" rx="0" class="g-bar"/><text x="110" y="88" class="g-cap ta-end">Shortcut</text><text x="273.6" y="88" class="g-micro ta-start">−26</text><rect x="120" y="142" width="145.6" height="38" rx="0" class="g-bar"/><rect x="265.6" y="142" width="9.52" height="38" rx="0" class="g-bar--soft"/><rect x="275.12" y="142" width="203.27999999999997" height="38" rx="0" class="g-bar--key"/><text x="110" y="166" class="g-cap ta-end">Full simulation</text><text x="486.4" y="166" class="g-micro ta-start">−64</text><path d="M265.6 196 L265.6 204 L478.4 204 L478.4 196" class="g-line"/><text x="372" y="226" class="g-cap ta-mid">the missing 38 kJ/mol</text><text x="215.12" y="124" class="g-cap ta-mid">irregular jiggling: 2</text><line x1="270.08" y1="128" x2="250.07999999999998" y2="133" class="g-lead"/><text x="377.59999999999997" y="124" class="g-cap g-txt-acc ta-mid">sliding, spinning, rocking: 36</text><text x="299.2" y="266" class="g-micro ta-mid">binding strength (kJ/mol): a longer bar means stickier</text></svg>
+<figcaption>The usual shortcut finds only part of the binding. Almost all of what it misses comes from the molecule being free to slide, spin and rock, not from the irregular jiggling people usually blame.</figcaption>
+</figure>
+          <h2>What we found</h2>
+<p>I used a simulation technique called metadynamics, which gradually fills in the valleys of the energy landscape so that the molecule is pushed to explore. The test case was a rhenium complex on graphene at room temperature.</p>
+<p>The shortcut gave a binding strength of −26 kJ/mol. The full simulation gave −64 kJ/mol, so the molecule sticks much more strongly than the shortcut says. Of the 38 kJ/mol gap, only about 2 comes from the irregular jiggling people usually blame. The other 36 come from something else: the stuck molecule is not held in a bowl at all. It can slide across the surface, spin around and rock, and that freedom makes sticking more favourable.</p>
+<p>The shortcut is still fine for comparing two similar poses of the same molecule, because the missing term cancels. It breaks down when you compare a surface-bound molecule with the same molecule in the gas.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="On the left, a molecule held in a bowl, the shortcut’s assumption. On the right, the same molecule on a flat surface with arrows for sliding, spinning and rocking."><defs><marker id="m6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m6a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><path d="M50 120 Q120 230 190 120" class="g-curve"/><line x1="40" y1="205" x2="200" y2="205" class="g-axis"/><circle cx="120" cy="140" r="13" class="g-acc-soft"/><circle cx="106" cy="150" r="6" class="g-atom"/><circle cx="134" cy="150" r="6" class="g-atom"/><circle cx="120" cy="126" r="6" class="g-atom"/><text x="120" y="238" class="g-cap ta-mid">held in a bowl</text><text x="120" y="256" class="g-cap ta-mid">(what the shortcut assumes)</text><line x1="300" y1="170" x2="480" y2="170" class="g-axis"/><circle cx="390" cy="148" r="13" class="g-acc-soft"/><circle cx="376" cy="158" r="6" class="g-atom"/><circle cx="404" cy="158" r="6" class="g-atom"/><circle cx="390" cy="134" r="6" class="g-atom"/><line x1="338" y1="120" x2="296" y2="120" class="g-line" marker-end="url(#m6)"/><line x1="442" y1="120" x2="484" y2="120" class="g-line" marker-end="url(#m6)"/><path d="M366 108 C378 90 402 90 414 108" class="g-line"/><path d="M410 100 L416 110 L405 111 Z" class="g-ink"/><path d="M404 190 C412 196 436 196 444 190" class="g-line"/><text x="390" y="238" class="g-cap ta-mid">free to slide, spin and rock</text><text x="390" y="256" class="g-cap ta-mid">(what really happens)</text><text x="210" y="150" class="g-cap ta-mid">vs</text></svg>
+<figcaption>The shortcut treats a surface-bound molecule like a ball in a bowl. In reality it behaves more like a puck on an air-hockey table.</figcaption>
+</figure>
+          <h2>Why it matters</h2>
+<p>Computed binding strengths feed into predictions of how well a surface-attached catalyst will work. Knowing where the error really comes from tells researchers when the quick method can be trusted and when the longer simulation is worth the cost.</p>
+          <div class="ex-links"><a class="btn btn--primary" href="https://doi.org/10.26434/chemrxiv.15010935/v1">Read the paper</a><a class="btn btn--ghost" href="../assets/files/papers/Sims2026_ChemRxiv_adsorption_preprint.pdf">Pre-print PDF</a></div>
+        </div>
+
+        <aside class="ex-aside" aria-label="About the paper">
+          <dl class="facts">
+            <dt>PAPER</dt>
+            <dd>Adsorption free energy of a mobile physisorbed molecular catalyst from well-tempered metadynamics and from the harmonic approximation</dd>
+            <dt>AUTHORS</dt>
+            <dd><b>Sims, J. M.</b></dd>
+            <dt>PUBLISHED IN</dt>
+            <dd>ChemRxiv (preprint)</dd>
+            <dt>DOI</dt>
+            <dd><a href="https://doi.org/10.26434/chemrxiv.15010935/v1">10.26434/chemrxiv.15010935/v1</a></dd>
+            <dt>ALL PAPERS</dt>
+            <dd><a href="../explained.html">Papers in plain language</a><br><a href="../publications.html">Full publication list</a></dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Write to me about collaboration, whether that is an experimental result in
+          need of a mechanism, a system that resists the usual methods, a project
+          for a student, or simply a question.</p>
+        <p style="margin-top:1rem">
+          <a class="link" href="mailto:joshua.sims@kuleuven.be">joshua.sims@kuleuven.be</a>
+        </p>
+      </div>
+      <div>
+        <p class="footer__label">Site</p>
+        <ul class="footer__list">
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../explained.html">Plain language</a></li>
+          <li><a href="../software.html">Software</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li><a href="../cv.html">CV</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__label">Elsewhere</p>
+        <ul class="footer__list">
+          <li><a href="https://scholar.google.com/citations?user=gj6e7KIAAAAJ">Google Scholar</a></li>
+          <li><a href="https://orcid.org/0000-0002-8279-3010">ORCID</a></li>
+          <li><a href="https://github.com/joshazerty">GitHub</a></li>
+          <li><a href="https://jeremyharveygroup.wordpress.com/">Harvey group</a></li>
+          <li><a href="https://www.kuleuven.be/wieiswie/en/person/00183421">KU Leuven profile</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>Joshua M. Sims, Department of Chemistry, KU Leuven</span>
+      <span>Built as a static site, no tracking</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

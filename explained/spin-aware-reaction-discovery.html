@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teaching a reaction-discovery program about electron spin | Joshua M. Sims</title>
+<meta name="description" content="Automated programs that map out chemical reactions usually ignore electron spin. I extended an open-source program so that it notices when a reaction can hop between spin states, and so that it warns you when it cannot be trusted.">
+<link rel="canonical" href="https://joshazerty.github.io/explained/spin-aware-reaction-discovery.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Joshua M. Sims">
+<meta property="og:title" content="Teaching a reaction-discovery program about electron spin | Joshua M. Sims">
+<meta property="og:description" content="Automated programs that map out chemical reactions usually ignore electron spin. I extended an open-source program so that it notices when a reaction can hop between spin states, and so that it warns you when it cannot be trusted.">
+<meta property="og:url" content="https://joshazerty.github.io/explained/spin-aware-reaction-discovery.html">
+<meta property="og:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Teaching a reaction-discovery program about electron spin | Joshua M. Sims">
+<meta name="twitter:description" content="Automated programs that map out chemical reactions usually ignore electron spin. I extended an open-source program so that it notices when a reaction can hop between spin states, and so that it warns you when it cannot be trusted.">
+<meta name="twitter:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","url":"https://joshazerty.github.io/explained/spin-aware-reaction-discovery.html","name":"Teaching a reaction-discovery program about electron spin | Joshua M. Sims","description":"Automated programs that map out chemical reactions usually ignore electron spin. I extended an open-source program so that it notices when a reaction can hop between spin states, and so that it warns you when it cannot be trusted.","inLanguage":"en","isPartOf":{"@type":"WebSite","@id":"https://joshazerty.github.io/#website"},"about":{"@type":"Person","@id":"https://joshazerty.github.io/#person","name":"Joshua M. Sims"}}
+</script>
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css?v=1793176800">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="kul-band">
+  <div class="wrap kul-band__inner">
+    <span class="kul-band__item">KU Leuven</span>
+    <a class="kul-band__item" href="https://chem.kuleuven.be/en/">Department of Chemistry</a>
+    <a class="kul-band__item" href="https://jeremyharveygroup.wordpress.com/">Theoretical and Computational Chemistry</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../index.html">Joshua M. Sims</a>
+    <nav aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../research.html">Research</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../software.html">Software</a></li>
+        <li><a href="../teaching.html">Teaching</a></li>
+        <li><a href="../cv.html">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap fade-up">
+      <p class="ex-kicker"><a href="../explained.html">In plain language</a> &middot; Computational chemistry &middot; Software &middot; Iron catalysis</p>
+      <h1>Teaching a reaction-discovery program about electron spin</h1>
+      <p class="ex-lede">Automated programs that map out chemical reactions usually ignore electron spin. I extended an open-source program so that it notices when a reaction can hop between spin states, and so that it warns you when it cannot be trusted.</p>
+    </div>
+  </section>
+
+  <section class="section section--flush" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="about">
+        <div class="prose ex-prose">
+          <p class="ex-note">This is a preprint: it has been posted for comment but has not yet been peer-reviewed.</p>
+          <h2>The background</h2>
+<p>Programs such as AutoMeKin explore a reaction automatically: they push a molecule around on the computer and record every route it finds, without a chemist choosing the paths in advance.</p>
+<p>These programs normally assume that the electrons stay in one arrangement. Iron and other common metals break that assumption. Their electrons can line up in different ways, called spin states, that are close in energy. A reaction can switch from one to another part-way through, a bit like changing floors of a building at a staircase. Sometimes that switch is the bottleneck, and a program that ignores it gives the wrong answer.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="Two energy curves, one for each spin state, cross at a marked point where a reacting molecule can hop from one curve to the other."><defs><marker id="m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><line x1="56" y1="250" x2="490" y2="250" class="g-axis"/><line x1="56" y1="250" x2="56" y2="36" class="g-axis"/><text x="273" y="272" class="g-micro ta-mid">reaction progress</text><text x="40" y="143" class="g-micro ta-mid" transform="rotate(-90 40 143)">energy</text><path d="M64 70 C110 250 200 230 270 150 S400 60 470 50" class="g-curve"/><path d="M64 215 C120 215 170 130 230 110 S380 200 470 232" class="g-curve g-curve--alt"/><circle cx="262" cy="152" r="7" class="g-mecp"/><line x1="262" y1="50" x2="262" y2="144" class="g-lead"/><text x="262" y="40" class="g-cap g-txt-acc ta-mid">crossing point: the molecule can hop</text><text x="84" y="62" class="g-cap ta-start">spin state A</text><text x="468" y="244" class="g-cap ta-end">spin state B</text></svg>
+<figcaption>Two spin states are like two floors of a building. Where their energy curves cross, a reacting molecule can switch from one to the other.</figcaption>
+</figure>
+          <h2>What we found</h2>
+<p>The extension finds spin states that lie close in energy, locates the “staircase” where two spin states cross (the minimum-energy crossing point), and estimates how fast molecules hop across. It also carries a built-in warning: a quick check on the electrons that tells the program when its basic method is too simple to be believed.</p>
+<p>I tested it on three iron systems, and each ended in a different way. For an iron–ethyl complex, the crossing was found automatically and shown not to limit the speed, in line with earlier manual studies. For an iron catalyst that shuffles double bonds, the crossing was located but its energy could not be pinned down. For an iron–nitrene system, the program correctly flagged that it could not be treated by the simple method.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="Three rows for three iron systems: one with a solid marker for a successful result, one with a half marker for an uncertain result, and one with a cross marker for a system the program flags as unreliable."><defs><marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><circle cx="52" cy="74" r="14" class="g-acc-dot"/><text x="84" y="72" class="g-cap ta-start">Iron–ethyl complex</text><text x="84" y="90" class="g-micro ta-start g-micro-left">crossing found, and it is not the bottleneck</text><circle cx="52" cy="152" r="14" class="g-atom"/><path d="M52 138 A14 14 0 0 1 52 166 Z" class="g-acc"/><text x="84" y="150" class="g-cap ta-start">Iron catalyst that shifts double bonds</text><text x="84" y="168" class="g-micro ta-start g-micro-left">crossing found, but its energy is uncertain</text><circle cx="52" cy="230" r="14" class="g-atom"/><line x1="44" y1="222" x2="60" y2="238" class="g-line"/><line x1="60" y1="222" x2="44" y2="238" class="g-line"/><text x="84" y="228" class="g-cap ta-start">Iron–nitrene system</text><text x="84" y="246" class="g-micro ta-start g-micro-left">flagged by the program: too complex to trust</text></svg>
+<figcaption>The program reports one of three honest outcomes: a reliable result, an uncertain one, or a warning that its simple method cannot be trusted.</figcaption>
+</figure>
+          <h2>Why it matters</h2>
+<p>A tool that says “this answer is reliable”, “this one is uncertain” and “do not trust this one” is much more useful than one that always returns a number. The code is open source, so others can use it on their own metal catalysts.</p>
+          <div class="ex-links"><a class="btn btn--primary" href="https://doi.org/10.26434/chemrxiv.15010937/v1">Read the paper</a><a class="btn btn--ghost" href="../assets/files/papers/Sims2026_ChemRxiv_AutoMeKin_preprint.pdf">Pre-print PDF</a></div>
+        </div>
+
+        <aside class="ex-aside" aria-label="About the paper">
+          <dl class="facts">
+            <dt>PAPER</dt>
+            <dd>Spin-resolved reaction-network exploration in AutoMeKin with minimum-energy-crossing-point localization and an &lang;S<sup>2</sup>&rang; single-reference check</dd>
+            <dt>AUTHORS</dt>
+            <dd><b>Sims, J. M.</b></dd>
+            <dt>PUBLISHED IN</dt>
+            <dd>ChemRxiv (preprint)</dd>
+            <dt>DOI</dt>
+            <dd><a href="https://doi.org/10.26434/chemrxiv.15010937/v1">10.26434/chemrxiv.15010937/v1</a></dd>
+            <dt>ALL PAPERS</dt>
+            <dd><a href="../explained.html">Papers in plain language</a><br><a href="../publications.html">Full publication list</a></dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Write to me about collaboration, whether that is an experimental result in
+          need of a mechanism, a system that resists the usual methods, a project
+          for a student, or simply a question.</p>
+        <p style="margin-top:1rem">
+          <a class="link" href="mailto:joshua.sims@kuleuven.be">joshua.sims@kuleuven.be</a>
+        </p>
+      </div>
+      <div>
+        <p class="footer__label">Site</p>
+        <ul class="footer__list">
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../explained.html">Plain language</a></li>
+          <li><a href="../software.html">Software</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li><a href="../cv.html">CV</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__label">Elsewhere</p>
+        <ul class="footer__list">
+          <li><a href="https://scholar.google.com/citations?user=gj6e7KIAAAAJ">Google Scholar</a></li>
+          <li><a href="https://orcid.org/0000-0002-8279-3010">ORCID</a></li>
+          <li><a href="https://github.com/joshazerty">GitHub</a></li>
+          <li><a href="https://jeremyharveygroup.wordpress.com/">Harvey group</a></li>
+          <li><a href="https://www.kuleuven.be/wieiswie/en/person/00183421">KU Leuven profile</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>Joshua M. Sims, Department of Chemistry, KU Leuven</span>
+      <span>Built as a static site, no tracking</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

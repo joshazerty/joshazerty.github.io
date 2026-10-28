@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What does water do on a catalyst only ten atoms wide? | Joshua M. Sims</title>
+<meta name="description" content="Calculations on a flat ruthenium surface say that water is torn completely apart. Experiments say otherwise. On a realistic ten-atom cluster the experiments win: water stays as OH, and the action is at the cluster’s edge.">
+<link rel="canonical" href="https://joshazerty.github.io/explained/water-on-ten-atom-ruthenium.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Joshua M. Sims">
+<meta property="og:title" content="What does water do on a catalyst only ten atoms wide? | Joshua M. Sims">
+<meta property="og:description" content="Calculations on a flat ruthenium surface say that water is torn completely apart. Experiments say otherwise. On a realistic ten-atom cluster the experiments win: water stays as OH, and the action is at the cluster’s edge.">
+<meta property="og:url" content="https://joshazerty.github.io/explained/water-on-ten-atom-ruthenium.html">
+<meta property="og:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What does water do on a catalyst only ten atoms wide? | Joshua M. Sims">
+<meta name="twitter:description" content="Calculations on a flat ruthenium surface say that water is torn completely apart. Experiments say otherwise. On a realistic ten-atom cluster the experiments win: water stays as OH, and the action is at the cluster’s edge.">
+<meta name="twitter:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","url":"https://joshazerty.github.io/explained/water-on-ten-atom-ruthenium.html","name":"What does water do on a catalyst only ten atoms wide? | Joshua M. Sims","description":"Calculations on a flat ruthenium surface say that water is torn completely apart. Experiments say otherwise. On a realistic ten-atom cluster the experiments win: water stays as OH, and the action is at the cluster’s edge.","inLanguage":"en","isPartOf":{"@type":"WebSite","@id":"https://joshazerty.github.io/#website"},"about":{"@type":"Person","@id":"https://joshazerty.github.io/#person","name":"Joshua M. Sims"}}
+</script>
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css?v=1793176800">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="kul-band">
+  <div class="wrap kul-band__inner">
+    <span class="kul-band__item">KU Leuven</span>
+    <a class="kul-band__item" href="https://chem.kuleuven.be/en/">Department of Chemistry</a>
+    <a class="kul-band__item" href="https://jeremyharveygroup.wordpress.com/">Theoretical and Computational Chemistry</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../index.html">Joshua M. Sims</a>
+    <nav aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../research.html">Research</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../software.html">Software</a></li>
+        <li><a href="../teaching.html">Teaching</a></li>
+        <li><a href="../cv.html">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap fade-up">
+      <p class="ex-kicker"><a href="../explained.html">In plain language</a> &middot; Catalysis &middot; Computational chemistry &middot; Biomass upgrading</p>
+      <h1>What does water do on a catalyst only ten atoms wide?</h1>
+      <p class="ex-lede">Calculations on a flat ruthenium surface say that water is torn completely apart. Experiments say otherwise. On a realistic ten-atom cluster the experiments win: water stays as OH, and the action is at the cluster’s edge.</p>
+    </div>
+  </section>
+
+  <section class="section section--flush" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="about">
+        <div class="prose ex-prose">
+          <h2>The background</h2>
+<p>Ruthenium particles on titanium dioxide are among the best catalysts for turning oxygen-rich, plant-derived molecules into fuels and chemicals, and they work in hot water. Experiments agree that surface OH groups (an oxygen with one hydrogen) play a central role.</p>
+<p>The trouble is that the standard calculation for water on a flat ruthenium surface says no OH should survive at these temperatures: water is predicted to split completely into separate oxygen and hydrogen atoms. Either the experiments or the flat-surface model had to be wrong.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="On a flat metal surface, water is torn into separate oxygen and hydrogen atoms. On a ten-atom ruthenium cluster, water stays as OH groups on the edge atoms."><defs><marker id="m13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m13a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><rect x="30" y="206" width="200" height="22" rx="0" class="g-slab"/><circle cx="54" cy="196" r="9" class="g-atom"/><circle cx="76" cy="196" r="9" class="g-atom"/><circle cx="98" cy="196" r="9" class="g-atom"/><circle cx="120" cy="196" r="9" class="g-atom"/><circle cx="142" cy="196" r="9" class="g-atom"/><circle cx="164" cy="196" r="9" class="g-atom"/><circle cx="186" cy="196" r="9" class="g-atom"/><circle cx="208" cy="196" r="9" class="g-atom"/><text x="130" y="40" class="g-cap ta-mid">flat metal</text><text x="100" y="100" class="g-cap ta-mid">H₂O</text><line x1="100" y1="108" x2="100" y2="146" class="g-line" marker-end="url(#m13)"/><circle cx="70" cy="172" r="9" class="g-atom"/><circle cx="100" cy="172" r="9" class="g-atom"/><circle cx="130" cy="172" r="9" class="g-atom"/><text x="70" y="176" class="g-micro ta-mid">O</text><text x="100" y="176" class="g-micro ta-mid">H</text><text x="130" y="176" class="g-micro ta-mid">H</text><text x="130" y="256" class="g-cap ta-mid">water torn apart: no OH left</text><rect x="290" y="214" width="200" height="22" rx="0" class="g-slab"/><circle cx="354" cy="206" r="11" class="g-atom"/><circle cx="378" cy="206" r="11" class="g-atom"/><circle cx="402" cy="206" r="11" class="g-atom"/><circle cx="426" cy="206" r="11" class="g-atom"/><circle cx="366" cy="185" r="11" class="g-atom"/><circle cx="390" cy="185" r="11" class="g-atom"/><circle cx="414" cy="185" r="11" class="g-atom"/><circle cx="378" cy="164" r="11" class="g-atom"/><circle cx="402" cy="164" r="11" class="g-atom"/><circle cx="390" cy="143" r="11" class="g-atom"/><text x="390" y="40" class="g-cap ta-mid">ten-atom cluster</text><text x="318" y="160" class="g-cap g-txt-acc ta-mid">OH</text><line x1="328" y1="168" x2="345" y2="194" class="g-line g-line--acc"/><text x="462" y="160" class="g-cap g-txt-acc ta-mid">OH</text><line x1="452" y1="168" x2="435" y2="194" class="g-line g-line--acc"/><text x="390" y="256" class="g-cap ta-mid">water stays as OH at the edge</text></svg>
+<figcaption>On a flat metal sheet, the standard calculation says water is torn apart. On a cluster only ten atoms wide, OH survives at the edge, as experiments suggest.</figcaption>
+</figure>
+          <h2>What we found</h2>
+<p>A real catalyst is not a flat sheet. We modelled a cluster of just ten ruthenium atoms, less than a nanometre across, on titanium dioxide, with between zero and nine water molecules, and sampled a large number of arrangements. OH comes back as the main oxygen species (45 to 50%), sitting on single ruthenium atoms at the cluster’s edge. These edge atoms are poorly surrounded by neighbours and have no counterpart on a flat surface.</p>
+<p>Across the temperatures where such catalysts work (about 400–530 K), the predicted working state has around six water molecules and plenty of OH. We also saw hydrogen atoms hop from the metal onto the support. This was more likely when the support had missing oxygen atoms, but it is rare in the working state.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="A ten-atom ruthenium cluster on an oxide surface with about six water molecules around it. The atoms on the cluster’s edge are highlighted."><defs><marker id="m14" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m14a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><rect x="120" y="222" width="280" height="24" rx="0" class="g-slab"/><circle cx="224" cy="214" r="11" class="g-acc-soft"/><circle cx="248" cy="214" r="11" class="g-atom"/><circle cx="272" cy="214" r="11" class="g-atom"/><circle cx="296" cy="214" r="11" class="g-acc-soft"/><circle cx="236" cy="193" r="11" class="g-acc-soft"/><circle cx="260" cy="193" r="11" class="g-atom"/><circle cx="284" cy="193" r="11" class="g-acc-soft"/><circle cx="248" cy="172" r="11" class="g-acc-soft"/><circle cx="272" cy="172" r="11" class="g-acc-soft"/><circle cx="260" cy="151" r="11" class="g-acc-soft"/><circle cx="170" cy="196" r="6" class="g-atom"/><circle cx="162" cy="201" r="3.5" class="g-atom"/><circle cx="178" cy="201" r="3.5" class="g-atom"/><circle cx="190" cy="150" r="6" class="g-atom"/><circle cx="182" cy="155" r="3.5" class="g-atom"/><circle cx="198" cy="155" r="3.5" class="g-atom"/><circle cx="228" cy="116" r="6" class="g-atom"/><circle cx="220" cy="121" r="3.5" class="g-atom"/><circle cx="236" cy="121" r="3.5" class="g-atom"/><circle cx="292" cy="116" r="6" class="g-atom"/><circle cx="284" cy="121" r="3.5" class="g-atom"/><circle cx="300" cy="121" r="3.5" class="g-atom"/><circle cx="330" cy="150" r="6" class="g-atom"/><circle cx="322" cy="155" r="3.5" class="g-atom"/><circle cx="338" cy="155" r="3.5" class="g-atom"/><circle cx="352" cy="196" r="6" class="g-atom"/><circle cx="344" cy="201" r="3.5" class="g-atom"/><circle cx="360" cy="201" r="3.5" class="g-atom"/><line x1="388" y1="118" x2="304" y2="206" class="g-lead"/><text x="392" y="84" class="g-cap g-txt-acc ta-start">edge atoms:</text><text x="392" y="100" class="g-cap g-txt-acc ta-start">where the chemistry</text><text x="392" y="116" class="g-cap g-txt-acc ta-start">happens</text><text x="260" y="268" class="g-cap ta-mid">about six water molecules at working temperature</text></svg>
+<figcaption>At the temperatures where these catalysts work, the predicted state has about six water molecules around the cluster, with the action at its edge atoms.</figcaption>
+</figure>
+          <h2>Why it matters</h2>
+<p>The active site is the edge of the cluster, and the relevant species is OH. That is the picture experiments pointed to, and it gives designers of these catalysts the right starting point.</p>
+          <div class="ex-links"><a class="btn btn--primary" href="https://doi.org/10.1016/j.apsusc.2026.168653">Read the paper</a><a class="btn btn--ghost" href="../assets/files/papers/Sims2026_ApplSurfSci.pdf">PDF</a></div>
+        </div>
+
+        <aside class="ex-aside" aria-label="About the paper">
+          <dl class="facts">
+            <dt>PAPER</dt>
+            <dd>Hydroxyl speciation and water phases on sub-nanometer Ru<sub>10</sub> clusters supported on anatase TiO<sub>2</sub>(101)</dd>
+            <dt>AUTHORS</dt>
+            <dd><b>Sims, J. M.</b>; Michel, C.</dd>
+            <dt>PUBLISHED IN</dt>
+            <dd>Applied Surface Science</dd>
+            <dt>DOI</dt>
+            <dd><a href="https://doi.org/10.1016/j.apsusc.2026.168653">10.1016/j.apsusc.2026.168653</a></dd>
+            <dt>ALL PAPERS</dt>
+            <dd><a href="../explained.html">Papers in plain language</a><br><a href="../publications.html">Full publication list</a></dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Write to me about collaboration, whether that is an experimental result in
+          need of a mechanism, a system that resists the usual methods, a project
+          for a student, or simply a question.</p>
+        <p style="margin-top:1rem">
+          <a class="link" href="mailto:joshua.sims@kuleuven.be">joshua.sims@kuleuven.be</a>
+        </p>
+      </div>
+      <div>
+        <p class="footer__label">Site</p>
+        <ul class="footer__list">
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../explained.html">Plain language</a></li>
+          <li><a href="../software.html">Software</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li><a href="../cv.html">CV</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__label">Elsewhere</p>
+        <ul class="footer__list">
+          <li><a href="https://scholar.google.com/citations?user=gj6e7KIAAAAJ">Google Scholar</a></li>
+          <li><a href="https://orcid.org/0000-0002-8279-3010">ORCID</a></li>
+          <li><a href="https://github.com/joshazerty">GitHub</a></li>
+          <li><a href="https://jeremyharveygroup.wordpress.com/">Harvey group</a></li>
+          <li><a href="https://www.kuleuven.be/wieiswie/en/person/00183421">KU Leuven profile</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>Joshua M. Sims, Department of Chemistry, KU Leuven</span>
+      <span>Built as a static site, no tracking</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

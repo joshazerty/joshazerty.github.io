@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why a graphite support helps a bio-inspired catalyst turn CO2 into fuel | Joshua M. Sims</title>
+<meta name="description" content="A nickel–iron catalyst modelled on a natural enzyme can convert CO2 to methane when supported on graphite. Computational results indicate that graphite facilitates electron transfer and enhances CO2 binding.">
+<link rel="canonical" href="https://joshazerty.github.io/explained/graphite-support-co2-catalyst.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Joshua M. Sims">
+<meta property="og:title" content="Why a graphite support helps a bio-inspired catalyst turn CO2 into fuel | Joshua M. Sims">
+<meta property="og:description" content="A nickel–iron catalyst modelled on a natural enzyme can convert CO2 to methane when supported on graphite. Computational results indicate that graphite facilitates electron transfer and enhances CO2 binding.">
+<meta property="og:url" content="https://joshazerty.github.io/explained/graphite-support-co2-catalyst.html">
+<meta property="og:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why a graphite support helps a bio-inspired catalyst turn CO2 into fuel | Joshua M. Sims">
+<meta name="twitter:description" content="A nickel–iron catalyst modelled on a natural enzyme can convert CO2 to methane when supported on graphite. Computational results indicate that graphite facilitates electron transfer and enhances CO2 binding.">
+<meta name="twitter:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","url":"https://joshazerty.github.io/explained/graphite-support-co2-catalyst.html","name":"Why a graphite support helps a bio-inspired catalyst turn CO2 into fuel | Joshua M. Sims","description":"A nickel–iron catalyst modelled on a natural enzyme can convert CO2 to methane when supported on graphite. Computational results indicate that graphite facilitates electron transfer and enhances CO2 binding.","inLanguage":"en","isPartOf":{"@type":"WebSite","@id":"https://joshazerty.github.io/#website"},"about":{"@type":"Person","@id":"https://joshazerty.github.io/#person","name":"Joshua M. Sims"}}
+</script>
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css?v=1793176800">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="kul-band">
+  <div class="wrap kul-band__inner">
+    <span class="kul-band__item">KU Leuven</span>
+    <a class="kul-band__item" href="https://chem.kuleuven.be/en/">Department of Chemistry</a>
+    <a class="kul-band__item" href="https://jeremyharveygroup.wordpress.com/">Theoretical and Computational Chemistry</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../index.html">Joshua M. Sims</a>
+    <nav aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../research.html">Research</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../software.html">Software</a></li>
+        <li><a href="../teaching.html">Teaching</a></li>
+        <li><a href="../cv.html">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap fade-up">
+      <p class="ex-kicker"><a href="../explained.html">In plain language</a> &middot; Catalysis &middot; Computational chemistry &middot; Energy</p>
+      <h1>Why a graphite support helps a bio-inspired catalyst turn CO<sub>2</sub> into fuel</h1>
+      <p class="ex-lede">A nickel–iron catalyst modelled on a natural enzyme can convert CO<sub>2</sub> to methane when supported on graphite. Computational results indicate that graphite facilitates electron transfer and enhances CO<sub>2</sub> binding.</p>
+    </div>
+  </section>
+
+  <section class="section section--flush" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="about">
+        <div class="prose ex-prose">
+          <h2>The background</h2>
+<p>Electrochemical conversion of CO<sub>2</sub> into fuel offers a way to store renewable energy and to use up a greenhouse gas. Natural enzymes containing nickel and iron process small gas molecules, and chemists have synthesised simpler molecules that mimic their active sites.</p>
+<p>A nickel–iron complex was observed to convert CO<sub>2</sub> to methane when attached to graphite, a form of carbon. The graphite support was not merely a physical holder, and its precise role remained unclear.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="A nickel–iron complex sitting on a graphene sheet, with arrows showing electrons flowing between them and a CO2 molecule approaching."><defs><marker id="m21" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m21a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><polygon points="74.7,228.5 60,237 45.3,228.5 45.3,211.5 60,203 74.7,211.5" class="g-line g-ringfill"/><polygon points="108.7,228.5 94,237 79.3,228.5 79.3,211.5 94,203 108.7,211.5" class="g-line g-ringfill"/><polygon points="142.7,228.5 128,237 113.3,228.5 113.3,211.5 128,203 142.7,211.5" class="g-line g-ringfill"/><polygon points="176.7,228.5 162,237 147.3,228.5 147.3,211.5 162,203 176.7,211.5" class="g-line g-ringfill"/><polygon points="210.7,228.5 196,237 181.3,228.5 181.3,211.5 196,203 210.7,211.5" class="g-line g-ringfill"/><polygon points="244.7,228.5 230,237 215.3,228.5 215.3,211.5 230,203 244.7,211.5" class="g-line g-ringfill"/><polygon points="278.7,228.5 264,237 249.3,228.5 249.3,211.5 264,203 278.7,211.5" class="g-line g-ringfill"/><polygon points="312.7,228.5 298,237 283.3,228.5 283.3,211.5 298,203 312.7,211.5" class="g-line g-ringfill"/><polygon points="91.7,199.5 77,208 62.3,199.5 62.3,182.5 77,174 91.7,182.5" class="g-line g-ringfill"/><polygon points="125.7,199.5 111,208 96.3,199.5 96.3,182.5 111,174 125.7,182.5" class="g-line g-ringfill"/><polygon points="159.7,199.5 145,208 130.3,199.5 130.3,182.5 145,174 159.7,182.5" class="g-line g-ringfill"/><polygon points="193.7,199.5 179,208 164.3,199.5 164.3,182.5 179,174 193.7,182.5" class="g-line g-ringfill"/><polygon points="227.7,199.5 213,208 198.3,199.5 198.3,182.5 213,174 227.7,182.5" class="g-line g-ringfill"/><polygon points="261.7,199.5 247,208 232.3,199.5 232.3,182.5 247,174 261.7,182.5" class="g-line g-ringfill"/><polygon points="295.7,199.5 281,208 266.3,199.5 266.3,182.5 281,174 295.7,182.5" class="g-line g-ringfill"/><rect x="120" y="70" width="90" height="62" rx="6" class="g-slab"/><circle cx="148" cy="101" r="14" class="g-atom"/><circle cx="184" cy="101" r="14" class="g-atom"/><text x="148" y="105" class="g-micro ta-mid">Ni</text><text x="184" y="105" class="g-micro ta-mid">Fe</text><text x="165" y="56" class="g-cap ta-mid">the NiFe complex</text><line x1="150" y1="168" x2="150" y2="138" class="g-line g-line--acc" marker-end="url(#m21a)"/><line x1="182" y1="138" x2="182" y2="168" class="g-line g-line--acc" marker-end="url(#m21a)"/><text x="204" y="156" class="g-cap g-txt-acc ta-start">electrons flow</text><line x1="296" y1="100" x2="306" y2="100" class="g-line"/><circle cx="324" cy="100" r="9" class="g-atom"/><line x1="342" y1="100" x2="352" y2="100" class="g-line"/><circle cx="370" cy="100" r="9" class="g-atom"/><circle cx="278" cy="100" r="9" class="g-atom"/><text x="324" y="104" class="g-micro ta-mid">C</text><line x1="268" y1="100" x2="220" y2="100" class="g-line" marker-end="url(#m21)"/><text x="324" y="76" class="g-cap ta-mid">CO<tspan dy="3" font-size="9">2</tspan></text><text x="260" y="268" class="g-cap ta-mid">graphene sheet</text></svg>
+<figcaption>The graphene support lets electrons flow easily to and from the complex, and CO<sub>2</sub> binds more easily to it.</figcaption>
+</figure>
+          <h2>What we found</h2>
+<p>Quantum chemical calculations were performed on a model of the complex supported on a graphene sheet. Initial tests confirmed that a small graphene fragment behaves similarly to a larger sheet.</p>
+<p>Attachment to graphene provides two key benefits. Electrons move efficiently between the graphene and the complex, governed by the complex’s electronic state. In addition, the energy cost of inserting CO<sub>2</sub> into the complex is reduced.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="Two bars for the energy cost of binding CO2: a tall bar without the support and a shorter bar on graphite."><defs><marker id="m22" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m22a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><line x1="60" y1="244" x2="470" y2="244" class="g-axis"/><rect x="110" y="104" width="100" height="140" rx="0" class="g-bar"/><rect x="300" y="164" width="100" height="80" rx="0" class="g-bar--key"/><text x="160" y="266" class="g-cap ta-mid">without the support</text><text x="350" y="266" class="g-cap ta-mid">on graphite</text><rect x="300" y="104" width="100" height="60" class="g-dashbox"/><text x="350" y="130" class="g-cap g-txt-acc ta-mid">lower cost</text><text x="260" y="36" class="g-cap ta-mid">energy cost of binding CO<tspan dy="3" font-size="9">2</tspan></text><text x="260" y="288" class="g-micro ta-mid">schematic, not to scale</text></svg>
+<figcaption>On graphite, the energy cost of inserting CO<sub>2</sub> into the complex is lower. (Schematic, not to scale.)</figcaption>
+</figure>
+          <h2>Why it matters</h2>
+<p>The support functions as an integral component of the catalyst. Understanding its role informs the choice of carbon materials for catalysts designed to convert CO<sub>2</sub> into fuels.</p>
+          <div class="ex-links"><a class="btn btn--primary" href="https://doi.org/10.1002/jcc.27355">Read the paper</a></div>
+        </div>
+
+        <aside class="ex-aside" aria-label="About the paper">
+          <dl class="facts">
+            <dt>PAPER</dt>
+            <dd>Investigating the interplay between charge transfer and CO<sub>2</sub> insertion in the adsorption of a NiFe catalyst for CO<sub>2</sub> electroreduction on a graphite support</dd>
+            <dt>AUTHORS</dt>
+            <dd>Arjunan, S.; <b>Sims, J. M.</b>; Duboc, C.; Maldivi, P.; Milet, A.</dd>
+            <dt>PUBLISHED IN</dt>
+            <dd>Journal of Computational Chemistry</dd>
+            <dt>DOI</dt>
+            <dd><a href="https://doi.org/10.1002/jcc.27355">10.1002/jcc.27355</a></dd>
+            <dt>ALL PAPERS</dt>
+            <dd><a href="../explained.html">Papers in plain language</a><br><a href="../publications.html">Full publication list</a></dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Write to me about collaboration, whether that is an experimental result in
+          need of a mechanism, a system that resists the usual methods, a project
+          for a student, or simply a question.</p>
+        <p style="margin-top:1rem">
+          <a class="link" href="mailto:joshua.sims@kuleuven.be">joshua.sims@kuleuven.be</a>
+        </p>
+      </div>
+      <div>
+        <p class="footer__label">Site</p>
+        <ul class="footer__list">
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../explained.html">Plain language</a></li>
+          <li><a href="../software.html">Software</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li><a href="../cv.html">CV</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__label">Elsewhere</p>
+        <ul class="footer__list">
+          <li><a href="https://scholar.google.com/citations?user=gj6e7KIAAAAJ">Google Scholar</a></li>
+          <li><a href="https://orcid.org/0000-0002-8279-3010">ORCID</a></li>
+          <li><a href="https://github.com/joshazerty">GitHub</a></li>
+          <li><a href="https://jeremyharveygroup.wordpress.com/">Harvey group</a></li>
+          <li><a href="https://www.kuleuven.be/wieiswie/en/person/00183421">KU Leuven profile</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>Joshua M. Sims, Department of Chemistry, KU Leuven</span>
+      <span>Built as a static site, no tracking</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
