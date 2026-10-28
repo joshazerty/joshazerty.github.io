@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can a catalyst’s “parking spot” make it last longer? | Joshua M. Sims</title>
+<meta name="description" content="Chemists have long suspected that a catalyst resting in a dormant state can live longer. This paper works out exactly when that is true: only if the catalyst dies by bumping into other catalyst molecules.">
+<link rel="canonical" href="https://joshazerty.github.io/explained/can-parking-spots-help-catalysts.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Joshua M. Sims">
+<meta property="og:title" content="Can a catalyst’s “parking spot” make it last longer? | Joshua M. Sims">
+<meta property="og:description" content="Chemists have long suspected that a catalyst resting in a dormant state can live longer. This paper works out exactly when that is true: only if the catalyst dies by bumping into other catalyst molecules.">
+<meta property="og:url" content="https://joshazerty.github.io/explained/can-parking-spots-help-catalysts.html">
+<meta property="og:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Can a catalyst’s “parking spot” make it last longer? | Joshua M. Sims">
+<meta name="twitter:description" content="Chemists have long suspected that a catalyst resting in a dormant state can live longer. This paper works out exactly when that is true: only if the catalyst dies by bumping into other catalyst molecules.">
+<meta name="twitter:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","url":"https://joshazerty.github.io/explained/can-parking-spots-help-catalysts.html","name":"Can a catalyst’s “parking spot” make it last longer? | Joshua M. Sims","description":"Chemists have long suspected that a catalyst resting in a dormant state can live longer. This paper works out exactly when that is true: only if the catalyst dies by bumping into other catalyst molecules.","inLanguage":"en","isPartOf":{"@type":"WebSite","@id":"https://joshazerty.github.io/#website"},"about":{"@type":"Person","@id":"https://joshazerty.github.io/#person","name":"Joshua M. Sims"}}
+</script>
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css?v=1793176800">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="kul-band">
+  <div class="wrap kul-band__inner">
+    <span class="kul-band__item">KU Leuven</span>
+    <a class="kul-band__item" href="https://chem.kuleuven.be/en/">Department of Chemistry</a>
+    <a class="kul-band__item" href="https://jeremyharveygroup.wordpress.com/">Theoretical and Computational Chemistry</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../index.html">Joshua M. Sims</a>
+    <nav aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../research.html">Research</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../software.html">Software</a></li>
+        <li><a href="../teaching.html">Teaching</a></li>
+        <li><a href="../cv.html">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap fade-up">
+      <p class="ex-kicker"><a href="../explained.html">In plain language</a> &middot; Catalysis &middot; Kinetic theory</p>
+      <h1>Can a catalyst’s “parking spot” make it last longer?</h1>
+      <p class="ex-lede">Chemists have long suspected that a catalyst resting in a dormant state can live longer. This paper works out exactly when that is true: only if the catalyst dies by bumping into other catalyst molecules.</p>
+    </div>
+  </section>
+
+  <section class="section section--flush" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="about">
+        <div class="prose ex-prose">
+          <p class="ex-note">This is a preprint: it has been posted for comment but has not yet been peer-reviewed.</p>
+          <h2>The background</h2>
+<p>A catalyst is a molecule that speeds up a reaction without being used up, at least for a while. Eventually every catalyst dies. The number of product molecules each one makes before that happens is its turnover number, and it decides how much of an expensive metal a process needs.</p>
+<p>Catalysts often slip into side states, called off-cycle states, where they rest instead of working. The textbook view is that this is simply bad, because it slows the reaction. Yet several experiments hint that such “parking spots” can protect the catalyst.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="Two boxes of catalyst molecules. Without a parking spot, several pairs meet and clump together. With a parking spot, some catalysts rest in it and fewer meetings occur."><defs><marker id="m7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><rect x="24" y="40" width="220" height="170" rx="4" class="g-slab"/><text x="134" y="30" class="g-cap ta-mid">no parking spot</text><circle cx="60" cy="80" r="8" class="g-acc-soft"/><circle cx="76" cy="92" r="8" class="g-acc-soft"/><circle cx="150" cy="70" r="8" class="g-acc-soft"/><circle cx="190" cy="100" r="8" class="g-acc-soft"/><circle cx="100" cy="160" r="8" class="g-acc-soft"/><circle cx="114" cy="150" r="8" class="g-acc-soft"/><circle cx="180" cy="170" r="8" class="g-acc-soft"/><circle cx="70" cy="130" r="8" class="g-acc-soft"/><path d="M60 78 L76 94 M76 78 L60 94 M68 75 L68 97 M57 86 L79 86" class="g-line g-line--acc"/><path d="M99 147 L115 163 M115 147 L99 163 M107 144 L107 166 M96 155 L118 155" class="g-line g-line--acc"/><rect x="276" y="40" width="220" height="170" rx="4" class="g-slab"/><rect x="420" y="52" width="66" height="146" rx="3" class="g-slab g-dashbox"/><text x="386" y="30" class="g-cap ta-mid">with a parking spot</text><text x="453" y="218" class="g-micro ta-mid">parking</text><circle cx="304" cy="82" r="8" class="g-acc-soft"/><circle cx="356" cy="70" r="8" class="g-acc-soft"/><circle cx="330" cy="152" r="8" class="g-acc-soft"/><circle cx="384" cy="112" r="8" class="g-acc-soft"/><circle cx="448" cy="80" r="8" class="g-acc-soft"/><circle cx="456" cy="118" r="8" class="g-acc-soft"/><circle cx="446" cy="160" r="8" class="g-acc-soft"/><text x="134" y="244" class="g-cap ta-mid">catalysts meet and clump together</text><text x="386" y="244" class="g-cap ta-mid">fewer free catalysts, fewer meetings</text></svg>
+<figcaption>If catalysts die by bumping into each other, resting some of them in a parking spot means fewer collisions, but also less work being done at any moment.</figcaption>
+</figure>
+          <h2>What we found</h2>
+<p>If each catalyst molecule works and dies on its own, a parking spot changes nothing about how many turns it gets. It only slows the reaction, and if something else is ticking down in the background, such as a poison, it lowers the total.</p>
+<p>A parking spot helps only when death needs two catalyst molecules to meet, for example when they clump together. Then, while parked, a catalyst cannot meet anyone. A fast parking spot behaves like diluting the solution: the deeper it is, the fewer collisions. The turnover number rises up to a ceiling, and there is a best depth. Park too deeply and the reaction is too slow to finish in the time available.</p>
+<p>Applied to published data, a copper hydride catalyst has a parking spot 3 to 6 times deeper than ideal, while in a ruthenium metathesis catalyst the parking spot slows the reaction threefold without costing any turnovers.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="A schematic curve of total product against parking-spot depth. It rises, peaks at a best depth, then falls."><defs><marker id="m8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m8a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><line x1="56" y1="250" x2="490" y2="250" class="g-axis"/><line x1="56" y1="250" x2="56" y2="36" class="g-axis"/><text x="273" y="272" class="g-micro ta-mid">depth of the parking spot</text><text x="40" y="143" class="g-micro ta-mid" transform="rotate(-90 40 143)">total product made</text><path d="M62 232 C140 200 190 78 270 74 S400 130 480 200" class="g-curve g-curve--acc"/><circle cx="270" cy="74" r="6" class="g-mecp"/><text x="270" y="56" class="g-cap g-txt-acc ta-mid">best depth</text><text x="124" y="92" class="g-cap ta-mid">too shallow:</text><text x="124" y="108" class="g-cap ta-mid">catalysts still clump</text><text x="404" y="214" class="g-cap ta-mid">too deep:</text><text x="404" y="230" class="g-cap ta-mid">too slow to finish</text><text x="270" y="294" class="g-micro ta-mid">schematic illustration, not data</text></svg>
+<figcaption>There is a sweet spot. A parking spot that is too shallow does little; one that is too deep makes the reaction too slow to finish in the time available. (Schematic, not data.)</figcaption>
+</figure>
+          <h2>Why it matters</h2>
+<p>The paper gives experimenters a simple test. Run the reaction at lower catalyst loading: if each catalyst molecule then makes more product, a parking spot can help. If not, it cannot, and chemists can save themselves the effort.</p>
+          <div class="ex-links"><a class="btn btn--primary" href="https://doi.org/10.26434/chemrxiv.15010890/v1">Read the paper</a><a class="btn btn--ghost" href="../assets/files/papers/Sims2026_ChemRxiv_preprint.pdf">Pre-print PDF</a></div>
+        </div>
+
+        <aside class="ex-aside" aria-label="About the paper">
+          <dl class="facts">
+            <dt>PAPER</dt>
+            <dd>When can an off-cycle reservoir raise a catalyst&rsquo;s turnover number?</dd>
+            <dt>AUTHORS</dt>
+            <dd><b>Sims, J. M.</b></dd>
+            <dt>PUBLISHED IN</dt>
+            <dd>ChemRxiv (preprint)</dd>
+            <dt>DOI</dt>
+            <dd><a href="https://doi.org/10.26434/chemrxiv.15010890/v1">10.26434/chemrxiv.15010890/v1</a></dd>
+            <dt>ALL PAPERS</dt>
+            <dd><a href="../explained.html">Papers in plain language</a><br><a href="../publications.html">Full publication list</a></dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Write to me about collaboration, whether that is an experimental result in
+          need of a mechanism, a system that resists the usual methods, a project
+          for a student, or simply a question.</p>
+        <p style="margin-top:1rem">
+          <a class="link" href="mailto:joshua.sims@kuleuven.be">joshua.sims@kuleuven.be</a>
+        </p>
+      </div>
+      <div>
+        <p class="footer__label">Site</p>
+        <ul class="footer__list">
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../explained.html">Plain language</a></li>
+          <li><a href="../software.html">Software</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li><a href="../cv.html">CV</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__label">Elsewhere</p>
+        <ul class="footer__list">
+          <li><a href="https://scholar.google.com/citations?user=gj6e7KIAAAAJ">Google Scholar</a></li>
+          <li><a href="https://orcid.org/0000-0002-8279-3010">ORCID</a></li>
+          <li><a href="https://github.com/joshazerty">GitHub</a></li>
+          <li><a href="https://jeremyharveygroup.wordpress.com/">Harvey group</a></li>
+          <li><a href="https://www.kuleuven.be/wieiswie/en/person/00183421">KU Leuven profile</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>Joshua M. Sims, Department of Chemistry, KU Leuven</span>
+      <span>Built as a static site, no tracking</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

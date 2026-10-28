@@ -2,8 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://joshazerty.github.io/</loc><lastmod>2026-10-27</lastmod><priority>1.0</priority></url>
   <url><loc>https://joshazerty.github.io/research.html</loc><lastmod>2026-10-27</lastmod><priority>0.9</priority></url>
-  <url><loc>https://joshazerty.github.io/publications.html</loc><lastmod>2026-10-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://joshazerty.github.io/publications.html</loc><lastmod>2026-10-28</lastmod><priority>0.9</priority></url>
   <url><loc>https://joshazerty.github.io/software.html</loc><lastmod>2026-09-09</lastmod><priority>0.7</priority></url>
   <url><loc>https://joshazerty.github.io/teaching.html</loc><lastmod>2026-09-09</lastmod><priority>0.7</priority></url>
   <url><loc>https://joshazerty.github.io/cv.html</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://joshazerty.github.io/explained.html</loc><lastmod>2026-10-28</lastmod><priority>0.8</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/perrhenate-acid-deoxydehydration.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/spin-aware-reaction-discovery.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/how-tightly-molecules-stick.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/can-parking-spots-help-catalysts.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/light-driven-crowded-ethers.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/carbodicarbene-coatings-on-gold.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/water-on-ten-atom-ruthenium.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/missing-oxygen-atoms-reshape-clusters.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/forever-chemical-fragment-on-ice.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/fluorine-count-on-gold-coatings.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/graphite-support-co2-catalyst.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/water-and-metathesis-catalysts.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://joshazerty.github.io/explained/quinoxaline-drug-scaffolds.html</loc><lastmod>2026-10-28</lastmod><priority>0.6</priority></url>
 </urlset>

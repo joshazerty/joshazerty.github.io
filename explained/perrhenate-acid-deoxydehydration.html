@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why a pinch of acid helps turn plant-derived chemicals into useful ones | Joshua M. Sims</title>
+<meta name="description" content="Adding a little acid makes a cheap rhenium catalyst work far better. We found, on the computer, exactly where the acid acts: it helps a stuck oxygen–hydrogen group leave as water.">
+<link rel="canonical" href="https://joshazerty.github.io/explained/perrhenate-acid-deoxydehydration.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Joshua M. Sims">
+<meta property="og:title" content="Why a pinch of acid helps turn plant-derived chemicals into useful ones | Joshua M. Sims">
+<meta property="og:description" content="Adding a little acid makes a cheap rhenium catalyst work far better. We found, on the computer, exactly where the acid acts: it helps a stuck oxygen–hydrogen group leave as water.">
+<meta property="og:url" content="https://joshazerty.github.io/explained/perrhenate-acid-deoxydehydration.html">
+<meta property="og:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why a pinch of acid helps turn plant-derived chemicals into useful ones | Joshua M. Sims">
+<meta name="twitter:description" content="Adding a little acid makes a cheap rhenium catalyst work far better. We found, on the computer, exactly where the acid acts: it helps a stuck oxygen–hydrogen group leave as water.">
+<meta name="twitter:image" content="https://joshazerty.github.io/assets/img/joshua-sims.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","url":"https://joshazerty.github.io/explained/perrhenate-acid-deoxydehydration.html","name":"Why a pinch of acid helps turn plant-derived chemicals into useful ones | Joshua M. Sims","description":"Adding a little acid makes a cheap rhenium catalyst work far better. We found, on the computer, exactly where the acid acts: it helps a stuck oxygen–hydrogen group leave as water.","inLanguage":"en","isPartOf":{"@type":"WebSite","@id":"https://joshazerty.github.io/#website"},"about":{"@type":"Person","@id":"https://joshazerty.github.io/#person","name":"Joshua M. Sims"}}
+</script>
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css?v=1793176800">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="kul-band">
+  <div class="wrap kul-band__inner">
+    <span class="kul-band__item">KU Leuven</span>
+    <a class="kul-band__item" href="https://chem.kuleuven.be/en/">Department of Chemistry</a>
+    <a class="kul-band__item" href="https://jeremyharveygroup.wordpress.com/">Theoretical and Computational Chemistry</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="../index.html">Joshua M. Sims</a>
+    <nav aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../research.html">Research</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../software.html">Software</a></li>
+        <li><a href="../teaching.html">Teaching</a></li>
+        <li><a href="../cv.html">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap fade-up">
+      <p class="ex-kicker"><a href="../explained.html">In plain language</a> &middot; Catalysis &middot; Computational chemistry &middot; Biomass</p>
+      <h1>Why a pinch of acid helps turn plant-derived chemicals into useful ones</h1>
+      <p class="ex-lede">Adding a little acid makes a cheap rhenium catalyst work far better. We found, on the computer, exactly where the acid acts: it helps a stuck oxygen–hydrogen group leave as water.</p>
+    </div>
+  </section>
+
+  <section class="section section--flush" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="about">
+        <div class="prose ex-prose">
+          <h2>The background</h2>
+<p>Plants are rich in molecules that carry many oxygen atoms. To turn them into fuels and plastics, chemists first have to remove some of that oxygen. One reaction that does this is called deoxydehydration: a molecule with two neighbouring OH groups loses them as water and gains a carbon–carbon double bond.</p>
+<p>The cheapest and sturdiest catalyst for this job is perrhenate, a simple rhenium–oxygen ion. For twenty years, experiments have shown that acid makes it work much faster, in one case turning a reaction that did not run at all into one that finished in a couple of hours. Nobody knew where the acid was acting.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="A molecule with two neighbouring OH groups becomes a molecule with a carbon–carbon double bond plus a water molecule, with a catalyst arrow between them."><defs><marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><polyline points="36,170 81,140 126,170 171,140" class="g-line"/><line x1="81" y1="140" x2="81" y2="104" class="g-line"/><text x="81" y="96" class="g-cap ta-mid">OH</text><line x1="126" y1="170" x2="126" y2="206" class="g-line"/><text x="126" y="224" class="g-cap ta-mid">OH</text><text x="106" y="262" class="g-cap ta-mid">a diol: two neighbouring OH groups</text><line x1="210" y1="156" x2="318" y2="156" class="g-line g-line--acc" marker-end="url(#m1a)"/><text x="264" y="136" class="g-cap g-txt-acc ta-mid">catalyst</text><text x="264" y="176" class="g-cap ta-mid">(perrhenate)</text><polyline points="350,170 395,140" class="g-line"/><line x1="395" y1="140" x2="440" y2="170" class="g-line"/><line x1="391.5" y1="146" x2="436.5" y2="176" class="g-line"/><polyline points="440,170 485,140" class="g-line"/><text x="440" y="262" class="g-cap ta-mid">an olefin (C=C double bond)</text><text x="451" y="104" class="g-cap ta-mid">+ H<tspan dy="3" font-size="9">2</tspan><tspan dy="-3">O</tspan></text></svg>
+<figcaption>Deoxydehydration in one picture: two neighbouring OH groups leave as water, and a carbon–carbon double bond takes their place.</figcaption>
+</figure>
+          <h2>What we found</h2>
+<p>We built the mechanism step by step on the computer. The key is that, in the catalyst, an OH group sits on rhenium and is reluctant to leave. A proton from the acid turns it into a water molecule, which drifts away happily. That single move unlocks the two steps that follow: closing the ring around the diol, and the step in which the alcohol, acting as the reducing agent, takes oxygen away from rhenium.</p>
+<p>In our model this makes the reaction roughly a hundred million times faster than the best acid-free route we could find. The overall speed predicted by the model also falls inside the range implied by published experiments.</p>
+<p>Finding the peak of each hill, the transition state, is slow work. We chose the routes to test; an AI agent then carried out the searches for all 44 transition states, and we checked each result by hand.</p>
+<figure class="dir-fig">
+<svg viewBox="0 0 520 300" role="img" aria-label="Two energy hills along a reaction path. Without acid the hill is tall; with acid it is much lower, so the reaction is about a hundred million times faster in the model."><defs><marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><marker id="m2a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="g-acc"/></marker></defs><line x1="56" y1="250" x2="490" y2="250" class="g-axis"/><line x1="56" y1="250" x2="56" y2="36" class="g-axis"/><text x="273" y="272" class="g-micro ta-mid">reaction progress</text><text x="40" y="143" class="g-micro ta-mid" transform="rotate(-90 40 143)">energy</text><path d="M62 205 C150 205 170 60 250 60 S350 215 450 215" class="g-curve g-curve--alt"/><path d="M62 205 C150 205 170 150 250 150 S350 215 450 215" class="g-curve g-curve--acc"/><text x="250" y="48" class="g-cap ta-mid">without acid: a tall hill</text><text x="250" y="234" class="g-cap g-txt-acc ta-mid">with acid: a much lower hill</text><line x1="250" y1="64" x2="250" y2="146" class="g-lead"/><text x="398" y="96" class="g-cap g-txt-acc ta-mid">about 100,000,000×</text><text x="398" y="114" class="g-cap g-txt-acc ta-mid">faster (in the model)</text><text x="62" y="232" class="g-cap ta-start">start</text><text x="458" y="236" class="g-cap ta-end">products</text></svg>
+<figcaption>The lower the hill, the faster the reaction. In the computer model, the proton-assisted route is about a hundred million times faster than the best acid-free route found.</figcaption>
+</figure>
+          <h2>Why it matters</h2>
+<p>The model gives a practical prediction: the amount of acid should match the amount of rhenium, and removing the water and ketone by-products should speed the reaction further. It also shows that AI-assisted searches can map out a full catalytic cycle.</p>
+          <div class="ex-links"><a class="btn btn--primary" href="https://doi.org/10.1039/D6SC06865K">Read the paper</a><a class="btn btn--ghost" href="../assets/files/papers/Sims2026_ChemSci_accepted.pdf">PDF</a></div>
+        </div>
+
+        <aside class="ex-aside" aria-label="About the paper">
+          <dl class="facts">
+            <dt>PAPER</dt>
+            <dd>Acid-assisted water loss in perrhenate-catalysed deoxydehydration: an agent-assisted reaction-network search with microkinetic modelling</dd>
+            <dt>AUTHORS</dt>
+            <dd><b>Sims, J. M.</b>; Harvey, J. N.</dd>
+            <dt>PUBLISHED IN</dt>
+            <dd>Chemical Science</dd>
+            <dt>DOI</dt>
+            <dd><a href="https://doi.org/10.1039/D6SC06865K">10.1039/D6SC06865K</a></dd>
+            <dt>ALL PAPERS</dt>
+            <dd><a href="../explained.html">Papers in plain language</a><br><a href="../publications.html">Full publication list</a></dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Write to me about collaboration, whether that is an experimental result in
+          need of a mechanism, a system that resists the usual methods, a project
+          for a student, or simply a question.</p>
+        <p style="margin-top:1rem">
+          <a class="link" href="mailto:joshua.sims@kuleuven.be">joshua.sims@kuleuven.be</a>
+        </p>
+      </div>
+      <div>
+        <p class="footer__label">Site</p>
+        <ul class="footer__list">
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../explained.html">Plain language</a></li>
+          <li><a href="../software.html">Software</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li><a href="../cv.html">CV</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__label">Elsewhere</p>
+        <ul class="footer__list">
+          <li><a href="https://scholar.google.com/citations?user=gj6e7KIAAAAJ">Google Scholar</a></li>
+          <li><a href="https://orcid.org/0000-0002-8279-3010">ORCID</a></li>
+          <li><a href="https://github.com/joshazerty">GitHub</a></li>
+          <li><a href="https://jeremyharveygroup.wordpress.com/">Harvey group</a></li>
+          <li><a href="https://www.kuleuven.be/wieiswie/en/person/00183421">KU Leuven profile</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>Joshua M. Sims, Department of Chemistry, KU Leuven</span>
+      <span>Built as a static site, no tracking</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
